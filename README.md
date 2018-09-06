@@ -10,7 +10,7 @@
 
 | 文件               | 用途                         |
 | ---------------- | -------------------------- |
-| [docs/tutorial.md](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/tutorial.md)      | 队伍入门教程                     |
+| [wiki](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/wiki)     | 队伍入门教程                     |
 | [docs/task.md](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/task.md)          | 秋季实战任务列表                   |
 | `task_submit/`     | 用于提交任务结果的文件夹（注意，是在你的分支上提交）|
 
