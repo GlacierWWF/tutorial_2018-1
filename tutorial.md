@@ -1,7 +1,7 @@
 # SYSU AERO-SWIFT 入门教程汇总
 
 ## 1. Linux应用相关资料
-[鸟哥的Linux教程](http://linux.vbird.org/)
+[鸟哥的Linux教程](http://linux.vbird.org/)  
 [Github的正确打开方式](https://github.com/baixing/FE-Blog/issues)  
 [Shell入门笔记](https://shimo.im/doc/eN7lHqW2l2IZdTbT)  
 [GitHub 风格的 Markdown 语法](https://github.com/baixing/FE-Blog/issues/6)  
@@ -38,7 +38,7 @@ git checkout 3.4.3
 
 另外，安装opencv遇到的一些问题，可参见：[opencv3常见问题合集](https://shimo.im/doc/p3gRFoLd7Z43lkXZ)
 
-## 3.团队推荐阅读资料
+## 3. 团队推荐阅读资料
 - [程序员的自我修养（1-4章，其余选读）](https://leohxj.gitbooks.io/a-programmer-prepares/content/) （可能需要翻墙阅读）
 - [团队编程规范](https://shimo.im/doc/rfK9ome7WLEZ0xrA/)
 - [团队技术文档](https://gitlab.com/SYSU-IARC-TUTORIAL/tutorial_iarc/blob/master/technical_report.pdf)

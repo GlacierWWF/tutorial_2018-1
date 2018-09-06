@@ -3,15 +3,15 @@
 **欢迎来到中大空中机器人队秋季考核任务。下面是一些关于考核和工程的相关说明。**
 ![](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/logo.jpg)
 
-考核过程中，我们提供部分Tutorial，以帮助快速学习入门，详见：[队伍入门教程](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/tutorial.md)
-秋季实战考核任务，详见： [秋季实战任务](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/task.md)
+考核过程中，我们提供部分Tutorial，以帮助快速学习入门，详见：[队伍入门教程](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/tutorial.md)  
+秋季实战考核任务，详见： [秋季实战任务](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/task.md)  
 
-重要文件的说明如下。
+重要文件的说明如下。  
 | 文件               | 用途                         |
 | ---------------- | -------------------------- |
 | `tutorial.md`      | 队伍入门教程                     |
 | `task.md`          | 秋季实战任务列表                   |
-| `task_submit/`     | 用于提交任务结果的文件夹（注意，是在你的分支上提交）
+| `task_submit/`     | 用于提交任务结果的文件夹（注意，是在你的分支上提交）|
 
 
 ## Issues 功能
@@ -21,7 +21,7 @@
 本教程还在不断更新优化之中，如有任何推荐的补充资料或者错误更正可以直接merge requests，我们会将你的修改建议补充到master分支之中。
 
 ## 版本说明
-目前版本：**v2.0**
+目前版本：**v2.0**  
 如果任务发生变更或者修改都会在这里说明，请留意此处的版本更新。（**或者直接看文档**）
 
 ### v1.0 
