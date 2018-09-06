@@ -31,7 +31,7 @@
 
 具体方式：
 ```
-git clone https://github.com/SYSU-AERO-SWIFT/tutorial_2018/
+git clone https://github.com/SYSU-AERO-SWIFT/tutorial_2018.git
 cd tutorial_2018
 git branch -r #查看远程所有分支
 git checkout -b 本地分支名 origin/远程分支名-你的分支名
@@ -90,10 +90,10 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 
 本周任务：
 
-- 1、编写一个多文件的C++程序，阅读《中大空中机器人团队代码规范》，用OpenCV写一个多线程的简易计时工具Timer，在计时的同时处理用户输入（开始，暂停，继续，停止，退出）。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/timer_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。
+- 1、编写一个多文件的C++程序，阅读《中大空中机器人团队代码规范》，用OpenCV写一个多线程的简易计时工具Timer，在计时的同时处理用户输入（开始，暂停，继续，停止，退出）。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/timer_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。
 - 2、为上述工程写一个makefile文件并编译运行通过。
 - 3、用git上传到Github上，并使用markdown按照《团队代码规范》写一份说明文档`README.md`。
-- 4、完成[Shell练习题](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/shell_exercise.md)。可参考[菜鸟教程](http://www.runoob.com/linux/linux-shell.html)，掌握基础命令即可。
+- 4、完成[Shell练习题](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/shell_exercise.md)。可参考[菜鸟教程](http://www.runoob.com/linux/linux-shell.html)，掌握基础命令即可。
 
 评分标准：  
 
@@ -119,7 +119,7 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 
 本周任务：
 
-- 1、编写一个多文件的C++程序，使用OpenCV写一个能对含有四位数码管图片进行图像处理和数字识别的程序。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/digit_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。我们会提供测试样本，请你验证测试样本，将工程文件和识别结果截图一并上传作为评分标准。
+- 1、编写一个多文件的C++程序，使用OpenCV写一个能对含有四位数码管图片进行图像处理和数字识别的程序。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/digit_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。我们会提供测试样本，请你验证测试样本，将工程文件和识别结果截图一并上传作为评分标准。
 
 - 2、用git上传到Github上，并使用markdown按照《团队代码规范》为上述工程写一份`README.md`。
 

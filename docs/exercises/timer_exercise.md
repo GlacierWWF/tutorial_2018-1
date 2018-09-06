@@ -16,7 +16,7 @@
 	6）resume() //从原来秒数继续计时。（发挥部分）  
     - PS：要求类的声明与定义分文件编写，即.h文件中声明，.cpp中定义  
 
-- 2、在main函数中使用这个类，并且在调用open()函数之后开始接收用户的终端输入。当用户输入start时调用startTiming开始计时，输入stop时调用stopTiming结束计时。输入quit退出。输入pause暂停，输入resume继续。窗口和终端示例效果可以参考[示例图1](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week2_example1.jpg)和[示例图2](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week2_example2.jpg)。  
+- 2、在main函数中使用这个类，并且在调用open()函数之后开始接收用户的终端输入。当用户输入`start`时调用startTiming开始计时，输入`stop`时调用stopTiming结束计时。输入`quit`退出。输入`pause`暂停，输入`resume`继续。窗口和终端示例效果可以参考[示例图1](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week2_example1.jpg)和[示例图2](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week2_example2.jpg)。  
    - PS：要实现同时处理终端输入和图像输出需要用到多线程。  
 
 

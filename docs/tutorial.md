@@ -39,17 +39,12 @@ git checkout 3.4.3
 另外，安装opencv遇到的一些问题，可参见：[opencv3常见问题合集](https://shimo.im/doc/p3gRFoLd7Z43lkXZ)
 
 ## 3. 团队推荐阅读资料
+- [团队代码规范(18版)](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_program_specification.md)
+- [团队编程规范(17版)](https://shimo.im/doc/rfK9ome7WLEZ0xrA/)
 - [程序员的自我修养（1-4章，其余选读）](https://leohxj.gitbooks.io/a-programmer-prepares/content/) （可能需要翻墙阅读）
-- [团队编程规范](https://shimo.im/doc/rfK9ome7WLEZ0xrA/)
-- [团队技术文档](https://gitlab.com/SYSU-IARC-TUTORIAL/tutorial_iarc/blob/master/technical_report.pdf)
 
 
-
-## 4. 其它推荐阅读资料
-[程序员的自我修养](https://leohxj.gitbooks.io/a-programmer-prepares/content/)
-
-
-## 5. 飞行器操作训练说明
+## 4. 飞行器操作训练说明
 训练方法（具体的操作我们会在内培中介绍）  
 油门的精准控制是飞手训练的重中之重  
 1. 悬停——精准控制油门，保持位置和高度大体不变
