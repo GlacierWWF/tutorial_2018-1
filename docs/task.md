@@ -85,12 +85,12 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 
 选修内容：
 
-- 1、多旋翼无人机飞行操控。（队伍会提供玩具无人机，如果你在学校有空余时间，可以来实验室拿飞行器去训练。训练飞行器操控技巧的一个重要目的在于——避免损失贵重的无人机——无人机在调试或实际飞行时可能遇到意外情况或者失控，如果没有良好的飞行器操控技巧我们不会冒险让你使用无人机。）
+- 1、多旋翼无人机飞行操控。（队伍会提供玩具无人机，如果你在学校有空余时间，可以来实验室拿飞行器去训练。训练飞行器操控技巧的一个重要目的在于：避免损失贵重的无人机。无人机在调试或实际飞行时可能遇到意外情况或者失控，如果没有良好的飞行器操控技巧我们不会冒险让你使用无人机。）
 - 2、习惯阅读英文文档以及官方Document。
 
 本周任务：
 
-- 1、编写一个多文件的C++程序，阅读《中大空中机器人团队代码规范》，用OpenCV写一个多线程的简易计时工具Timer，在计时的同时处理用户输入（开始，暂停，继续，停止，退出）。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/timer_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。
+- 1、编写一个多文件的C++程序，阅读《中大空中机器人团队代码规范》 [(18版)](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_program_specification.md) [(17版)](https://shimo.im/doc/rfK9ome7WLEZ0xrA/) ，用OpenCV写一个多线程的简易计时工具Timer，在计时的同时处理用户输入（开始，暂停，继续，停止，退出）。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/timer_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。
 - 2、为上述工程写一个makefile文件并编译运行通过。
 - 3、用git上传到Github上，并使用markdown按照《团队代码规范》写一份说明文档`README.md`。
 - 4、完成[Shell练习题](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/shell_exercise.md)。可参考[菜鸟教程](http://www.runoob.com/linux/linux-shell.html)，掌握基础命令即可。
@@ -110,8 +110,8 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 
 必学内容：
 
-- 1、认真研读任务8的相关规则。
-- 2、了解基本OpenCV，包括core, highgui, imgproc三个部分，掌握重要数据类型和函数的使用。
+- 1、认真研读任务8的相关规则。（[官方文档V1.2](http://www.aerialroboticscompetition.org/assets/downloads/mission8rules_1.2.pdf)）  
+- 2、深入了解基本OpenCV，包括core, highgui, imgproc三个部分，掌握重要数据类型和函数的使用。
 
 选修内容：
 

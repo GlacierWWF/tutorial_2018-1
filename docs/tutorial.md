@@ -1,5 +1,9 @@
 # SYSU AERO-SWIFT 入门教程汇总
 
+## 0. Ubuntu系统安装指南  
+// TODO: 加入资料
+
+
 ## 1. Linux应用相关资料
 [鸟哥的Linux教程](http://linux.vbird.org/)  
 [Github的正确打开方式](https://github.com/baixing/FE-Blog/issues)  
