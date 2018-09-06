@@ -39,7 +39,7 @@ struct test
 #### 1.1.5 当大家使用`#include`插入文本的时候，请使用`.inc`作为后缀
 #### 1.1.6 头文件排序方式
 |1. | 相关头文件|
-| -- | -- |
+| -- |-- |
 |2. | C 库|
 |3. | C++ 库|
 |4. | 其他库的 `.h`|
@@ -176,16 +176,16 @@ enum AlternateUrlTableErrors {
 
 ## 5.目录规范
 ### 5.1 目录规范样例
-project_name
-|- src
-|- inc
-|- bin
-|- README.md
-|- main.cpp
-|_ makefile(或 CmakeLists.txt)
-src放置`.cpp` `.cc` `.c`文件
-inc放置`.h` `.hpp` `.inc`文件
-bin放置`a.out`可执行文件
+project_name </br>
+|- src </br>
+|- inc </br>
+|- bin </br>
+|- README.md </br>
+|- main.cpp </br>
+|_ makefile(或 CmakeLists.txt) </br>
+src放置`.cpp` `.cc` `.c`文件 </br>
+inc放置`.h` `.hpp` `.inc`文件 </br>
+bin放置`a.out`可执行文件 </br>
 
 ## 6.文档编写守则
 ### 6.1 README.md的编写
