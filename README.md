@@ -7,6 +7,7 @@
 秋季实战考核任务，详见： [秋季实战任务](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/task.md)  
 
 重要文件的说明如下。  
+
 | 文件               | 用途                         |
 | ---------------- | -------------------------- |
 | `tutorial.md`      | 队伍入门教程                     |
