@@ -15,7 +15,9 @@
 * 使用Ubuntu 16.04和Ubuntu 18.04 都是可以的,推荐使用**Ubuntu 18.04**.
 * 启动------写入硬盘镜像
 </br>
+
 ![软碟通图片](https://upload-images.jianshu.io/upload_images/1272002-312fb39ebb48bd19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/670)
+
 </br>
 
 默认参数写入即可，如果此处写入失败，请使用管理员权限打开UltraISO
@@ -42,9 +44,9 @@
 ![ubuntu安装类型](https://upload-images.jianshu.io/upload_images/1272002-6eb497d6e84d50d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 选择其他选项，进行磁盘分区.初步划分成4个区域
 </br>
-
-|挂载点`/`|30g|文件类型ext4|
+|分区类型|大小|文件类型|
 | -- | -- | -- |
+|挂载点`/`|30g|文件类型ext4|
 |挂载点`/home`|29G|文件类型ext4|
 |SWAP|800mb| |
 |挂载点`/boot`|400mb|文件类型ext4|
