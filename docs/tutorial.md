@@ -13,9 +13,12 @@
 其次下载UltraISO[UltraISO下载地址](https://cn.ultraiso.net/xiazai.html)，
 打开软件UltraISO，文件----打开-----找到下载好的ubuntu.ISO文件。
 ![软碟通图片][https://img-blog.csdn.net/20170107221403123?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzg5NDgzNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center]
+</br>
 使用ubuntu 16.04和ubuntu 18.04 都是可以的推荐使用高版本.
 启动------写入硬盘镜像
+</br>
 ![软碟通图片][https://img-blog.csdn.net/20170107221518953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzg5NDgzNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center]
+
 默认参数写入即可，如果此处写入失败，请使用管理员权限打开UltraISO
 
 ### 0.3 Windows磁盘设置
