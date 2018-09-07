@@ -9,16 +9,16 @@
 
 ### 具体要求： 
 
-- 1、给你一张带有四位数码管的图片，你需要利用OpenCV对图片进行处理，分别提取四个数字（或在图片上做标记）。定位到数字后，采用一定方法将数字值识别出来，将结果输出到终端上。
+- 1、给你一张带有四位数码管的图片，你需要利用OpenCV对图片进行处理，分别提取四个数字（或在图片上做标记）。定位到数字后，采用一定方法将数字值识别出来，将结果输出到**终端或图片**上。
 - 2、该project的测试样本分为几个级别，你可以逐级尝试。
     - 级别一：使用电脑软件仿真的数码管图片，图片较清晰。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example1.jpg)。
     - 级别二：使用实际的数码管用摄像头拍摄的图片，图片噪声较大。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example2.jpg)。
     - 级别三：软件仿真的数码管图片。但是每组图有两段数码管，每段数码管只显示密码的一部分。你需要将两幅图用OpenCV组合，再识别出正确密码。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example3.jpg)。
-- 3、每个级别提供5个Sample，即20个数码管数字。评分将以数字识别正确个数即识别正确率为标准。Samples放在了[这里](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples)的三个文件夹。级别一即sim_samples，级别二即act_samples，级别三即hard_samples。请自行取用验证。
-- 4、 请记得附上图片处理过程和识别结果截图，放在一个子文件夹内。请附上简明易懂的工程说明`README.md`。
+- 3、每个级别提供5个Sample，即20个数码管数字。评分将以数字识别正确个数即识别正确率为标准。Samples放在了[这里](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples)的三个文件夹。级别一即`sim_samples`，级别二即`act_samples`，级别三即`hard_samples`。请自行取用验证。
+- 4、 请记得附上**简要图片处理过程和详细识别结果截图**，放在一个子文件夹内。请附上简明易懂的工程说明`README.md`。
 
-### 输入与输出格式：
-输入是在命令行参数中添加图片路径，输出是在命令行中显示图片对应的数值.
+### 终端输入与输出格式参考：
+输入是在命令行参数中添加图片路径，输出是在命令行中显示图片对应的数值。  
 级别一和级别二：
 ```
 ubuntu$: ./digit_exercise ./test.png
