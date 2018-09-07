@@ -10,33 +10,34 @@
 ### 具体要求： 
 
 - 1、给你一张带有四位数码管的图片，你需要利用OpenCV对图片进行处理，分别提取四个数字（或在图片上做标记）。定位到数字后，采用一定方法将数字值识别出来，将结果输出到终端上。
-- 2、该project的测试样本分为几个难度，你可以逐级尝试。
-    - 第一级难度是使用电脑软件仿真的数码管图片，图片较清晰。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example1.jpg)。
-    - 第二级难度是使用实际的数码管用摄像头拍摄的图片，图片噪声较大。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example2.jpg)。
-    - 第三级难度是软件仿真的数码管图片。但是每组图有两段数码管，每段数码管只显示密码的一部分。你需要将两幅图用OpenCV组合，再识别出正确密码。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example3.jpg)。
+- 2、该project的测试样本分为几个级别，你可以逐级尝试。
+    - 级别一：使用电脑软件仿真的数码管图片，图片较清晰。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example1.jpg)。
+    - 级别二：使用实际的数码管用摄像头拍摄的图片，图片噪声较大。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example2.jpg)。
+    - 级别三：软件仿真的数码管图片。但是每组图有两段数码管，每段数码管只显示密码的一部分。你需要将两幅图用OpenCV组合，再识别出正确密码。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example3.jpg)。
 - 3、每个级别提供5个Sample，即20个数码管数字。评分将以数字识别正确个数即识别正确率为标准。Samples放在了[这里](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples)的三个文件夹。级别一即sim_samples，级别二即act_samples，级别三即hard_samples。请自行取用验证。
 - 4、 请记得附上图片处理过程和识别结果截图，放在一个子文件夹内。请附上简明易懂的工程说明`README.md`。
 
 ### 输入与输出格式：
 输入是在命令行参数中添加图片路径，输出是在命令行中显示图片对应的数值.
-任务一和任务二：
+级别一和级别二：
 ```
 ubuntu$: ./digit_exercise ./test.png
 4321
 ubuntu$:
 ```
-任务三：
+级别三：
 ```
 ubuntu$: ./digit_exercise ./test_1.png ./test_2.png
 1234
 ubuntu$: 
 ```
-### 相关
-提醒与建议：
 
-- 1、你可以分一个个阶段完成，在截止时间前完成尽量多的阶段。
-- 2、sim_samples和hard_samples的五幅图图片大小有细微差距，请留意。act_samples的五幅图图片大小均为800*600。
-- 3、可能用到的算法或思路有：  
+### 提醒与建议：
+
+- 1、你可以分一个个阶段即级别完成，在截止时间前完成尽量多的阶段。
+- 2、若各级别间的代码不一样，可自行决定是否分多个工程。
+- 3、sim_samples和hard_samples的五幅图图片大小有细微差距，请留意。act_samples的五幅图图片大小均为800*600。
+- 4、可能用到的算法或思路有：  
     - 1）取红色通道二值化。  
     - 2）flood fill（水漫金山）算法。  
     - 3）bounding box（边框回归）算法。  
