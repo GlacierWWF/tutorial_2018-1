@@ -18,16 +18,16 @@
 - 4、 请记得附上**简要图片处理过程和详细识别结果截图**，放在一个子文件夹内。请附上简明易懂的工程说明`README.md`。
 
 ### 终端输入与输出格式参考：
-输入是在命令行参数中添加图片路径，输出是在命令行中显示图片对应的数值。  
+输入是在命令行参数中添加图片路径，输出是在命令行中显示图片对应的数值。格式仅供参考。  
 级别一和级别二：
 ```
-ubuntu$: ./digit_exercise ./test.png
+ubuntu$: ./bin/demo ./test.jpg
 4321
 ubuntu$:
 ```
 级别三：
 ```
-ubuntu$: ./digit_exercise ./test_1.png ./test_2.png
+ubuntu$: ./bin/demo ./test_1.jpg ./test_2.jpg
 1234
 ubuntu$: 
 ```
