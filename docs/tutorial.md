@@ -42,8 +42,10 @@
 ### 0.5 安装Ubuntu
 选择语言等等就不赘述了，重点是安装类型的设置.
 ![ubuntu安装类型](https://upload-images.jianshu.io/upload_images/1272002-6eb497d6e84d50d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+</br>
 选择其他选项，进行磁盘分区.初步划分成4个区域
 </br>
+
 |分区类型|大小|文件类型|
 | -- | -- | -- |
 |挂载点`/`|30g|文件类型ext4|
