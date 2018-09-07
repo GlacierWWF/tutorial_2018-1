@@ -9,12 +9,11 @@
 如果是UEFI启动方式，请看下一步.
 
 ### 0.2 下载ubuntu 18.04 和写入硬盘映像
-首先下载ubuntu映像文件,
-[ubuntu 18.04 LTS下载链接](https://www.ubuntu.com/download/desktop)
-其次下载UltraISO[UltraISO下载地址](https://cn.ultraiso.net/xiazai.html)，
-打开软件UltraISO，文件----打开-----找到下载好的ubuntu.ISO文件。
-使用ubuntu 16.04和ubuntu 18.04 都是可以的推荐使用高版本.
-启动------写入硬盘镜像
+* 首先下载ubuntu映像文件[ubuntu 18.04 LTS下载链接](https://www.ubuntu.com/download/desktop).
+* 其次下载UltraISO[UltraISO下载地址](https://cn.ultraiso.net/xiazai.html).
+* 打开软件UltraISO，文件----打开-----找到下载好的ubuntu.ISO文件.
+* 使用Ubuntu 16.04和Ubuntu 18.04 都是可以的,推荐使用**Ubuntu 18.04**.
+* 启动------写入硬盘镜像
 </br>
 ![软碟通图片](https://upload-images.jianshu.io/upload_images/1272002-312fb39ebb48bd19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/670)
 </br>
@@ -36,7 +35,7 @@
 ![boot manager](https://upload-images.jianshu.io/upload_images/1272002-42f06103698c8961.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 </br>
 大家的boot 界面各有不同，所以不一定是这个界面.
-* 重启进入u盘引导的ubuntu启动界面，选择第二个install ubuntu进入安装环节.
+重启进入u盘引导的ubuntu启动界面，选择第二个install ubuntu进入安装环节.
 
 ### 0.5 安装Ubuntu
 选择语言等等就不赘述了，重点是安装类型的设置.
