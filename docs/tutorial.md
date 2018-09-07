@@ -13,12 +13,10 @@
 [ubuntu 18.04 LTS下载链接](https://www.ubuntu.com/download/desktop)
 其次下载UltraISO[UltraISO下载地址](https://cn.ultraiso.net/xiazai.html)，
 打开软件UltraISO，文件----打开-----找到下载好的ubuntu.ISO文件。
-![软碟通图片](https://img-blog.csdn.net/20170107221403123?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzg5NDgzNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-</br>
 使用ubuntu 16.04和ubuntu 18.04 都是可以的推荐使用高版本.
 启动------写入硬盘镜像
 </br>
-![软碟通图片](https://img-blog.csdn.net/20170107221518953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzg5NDgzNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+![软碟通图片](https://upload-images.jianshu.io/upload_images/1272002-312fb39ebb48bd19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/670)
 </br>
 
 默认参数写入即可，如果此处写入失败，请使用管理员权限打开UltraISO
@@ -44,11 +42,14 @@
 选择语言等等就不赘述了，重点是安装类型的设置.
 ![ubuntu安装类型](https://upload-images.jianshu.io/upload_images/1272002-6eb497d6e84d50d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
 选择其他选项，进行磁盘分区.初步划分成4个区域
+</br>
+
 |挂载点`/`|30g|文件类型ext4|
-|--|--|--|
+| -- | -- | -- |
 |挂载点`/home`|29G|文件类型ext4|
-|SWAP|800mb||
+|SWAP|800mb| |
 |挂载点`/boot`|400mb|文件类型ext4|
+
 然后将下方的“安装启动引导器的设备”选择刚划分的固态硬盘上/boot的sda（或sdb）名字.下一步安装即可.
 这样做的好处:
 * 删除ubuntu时不会影响windows,直接在windows上面把之前给Ubuntu划分的区域，在磁盘管理里面全部格式化，就可以做到直接删除.(日后大家不避免的会遇到系统崩溃等问题，方便大家安装)
