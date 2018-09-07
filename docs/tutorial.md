@@ -4,7 +4,8 @@
 电脑启动方式分为UEFI和BIOS两种方式，其中UEFI是近年来新电脑的主要启动方式，所以本教程针对的是UEFI启动方式的Windows和ubuntu 18.04双系统的安装教程.
 ### 0.1 UEFI启动方式的查看
 运行->输入msinfo32->系统信息->bios模式
-![UEFI启动方式查看][1]
+![UEFI启动方式查看](https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh=600,800/sign=bbcb4c9ee7c4b74534c1bf10ffcc322f/d0c8a786c9177f3ed69736ba7ccf3bc79e3d56e2.jpg)
+</br>
 如果是UEFI启动方式，请看下一步.
 
 ### 0.2 下载ubuntu 18.04 和写入硬盘映像
@@ -12,34 +13,43 @@
 [ubuntu 18.04 LTS下载链接](https://www.ubuntu.com/download/desktop)
 其次下载UltraISO[UltraISO下载地址](https://cn.ultraiso.net/xiazai.html)，
 打开软件UltraISO，文件----打开-----找到下载好的ubuntu.ISO文件。
-![软碟通图片][https://img-blog.csdn.net/20170107221403123?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzg5NDgzNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center]
+![软碟通图片](https://img-blog.csdn.net/20170107221403123?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzg5NDgzNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 </br>
 使用ubuntu 16.04和ubuntu 18.04 都是可以的推荐使用高版本.
 启动------写入硬盘镜像
 </br>
-![软碟通图片][https://img-blog.csdn.net/20170107221518953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzg5NDgzNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center]
+![软碟通图片](https://img-blog.csdn.net/20170107221518953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMzg5NDgzNA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+</br>
 
 默认参数写入即可，如果此处写入失败，请使用管理员权限打开UltraISO
 
 ### 0.3 Windows磁盘设置
 在Windows 10中打开“磁盘管理器”，找一个空闲的磁盘分区，压缩出来一部分空间给Ubuntu使用，压缩出来的硬盘应处于未分配状态。或者通过删除某个不使用的本地磁盘使其处于未分配状态。
-![磁盘管理][https://upload-images.jianshu.io/upload_images/1272002-334e3e33d83fd8b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700]
+![磁盘管理](https://upload-images.jianshu.io/upload_images/1272002-334e3e33d83fd8b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+</br>
 
 * 如果想学习Linux的话，留给Ubuntu使用的空间建议大于60G。
 * 这里是一整个未分配空间，这样可以在安装Ubuntu的时候直接选择和Windows共存安装，自动分配空间，不用自己再给系统分区设置大小了。
 
 ### 0.4 重启进入 BIOS
-1.关机，重新打开电脑，进入BIOS，关闭Windows系统的快速启动（Fast Boot）选项，即设置为Disable状态.
-2.关闭 Secure Boot.
-3.启动项优先级 Boot Priorities中，将ubuntu 18.04设置成第一启动项.
-![boot manager][https://upload-images.jianshu.io/upload_images/1272002-42f06103698c8961.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700]
+* 关机，重新打开电脑，进入BIOS，关闭Windows系统的快速启动（Fast Boot）选项，即设置为Disable状态.
+* 关闭 Secure Boot.
+* 启动项优先级 Boot Priorities中，将ubuntu 18.04设置成第一启动项.
+![boot manager](https://upload-images.jianshu.io/upload_images/1272002-42f06103698c8961.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+</br>
 大家的boot 界面各有不同，所以不一定是这个界面.
-4.重启进入u盘引导的ubuntu启动界面，选择第二个install ubuntu进入安装环节.
+* 重启进入u盘引导的ubuntu启动界面，选择第二个install ubuntu进入安装环节.
 
 ### 0.5 安装Ubuntu
 选择语言等等就不赘述了，重点是安装类型的设置.
-![ubuntu安装类型][https://upload-images.jianshu.io/upload_images/1272002-6eb497d6e84d50d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700]
-选择其他选项，进行磁盘分区.初步划分成4个区域，挂载点`/`30g,文件类型ext4,挂载点`/home`29g,SWAP分区800mb左右,挂载点`/boot`400mb左右,然后将下方的“安装启动引导器的设备”选择刚划分的固态硬盘上/boot的sda（或sdb）名字.下一步安装即可.
+![ubuntu安装类型](https://upload-images.jianshu.io/upload_images/1272002-6eb497d6e84d50d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700)
+选择其他选项，进行磁盘分区.初步划分成4个区域
+|挂载点`/`|30g|文件类型ext4|
+|--|--|--|
+|挂载点`/home`|29G|文件类型ext4|
+|SWAP|800mb||
+|挂载点`/boot`|400mb|文件类型ext4|
+然后将下方的“安装启动引导器的设备”选择刚划分的固态硬盘上/boot的sda（或sdb）名字.下一步安装即可.
 这样做的好处:
 * 删除ubuntu时不会影响windows,直接在windows上面把之前给Ubuntu划分的区域，在磁盘管理里面全部格式化，就可以做到直接删除.(日后大家不避免的会遇到系统崩溃等问题，方便大家安装)
 * 安装`opencv`是在`/home`目录下安装的，留够充足的空间有利于安装过程不出现错误.
@@ -102,5 +112,3 @@ git checkout 3.4.3
 （1） 让飞行器灵巧地飞回自己的手上  
 （2） 远距离精准降落  
 
-
-[1]:https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh=600,800/sign=bbcb4c9ee7c4b74534c1bf10ffcc322f/d0c8a786c9177f3ed69736ba7ccf3bc79e3d56e2.jpg
