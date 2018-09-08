@@ -21,7 +21,10 @@
 | 基础考核         | 450分                |  
 | 项目考核         | 500分                |  
 
+**git可以多次提交, 我们以最后一次提交的结果作为标准.**
 我们鼓励大一学生积极参与，对于大一学生，所有部分的积分值会有乘以1.1倍的加成。  
+比规定时间提前完成规定任务, 积分值 = **<该周任务积分值> * (1 +<提前周数> * 0.1)**
+比规定时间延迟完成任务, 积分值 = **<该周任务积分值> * (1 - <迟交周数> * 0.2 )**
 本评分标准最终解释权由中大空中机器人队所有。  
 
 ## 任务成果提交方式
@@ -39,7 +42,7 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 ```
 
 
-## 基础考核 - 第一周（9.24-9.30）
+## 基础考核 - 第一周（9.19-9.23）
 
 必学内容：
 
@@ -59,28 +62,30 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 
 本周任务：
 
-- 1、使用g++编译一个C++程序, 输出Hello World。(重点在g++的使用)
-- 2、使用git把上述整个工程提交到Github上。（注意不要上传你自己工程下的编译文件（如*.o ，你可以在.gitignore中设置）
-- 3、简单写一写你学习到的Vim/Emacs的常用操作或命令（写在.txt文件中即可，100字以内），一并上传到Github上。
-- 4、预先安装OpenCV，参考资料可见入门教程。
+- 1、在命令行使用g++编译一个C++程序, 输出Hello World。请不要使用任何类型的IDE
+- 2、使用git把上述整个工程提交到Github上, **请勿提交任何不重要的中间文件 (如编译器产生的.o文件和编译的可执行文件)**
+- 3、简单描述git的工作流程, 配上合适的图来描述, 解释git的分支的原理, 以及如何恰当地合并git分支. 使用Word文档, 300字以内
+- 4、简单写一写你学习到的Vim/Emacs的常用操作或命令（写在.txt文件中即可，100字以内），一并上传到Github上。
+- 5、预先安装OpenCV，参考资料可见入门教程。
 
 评分标准：  
 
 | 评分项               | 积分值                      |  
 | ----------------    | -------------------------- |  
-| 成功上传Hello World工程      | 50分              |  
+| 成功上传Hello World工程      | 30分              |
+| 阐述清晰git的原理和分支        | 20分             |
 | 阐述常用Vim/Emacs操作或命令  | 10分              |  
+| 上传一个错误文件 | **-5 分** |
 
 
-## 基础考核 - 第二周（10.1-10.7）
+## 基础考核 - 第二周（9.24-9.30）
 
 必学内容：
 
 - 1、使用makefile。
 - 2、使用shell脚本。
 - 3、掌握基本的markdown语法。
-- 4、掌握OpenCV最基本功能。
-- 5、了解多线程编程。
+- 4、了解多线程编程。
 
 
 选修内容：
@@ -90,28 +95,31 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 
 本周任务：
 
-- 1、编写一个多文件的C++程序，阅读《中大空中机器人团队代码规范》 [(18版)](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_program_specification.md) ，用OpenCV写一个多线程的简易计时工具Timer，在计时的同时处理用户输入（开始，暂停，继续，停止，退出）。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/timer_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。
-- 2、为上述工程写一个makefile文件并编译运行通过。
-- 3、用git上传到Github上，并使用markdown按照《团队代码规范》写一份说明文档`README.md`。
-- 4、完成[Shell练习题](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/shell_exercise.md)。可参考[菜鸟教程](http://www.runoob.com/linux/linux-shell.html)，掌握基础命令即可。
+- 1、编写一个**多文件**的C++程序，阅读《中大空中机器人团队代码规范》 [(18版)](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_program_specification.md) ，用STL的Chrono类和 pthread写一个多线程的简易计时工具Timer, Timer类声明放在Time.h下, Timer类定义放在Time.cpp下，main.cpp中使用Timer类, 在计时的同时处理用户输入（开始，暂停，继续，停止，退出）。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/timer_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。
+- 2、编写一个读写锁, main.cpp中启动四个线程同时计时, 每1s记录一次过去的时间, 放在一个全局的STL容器list中, 然后另外启动一个线程从list中取出其余四个线程输出的时间, 并打印"Thread X: xxx seconds elapsed ". 为了保证线程安全, 你需要使用你所编写的读写锁保护这个list. 你可以选择一种读写锁来编写: 读者优先,写者优先,读写公平. 
+- 3、为上述工程写一个makefile文件并编译运行通过。
+- 4、用git上传到Github上，并使用markdown按照《团队代码规范》写一份说明文档`README.md`。如果你写了读写锁部分, 请在markdown中描述你写的锁的原理.
+- 5、完成[Shell练习题](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/shell_exercise.md)。可参考[菜鸟教程](http://www.runoob.com/linux/linux-shell.html)，掌握基础命令即可。
 
 评分标准：  
 
 | 评分项               | 积分值                      |
 | ----------------    | -------------------------- |
-| 编写简易计时工具，实现 start, stop, quit  | 90分        |
-| 实现 pause, resume                      | 20分        |
-| 使用 makefile 成功编译运行       | 15分              |
+| 编写简易计时工具，实现 start, stop, quit  | 40分        |
+| 实现 pause, resume                      | 10分        |
+| 实现 读写锁程序                              | 30分 	 |
+| 实现 全部种类读写锁                           | 20分 	 |
+| 使用 makefile 成功编译运行       | 20分              |
 | 编写`README.md`       | 15分              |
-| Shell 练习题       | 10分              |
+| Shell 练习题       | 15分              |
+| 上传一个错误文件 | **-5 分** |
 
-
-## 基础考核 - 第三周（10.8-10.14）
+## 基础考核 - 第三周（10.1-10.7）
 
 必学内容：
 
 - 1、认真研读任务8的相关规则。（[官方文档V1.2](http://www.aerialroboticscompetition.org/assets/downloads/mission8rules_1.2.pdf)）  
-- 2、深入了解基本OpenCV，包括core, highgui, imgproc三个部分，掌握重要数据类型和函数的使用。
+- 2、了解基本OpenCV，包括core, highgui, imgproc三个部分，掌握重要数据类型和函数的使用。
 
 选修内容：
 
@@ -119,7 +127,7 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 
 本周任务：
 
-- 1、编写一个多文件的C++程序，使用OpenCV写一个能对含有四位数码管图片进行图像处理和数字识别的程序。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/digit_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。我们会提供测试样本，请你验证测试样本，将工程文件和识别结果截图一并上传作为评分标准。
+- 1、编写一个**多文件**的C++程序，使用OpenCV写一个能对含有四位数码管图片进行图像处理和数字识别的程序。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/digit_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。我们会提供测试样本，请你验证测试样本，将工程文件和识别结果截图一并上传作为评分标准。
 
 - 2、用git上传到Github上，并使用markdown按照《团队代码规范》为上述工程写一份`README.md`。
 
@@ -134,11 +142,14 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 | 级别三测试样本识别率 = 20% ~ 90% （>=90%算满分）   | 5~40分     |
 | 工程和测试过程结果完整清晰     | 10分        |
 | 编写`README.md`       | 10分              |
+| 上传一个错误文件 | **-5 分** |
 
+## 项目考核 - 第四至七周（10.8-11.4）
 
-## 项目考核 - 第四至七周（10.15-11.10）
-
-- 十月份会在此公布Project选题。你可以选择其中一个项目进行研究，于规定时间内提交成果。
-
+你有多个可选方向进行, 每个方向的要求请参考具体的文件
+你可以选择: 语音方向, 图像处理方向, 性能方向, 智能方向
+你只能选择一个方向进行专攻, 每个方向都是没有上限的, 如果你能做出**超出考核范围的东西**, 那真是太棒了!!
+我们会根据你的努力情况酌情给分
+请加油
 
 
