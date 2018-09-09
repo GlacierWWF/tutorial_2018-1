@@ -12,10 +12,11 @@
 - 1、给你一张带有四位数码管的图片，你需要利用OpenCV对图片进行处理，分别提取四个数字（或在图片上做标记）。定位到数字后，采用一定方法将数字值识别出来，将结果输出到**终端或图片**上。
 - 2、该project的测试样本分为几个级别，你可以逐级尝试。
     - 级别一：使用电脑软件仿真的数码管图片，图片较清晰，噪声相对较小。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example1.jpg)。
-    - 级别二：使用实际的数码管用摄像头拍摄的图片，图片噪声相对较大，而且会有细微色差。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example2.jpg)。
-    - 级别三：软件仿真的数码管图片。图片噪声相对较大。但是每组图有两段数码管，每段数码管只显示密码的一部分。你需要将两幅图用OpenCV组合，再识别出正确密码。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example3.jpg)。
-- 3、每个级别提供8个Sample，即32个数码管数字。评分将以数字识别正确个数即识别正确率为标准。Samples放在了[这里](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples)的三个文件夹。级别一即`sim_samples`，级别二即`act_samples`，级别三即`hard_samples`。请自行取用验证。
-- 4、 请记得附上**简要图片处理过程和详细识别结果截图**，放在一个子文件夹内。请附上简明易懂的工程说明`README.md`。
+    - 级别二：使用实际的数码管用摄像头拍摄的图片，图片噪声相对较大。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example2.jpg)。
+    - 级别三：软件仿真的数码管图片，图片较清晰。但是每组图有两段数码管，每段数码管只显示密码的一部分。你需要将两幅图用OpenCV组合，再识别出正确密码。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example3.jpg)。
+- 3、每个级别提供8个Sample，即32个数码管数字。前两个sample没有噪声。其余sample模拟了无人机拍摄时可能发生的图像失真情况（包括：图像扭曲、图像旋转、反光、杂色噪点、色彩偏差、动态模糊、镜头模糊），请增强你的工程的鲁棒性以达到要求。
+- 4、评分将以数字识别正确个数即识别正确率为标准。Samples放在了[这里](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples)的三个文件夹。级别一即`sim_samples`，级别二即`act_samples`，级别三即`hard_samples`。请自行取用验证。
+- 5、 请记得附上**简要图片处理过程和详细识别结果截图**，放在一个子文件夹内。请附上简明易懂的工程说明`README.md`。
 
 ### 终端输入与输出格式参考：
 输入是在命令行参数中添加图片路径，输出是在命令行中显示图片对应的数值。格式仅供参考。  
