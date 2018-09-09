@@ -95,10 +95,9 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 
 本周任务：
 
-- 1、编写一个**多文件**的C++程序，阅读《中大空中机器人团队代码规范》 [(18版)](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_program_specification.md) ，在计时的同时处理用户输入（开始，暂停，继续，停止，退出）。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/timer_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。
-//TODO:修改题目，没改完
-- 3、为上述工程分别写一个makefile文件并编译运行通过。
-- 4、用git上传到Github上，并使用markdown按照《团队代码规范》写一份说明文档`README.md`。如果你写了读写锁部分，请在`README.md`中描述你写的锁的原理。
+- 1、编写一个**多文件**的C++程序，阅读《中大空中机器人团队代码规范》 [(18版)](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_program_specification.md) ，用OpenCV写一个多线程的简易计时工具Timer。在计时的同时处理用户输入（开始，暂停，继续，停止，退出）。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/timer_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。
+- 2、为上述工程分别写一个makefile文件并编译运行通过。
+- 3、用git上传到Github上，并使用markdown按照《团队代码规范》写一份说明文档`README.md`。如果你写了读写锁部分，请在`README.md`中描述你写的锁的原理。
 
 
 评分标准：  
