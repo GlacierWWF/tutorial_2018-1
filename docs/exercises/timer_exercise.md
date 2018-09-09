@@ -18,10 +18,10 @@
 	- PS：计时请使用STL的Chrono类。  
 
 - 2、在main函数中使用这个类，并且在调用open()函数之后开始接收用户的终端输入。当用户输入`start`时调用startTiming开始计时，输入`stop`时调用stopTiming结束计时。输入`quit`退出。输入`pause`暂停，输入`resume`继续。窗口和终端示例效果可以参考[示例图1](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week2_example1.jpg)和[示例图2](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week2_example2.jpg)。  
-    - PS：要实现同时处理终端输入和终端输出须使用多线程。  
+    - PS：要实现同时处理输入和输出须使用多线程。  
 
 
 - 3、编写makefile编译你的项目。  
-    - PS：注意在编译时用恰当的方法引用所用到的opencv和pthread库，否则会在链接时出现"undefined referrence"错误。  
+    - PS：注意在编译时用恰当的方法引用opencv和pthread库，否则会在链接时出现"undefined reference"错误。  
    
 

@@ -1,6 +1,6 @@
 # SYSU AERO-SWIFT 2018秋季考核
 
-**欢迎来到中大空中机器人队秋季考核任务。下面是一些关于考核和工程的相关说明。**
+**欢迎来到中大空中机器人队秋季考核任务。下面是一些关于考核和工程的相关说明。**  
 ![](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/logo.jpg)
 
 考核过程中，我们提供部分`Tutorial Wiki`，以帮助快速学习入门，详见：[队伍入门教程](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/wiki)    
