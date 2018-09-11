@@ -1,5 +1,6 @@
-# 中大空中机器人队团队代码规范
-制定本规范是为了让大家今后互相阅读代码更加方便.制定时参考的是Google C++风格的代码规范
+# 中大空中机器人队代码规范
+制定本规范是为了让大家今后互相阅读代码更加方便.制定时参考的是Google C++风格的代码规范.
+## 版本 V1.0.1
 ## 1.C++代码风格
 ### 1.1 `.h`头文件
 #### 1.1.1 `.h`所有头文件要能够自给自足。换言之，用户和重构工具不需要为特别场合而包含额外的头文件.
@@ -182,14 +183,18 @@ void TODO();
 * 主版本号X（Xyz | X > 0）“必须MUST”在有任何不兼容的修改被加入公共API时递增。其中“可以MAY”包括次版本号及修订级别的改变。每当主版本号递增时，次版本号和修订号“必须MUST”归零。
 
 ### 4.3 版本规范样例
-project_name </br>
-|- src  </br>
-|   |_ test.cpp </br>
-|- inc test.h </br>
-|   |_ test.h </br>
-|- main.cpp </br>
-|_ makefile </br>
-|_ README.md </br>
+```
+project_name 
+|- src  
+|   |_ test.cpp 
+|- inc 
+|   |_ test.h 
+|- bin
+|   |_ project_name
+|- main.cpp 
+|_ makefile 
+|_ README.md 
+```
 
 * 版本号请在git 提交时，在README.md中写明版本号,并且在`git commit -m `最后写明最新的版本号.
 * 样例 `git commit -m "Fixed bugs V1.0.1"`.
@@ -201,14 +206,16 @@ project_name </br>
 
 ## 5.目录规范
 ### 5.1 目录规范样例
-project_name </br>
-|- src </br>
-|- inc </br>
-|- bin </br>
-|- pics (可以没有)</br>
-|- README.md </br>
-|- main.cpp </br>
-|_ makefile(或 CmakeLists.txt) </br>
+```
+project_name 
+|- src 
+|- inc 
+|- bin 
+|- pics (可以没有)
+|- README.md 
+|- main.cpp 
+|_ makefile(或 CmakeLists.txt) 
+```
 src放置`.cpp` `.cc` `.c`文件 </br>
 inc放置`.h` `.hpp` `.inc`文件 </br>
 bin放置`a.out`可执行文件 </br>
@@ -223,5 +230,5 @@ bin放置`a.out`可执行文件 </br>
 ```
 有待完善
 
-## git多人共同开发模式
+## 7.git多人共同开发模式
 缺省
