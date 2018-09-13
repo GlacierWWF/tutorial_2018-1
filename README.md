@@ -13,7 +13,7 @@
 | [wiki](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/wiki)     | 队伍入门教程                     |
 | [docs/task.md](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/task.md)          | 秋季实战任务列表                   |
 | [task_submit/](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/master/task_submit)     | 用于提交任务结果的文件夹（注意，是在你的分支上提交）|
-| [docs/team_program_specification.md](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_program_specification.md)|团队代码规范|
+| [docs/team_program_specification.md](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_code_style.md)|团队代码规范|
 
 ## Issues 功能
 如有任何问题可以在Issues中发起讨论。    
