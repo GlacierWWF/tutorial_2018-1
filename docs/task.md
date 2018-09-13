@@ -53,7 +53,7 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
     - 请避免使用虚拟机（你可以先用虚拟机来模拟Ubuntu系统安装，但最后请安装在硬盘而非虚拟机上）。
 - 2、熟悉Linux命令行，掌握Linux的基础命令。
 - 3、学习git，熟悉github的使用。
-- 4、学习g++的使用。
+- 4、学习g++的使用。[git参考教程](https://git-scm.com/book/zh/v2)
 - 5、学习使用Vim或Emacs。Vim 是一款强大的文本编辑器，我们强烈建议你熟练地掌握Vim（或Emacs），这将有助于你提升编程的效率。
 
 选修内容：
