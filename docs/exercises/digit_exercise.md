@@ -9,18 +9,18 @@
 
 ### 具体要求： 
 
-- 1、给你一张带有四位数码管的图片，你需要利用OpenCV对图片进行处理，分别提取四个数字（或在图片上做标记）。定位到数字后，采用一定方法将数字值识别出来，将结果输出到**终端或图片**上。
+- 1、给你一张带有四位数码管的图片，你需要利用OpenCV对图片进行处理，分别提取四个数字（或在图片上做标记）。定位到数字后，采用一定方法将数字值识别出来，将结果输出到终端和图片上。
 - 2、该project的测试样本分为几个级别，你可以逐级尝试。
     - 级别一：使用电脑软件仿真的数码管图片，图片较清晰，噪声相对较小。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example1.jpg)。
     - 级别二：使用实际的数码管用摄像头拍摄的图片，图片噪声相对较大。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example2.jpg)。
     - 级别三：软件仿真的数码管图片，图片较清晰。但是每组图有两段数码管，每段数码管只显示密码的一部分。你需要将两幅图用OpenCV组合，再识别出正确密码。[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example3.jpg)。
 - 3、每个级别提供8个Sample，即32个数码管数字。前两个Sample没有噪声。其余Sample模拟了无人机拍摄时可能发生的图像失真情况（包括：图象位移、图像旋转、反光、杂色噪点、色彩偏差、动态模糊、镜头模糊），请增强你的工程的鲁棒性以达到要求。
 - 4、评分将以数字识别正确个数即识别正确率为标准。Samples放在了[这里](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples)的三个文件夹。级别一即`sim_samples`，级别二即`act_samples`，级别三即`hard_samples`。请自行取用验证。
-- 5、 请记得附上**简要图片处理过程和详细识别结果截图**，放在一个子文件夹内。请附上简明易懂的工程说明`README.md`。
+- 5、 请记得附上**简要图片处理过程和识别结果截图**，放在一个子文件夹内。请附上简明易懂的工程说明`README.md`。
 
 
 ### 输入与输出格式参考：
-- 图片处理过程和详细识别结果截图需*至少*包含几个关键部分，见[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example4.jpg)。为配合评分工作，请每个样本都配这样的截图。  
+- 图片处理过程和详细识别结果截图需**至少**包含几个关键部分，见[示例图](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/examples_and_samples/week3_example4.jpg)。为配合评分工作，请每个样本都配这样的截图。  
   
 以下终端格式仅供参考，表述完整即可。  
 输入是把图片的路径作为参数，输出是在终端显示对应的数值（配上简要数据分析）。  
@@ -41,7 +41,7 @@ ubuntu$:
 
 - 1、你可以分一个个阶段即级别完成，在截止时间前完成尽量多的阶段。
 - 2、所有级别请使用同一个工程。（提示：可以根据输入参数个数鉴别是否是级别三。）除级别三需要先合并图像外，不能根据判断级别来对图像进行不同处理（即图像处理过程相同），我们会pull下来查看你的工程。
-- 3、sim_sample的图片大小均为480x180，act_samples的图片大小均为800x600，hard_samples的图片大小均为520x230。
+- 3、sim_samples的图片大小均为480x180，act_samples的图片大小均为800x600，hard_samples的图片大小均为520x230。
 - 4、可能用到的算法或思路有：  
     - 1）取若干颜色通道二值化（与RGB/HSV相关）。  
     - 2）线性滤波、非线性滤波、形态学滤波等。  
