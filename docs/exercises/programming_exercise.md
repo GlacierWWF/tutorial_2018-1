@@ -35,6 +35,7 @@ A list of all valid characters and their reverses is as follows.
 |J	|L	|V	|V	|8	|8|  
 |K	| 	|W	|W	|9	| |  
 |L	|J	|X	|X	| 	| |  
+
 Note that O (zero) and 0 (the letter) are considered the same character and therefore ONLY the letter "0" is a valid character.  
 
 ### Input
@@ -84,7 +85,7 @@ ATOYOTA -- is a mirrored palindrome.
 
 Alex is administrator of IP networks. His clients have a bunch of individual IP addresses and he decided to group all those IP addresses into the smallest possible IP network.  
 
-Each IP address is a 4-byte number that is written byte-by-byte in a decimal dot-separated notation ``byte0.byte1.byte2.byte3" (quotes are added for clarity). Each byte is written as a decimal number from 0 to 255 (inclusive) without extra leading zeroes.  
+Each IP address is a 4-byte number that is written byte-by-byte in a decimal dot-separated notation "byte0.byte1.byte2.byte3" (quotes are added for clarity). Each byte is written as a decimal number from 0 to 255 (inclusive) without extra leading zeroes.  
 
 IP network is described by two 4-byte numbers - network address and network mask. Both network address and network mask are written in the same notation as IP addresses.  
 
