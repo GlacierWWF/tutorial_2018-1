@@ -69,7 +69,7 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 - 2、使用git把上述整个工程提交到Github上。**在此工程中，请勿提交不重要的中间文件。**（如.o文件和编译的可执行文件。提示：使用.gitignore）
 - 3、简单描述git的工作流程，配上合适的图来描述，解释git的分支的原理，以及如何恰当地合并git分支。（写在Word文档中即可，300字以内）
 - 4、简单写一写你学习到的Vim/Emacs的常用操作或命令（写在Word文档中即可，100字以内），一并上传到Github上。
-- 5、完成[程序设计能力练习](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/programming_exercise.md)第一周题目Palindromes，同样使用g++编译。  
+- 5、完成[程序设计能力练习](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/programming_exercise.md)第一周题目Palindromes，同样使用g++编译。  
 - 6、预先安装OpenCV，参考资料可见入门教程。
 
 评分标准：  
@@ -102,7 +102,7 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 - 1、编写一个**多文件**的C++程序，阅读[《中大空中机器人团队代码规范》](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_code_style.md) ，用OpenCV写一个多线程的简易计时工具Timer。在计时的同时处理用户输入（开始，暂停，继续，停止，退出）。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/timer_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。
 - 2、为上述工程写一个makefile文件并编译运行通过。
 - 3、用git上传到Github上，并使用markdown按照《团队代码规范》写一份说明文档`README.md`。
-- 4、完成[程序设计能力练习](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/programming_exercise.md)第二周题目IP Networks，使用g++编译。  
+- 4、完成[程序设计能力练习](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/programming_exercise.md)第二周题目IP Networks，使用g++编译。  
 - 5、完成[Shell练习题](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/shell_exercise.md)。教程可参考[菜鸟教程](http://www.runoob.com/linux/linux-shell.html)，掌握基础命令即可。
 
 
