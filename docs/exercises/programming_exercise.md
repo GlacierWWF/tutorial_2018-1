@@ -3,10 +3,9 @@
 - 请使用C++和g++。
 - 开设此题的目的只是想让你熟悉基本的C++和程序设计，多动动脑筋。
 - 只要简单测试Accepted就可以得分，代码简洁可得满分。请独立认真完成。
+- 可能需要先了解的知识：std::string、二进制与十进制、IPv4与子网掩码。
 
-## 第一周题目
-
-### Palindromes
+## 第一周题目 —— Palindromes
 
 ### Description
 
@@ -77,9 +76,7 @@ ATOYOTA -- is a mirrored palindrome.
 ```
 
 
-## 第二周题目
-
-### IP Networks
+## 第二周题目 —— IP Networks
 
 ### Description
 
