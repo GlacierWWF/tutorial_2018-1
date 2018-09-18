@@ -6,7 +6,7 @@
 - 2、考核标准将采用积分制，基础考核评分将划定标准线，项目考核评分将分为基础部分和发挥部分，我们将给每个人打分以保证公平性。
 - 3、基础好的队员可以快速完成已经掌握的部分，而着重完成后期的项目考核，对于基础薄弱的队员，请认真学习打好扎实的基础。整个考核都需要有C++编程基础，如果对编程技能还不熟练请尽快学习。整个考核会比较有难度，希望你坚持下来，必将有所收获。
 - 4、基础考核有选修内容，选修内容不是必须的，但我们建议你掌握尽可能多的技能，这将会帮助你提高效率。项目考核要求你选择一个项目进行完成。
-- 5、请大家在每周的截止日期前按时完成规定任务（每周的截止时间暂定为**周六23:30**），你可以根据自己的时间安排提前完成，这并不影响考核结果。如果有极其特殊原因需要推迟完成请在考核群内提前说明。
+- 5、请大家在每周的截止日期前按时完成规定任务（**由于考虑到参与考核的人数较多，我们规定每周的提交时间为【周六8:00-23:00】，请在这段时间内准时上传**），你可以根据自己的时间安排提前完成或先做后面的内容（但不要提前上传），这并不影响考核结果。如果有极其特殊原因需要推迟完成请在考核群内提前说明。
 - 6、请你们**独立认真完成**，不要抄袭代码，我们将会仔细审阅每一份工程的代码。
 - 7、你们若有问题可以通过issue的方式来提问，如果有推荐的学习资料可以merge request来补充。
 - 8、请更多地通过issue的方式来发起正式的讨论，可以但尽量减少使用Q群发问，多尝试通过google获得解答。
@@ -17,8 +17,8 @@
 
 | 评分项            | 积分值                |  
 | ---------------- | -------------------- |  
-| 面试             | 60分                 |  
-| 基础考核         | 440分                |  
+| 面试             | 50分                 |  
+| 基础考核         | 450分                |  
 | 项目考核         | 500分                |  
 
 相关事项：  
@@ -50,9 +50,9 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 必学内容：
 
 - 1、安装Linux操作系统。
+    - 由于参加考核的同学水平参差不齐，我们建议不熟悉Linux系统的同学在虚拟机装系统，而不用双系统，避免损坏你的硬盘。如果对计算机体系和操作系统较熟悉，可以安装双系统。
     - 对于未接触过或未安装Linux系统的同学，推荐安装**Ubuntu 16.04/18.04**版本操作系统。不建议第一次就安装Arch Linux系统，这个系统并非新手向。
     - 对于已经能熟练使用Linux系统的同学，建议安装**Debian**或**Arch Linux**。Debian较为稳定，而且比较自由。Arch Linux是队伍在任务七时无人机所使用的系统，这个系统轻量简洁，官方文档齐全，比Ubuntu更加稳定。
-    - 请避免使用虚拟机（你可以先用虚拟机来模拟Ubuntu系统安装，但最后请安装在硬盘而非虚拟机上）。
 - 2、熟悉Linux命令行，掌握Linux的基础命令。
 - 3、学习git，熟悉github的使用。
 - 4、学习g++的使用。[git参考教程](https://git-scm.com/book/zh/v2)
@@ -69,15 +69,17 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 - 2、使用git把上述整个工程提交到Github上。**在此工程中，请勿提交不重要的中间文件。**（如.o文件和编译的可执行文件。提示：使用.gitignore）
 - 3、简单描述git的工作流程，配上合适的图来描述，解释git的分支的原理，以及如何恰当地合并git分支。（写在Word文档中即可，300字以内）
 - 4、简单写一写你学习到的Vim/Emacs的常用操作或命令（写在Word文档中即可，100字以内），一并上传到Github上。
-- 5、预先安装OpenCV，参考资料可见入门教程。
+- 5、完成[程序设计能力练习](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/programming_exercise.md)第一周题目Palindromes，同样使用g++编译。  
+- 6、预先安装OpenCV，参考资料可见入门教程。
 
 评分标准：  
 
 | 评分项               | 积分值                      |  
 | ----------------    | -------------------------- |  
-| 成功上传Hello World工程      | 27~30分              |
-| 阐述清晰git的原理和分支        | 10~20分             |
+| 成功上传Hello World工程      | 27~30分              |  
+| 阐述清晰git的原理和分支        | 10~20分             |  
 | 阐述常用Vim/Emacs操作或命令  | 5~10分              |  
+| 完成程序设计题（Palindromes）| 4~5分              | 
 
 
 ## 基础考核 - 第二周（9.30-10.6）
@@ -100,7 +102,8 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 - 1、编写一个**多文件**的C++程序，阅读[《中大空中机器人团队代码规范》](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_code_style.md) ，用OpenCV写一个多线程的简易计时工具Timer。在计时的同时处理用户输入（开始，暂停，继续，停止，退出）。请查看[具体任务说明](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/timer_exercise.md)。所有代码的命名以及架构必须按照《团队代码规范》来进行。
 - 2、为上述工程写一个makefile文件并编译运行通过。
 - 3、用git上传到Github上，并使用markdown按照《团队代码规范》写一份说明文档`README.md`。
-- 4、完成[Shell练习题](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/shell_exercise.md)。教程可参考[菜鸟教程](http://www.runoob.com/linux/linux-shell.html)，掌握基础命令即可。
+- 4、完成[程序设计能力练习](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/programming_exercise.md)第二周题目IP Networks，使用g++编译。  
+- 5、完成[Shell练习题](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/shell_exercise.md)。教程可参考[菜鸟教程](http://www.runoob.com/linux/linux-shell.html)，掌握基础命令即可。
 
 
 评分标准：  
@@ -111,6 +114,7 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 | 实现 pause, resume                      | 25~30分        |
 | 使用 makefile 成功编译运行       | 10分              |
 | 编写`README.md`       | 12~15分              |
+| 完成程序设计题（IP networks）| 4~5分              | 
 | Shell 练习题       | 15分              |
 
 
