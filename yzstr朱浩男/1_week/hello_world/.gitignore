@@ -1,0 +1,11 @@
+# Excutive
+*.exe
+*.out
+*.app
+
+# Object files
+*.o
+*.slo
+*.lo
+*.obj
+
