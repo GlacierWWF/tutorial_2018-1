@@ -42,7 +42,7 @@ git clone https://github.com/SYSU-AERO-SWIFT/tutorial_2018.git
 cd tutorial_2018
 git branch -r #查看远程所有分支
 git checkout -b 本地分支名 origin/远程分支名-你的分支名
-mv task_submit/example_your_name your_name #改成你自己的名字(命名格式：英文+中文，如 shallwe曾祥伟)
+mv task_submit/example_your_name task_submit/your_name #改成你自己的名字(命名格式：英文+中文，如 shallwe曾祥伟)
 ```
 
 
@@ -158,7 +158,7 @@ mv task_submit/example_your_name your_name #改成你自己的名字(命名格�
 ## 项目考核 - 第四至七周（10.14-11.9）
 
 你有多个可选方向进行，每个方向的要求请参考具体的文件（在国庆左右将会公布）。  
-你可以选择：语音方向、图像处理方向、性能方向、智能方向等。  
+你可以选择：编程技术方向、图像处理方向、性能优化方向、嵌入式与控制方向、导航与编队方向。  
 你只能选择一个方向进行专攻，每个方向都是没有上限的，如果你能做出**超出考核范围的东西**，那真是太棒了！  
 我们会根据你的努力情况酌情给分。  
 请加油！  
