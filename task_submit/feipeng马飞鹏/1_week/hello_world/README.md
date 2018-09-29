@@ -10,10 +10,11 @@
   输出hello world！到终端
 
 ### Depend Libraries
-  C++基本输入输出库： <iostream>
+  C++基本输入输出库： 
+	iostream
 
 ### how to compile
-  cmake .
+  cmake .  
   make
 ### how to run
  ./HelloWorld
