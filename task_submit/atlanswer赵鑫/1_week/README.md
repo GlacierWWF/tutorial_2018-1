@@ -2,15 +2,15 @@
 
 * Directory tree
 
-.
-├── hello_world
-│   ├── hello_world.cpp
-│   ├── hello_world.exe
-│   └── README.md
-├── programming_exercise
-│   ├── Palindromes.cpp
-│   ├── Palindromes.exe
-│   └── README.md
-└── README.md
+.</br>
+├── hello_world</br>
+│   ├── hello_world.cpp</br>
+│   ├── hello_world.exe</br>
+│   └── README.md</br>
+├── programming_exercise</br>
+│   ├── Palindromes.cpp</br>
+│   ├── Palindromes.exe</br>
+│   └── README.md</br>
+└── README.md</br>
 
 2 directories, 7 files

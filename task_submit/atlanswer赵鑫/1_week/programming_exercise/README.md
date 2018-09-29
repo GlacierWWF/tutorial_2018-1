@@ -4,6 +4,7 @@
 - Date: 2018-09-29
 
 Source file: *Palindromes.cpp*
+
 Header: iostream - Standard I/O
 
 > Complie command

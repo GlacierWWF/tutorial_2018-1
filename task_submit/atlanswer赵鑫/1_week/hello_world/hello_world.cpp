@@ -1,7 +1,11 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Hello World!";
+    //Initicialization
+    const std::string hello_world{"Hello World"};
+    //Output
+    std::cout << hello_world;
     std::cout << std::endl;
+    
     return 0;
 }
