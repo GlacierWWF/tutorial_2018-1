@@ -20,11 +20,17 @@
 
 using namespace std;
 
+/**
+ * @brief Palin Enum Constant
+ */
 namespace Palin
 {
 	enum StrType {NOTHING, REGULAR_PALIN, MIRRORED, MIRRORED_PALIN};
 }
 
+/**
+ * @brief reverse mirror look-up map
+ */
 const std::map<char, char> check_map {
 	{'A', 'A'}, {'E', '3'}, {'H', 'H'}, {'I', 'I'}, {'J', 'L'}, {'L', 'J'},
 	{'M', 'M'}, {'O', 'O'}, {'S', '2'}, {'T', 'T'}, {'U', 'U'}, {'V', 'V'},
@@ -32,6 +38,15 @@ const std::map<char, char> check_map {
 	{'3', 'E'}, {'5', 'Z'}, {'8', '8'}
 };
 
+/**
+ * @brief reverse mirror match function
+ *
+ * @param a		compared char A
+ * @param b		compared char B
+ * @param fm	finding map
+ *
+ * @return bool	whether matches or not
+ */
 bool match(char a, char b, const std::map<char, char>& fm)
 {
 	auto search = fm.find(a);
@@ -43,6 +58,13 @@ bool match(char a, char b, const std::map<char, char>& fm)
 	return false;
 }
 
+/**
+ * @brief judge if it is palindrome / mirrored string
+ *
+ * @param txt	input testing string
+ *
+ * @return Palin::StrType	which type to match
+ */
 Palin::StrType judge(const string& txt)
 {
 	bool 
