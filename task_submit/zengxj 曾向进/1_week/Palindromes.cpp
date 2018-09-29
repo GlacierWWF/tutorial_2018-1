@@ -1,3 +1,12 @@
+/*Title Here: Palindromes
+- Author: 曾向进 
+-Revised: 曾向进 
+- Date: 2018-09-29 
+- Version: 1.0.0
+Functions: 判断字符是否回文或镜像对称 
+Depend Libraries:isostream、string.h 
+*/
+
 #include <iostream> 
 #include <string.h>
 using namespace std;
