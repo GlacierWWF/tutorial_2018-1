@@ -1,0 +1,158 @@
+来源:https://www.liaoxuefeng.com
+
+
+	
+
+	创建版本库repository
+		1、创建一个空目录
+			$ mkdir learngit
+			$ cd learngit
+			$ pwd
+			/Users/michael/learngit
+			
+		2、把目录变成Git可以管理的仓库
+			$ git init
+			Initialized empty Git repository in /Users/michael/learngit/.git/
+
+	所有的版本控制系统，其实只能跟踪文本文件的改动，比如TXT文件，网页，所有的程序代码等等，Git也不例外。
+
+
+	编写一个readme.txt文件,一定要放到learngit目录下（子目录也行）
+	1、把文件添加到仓库：$ git add readme.txt
+	2、把文件提交到仓库：$ git commit -m "wrote a test file"
+			-m后面是本次提交的说明
+
+
+
+
+	git status命令可以让我们时刻掌握仓库当前的状态
+	git diff	查看修改
+	git log		查看提交记录
+				加上--pretty=oneline参数显示简明信息
+	git reflog 	查看命令记录
+
+
+	git reset --hard HEAD^	退回到上一个版本
+	git reset --hard+commit_id	
+
+
+	HEAD，HEAD^,HEAD^^，HEAD～100表示当前，上一个，上上一个，往上100个版本;往下需要版本号。
+
+
+	工作区working directory
+	版本库repository	.git
+		含有暂存区stage或index，分支master和指针HEAD(指向master）。
+		
+
+	撤销修改：
+		工作区<--暂存区 或 工作区<--版本库
+	git checkout -- filename	可以丢弃工作区的修改，回到暂存区（add前有修改）或版本库。
+		工作区<--暂存区 和 暂存区<--版本库
+	git reset HEAD filename		可以丢弃暂存区的修改，将修改放回工作区
+		暂存区<--版本库	
+	版本退回
+
+
+	删除文件：
+		一般直接在文件管理器中删除或用rm + filename，工作区被修改
+		git rm + filename 和 git commit 从版本库删除
+		
+
+
+
+远程仓库：
+	Github是提供Git仓库托管服务的。SSH
+
+
+	在本地创建了一个Git仓库后，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步:创建，关联，推送，
+	git remote add origin git@github.com:THE-SOUTH/learngit.git	----关联
+	git push -u origin master	----推送
+	
+	从远程库克隆：
+		git clone git@github.com:THE-SOUTH/muka.git
+		
+		
+		
+	分支管理：
+		创建与合并分支：
+			创建并切换分支：git checkout -b branchname
+			相当于git branch branchname 和 git checkout branchname
+		git branch 查看当前分支
+		git branch -d branchname	删除分支
+		git merge branchname	合并分支
+		
+Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在master分支上工作效果是一样的，但过程更安全。
+
+		解决冲突：
+			git log --graph --pretty=onepath --abbrev-commit查看分支合并情况
+			
+		分支管理策略：
+			git merge --no-ff -m "merge with no-ff" branchname
+			建议合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。
+		
+		bug分支：
+			当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。
+
+		feature分支：
+			开发一个新feature，最好新建一个分支
+			git branch -D <name>强行删除
+
+**********************************************************		
+				
+		多人协作：
+			git remote -v	查看远程库的信息
+		推送分支：一般是主分支和开发分支
+			git push origin branchname
+
+
+		抓取分支：
+			git pull
+
+			git clone git@github.com:michaelliao/learngit.git	只能看到本地的master分支
+			git checkout -b dev origin/dev	创建远程origin的dev分支到本地，在上面进一步修改
+			git add env.txt
+			git commit -m "add env"
+			git push origin dev	时不时地把dev分支push到远程
+			
+		多人协作的工作模式通常是这样：
+		  首先，可以试图用git push origin <branch-name>推送自己的修改；
+		  如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+		  如果合并有冲突，则解决冲突，并在本地提交；
+		  没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
+	如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to <branch-name> origin/<branch-name>。
+	git rebase
+
+**********************************************************
+
+	
+
+标签管理
+
+
+
+
+
+
+
+
+
+				
+
+git可视化工具
+
+
+
+
+
+
+sudo git mv example_your_name 陈新泰	修改名称
+
+
+
+
+
+
+
+
+
+
