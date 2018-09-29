@@ -1,4 +1,4 @@
-/****************************************
+/************************************************
 *hello world.cpp                     
 *
 *@author    lhz_demo 
@@ -6,8 +6,8 @@
 *@version   1.0.0 
 *@date      2018/9/24
 *
-*Abustract: π”√g++±‡“Îhello word.cpp 
-****************************************/ 
+*Abustract: Compile hello word.cpp by using g++ 
+***********************************************/ 
 
 #include<iostream>
 
