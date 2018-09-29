@@ -11,11 +11,13 @@ string, or a mirrored palindrome.
  
 # how to run:
 g++ judgePalindrome.cpp -o test
+
 ./test
 
 # the result if it is running well:
 Please input file name:
 (enter input.txt)
+
 NOTAPALINDROME -- is not a palindrome.
 
 ISAPALINILAPASI -- is a regular palindrome.
