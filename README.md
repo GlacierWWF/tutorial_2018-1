@@ -1,6 +1,6 @@
 # SYSU AERO-SWIFT 2018秋季考核
 
-**欢迎来到中大空中机器人队秋季考核任务。下面是一些关于考核和工程的相关说明。**
+**欢迎来到中大空中机器人队秋季考核任务。下面是一些关于考核和工程的相关说明。**  
 ![](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/logo.jpg)
 
 考核过程中，我们提供部分`Tutorial Wiki`，以帮助快速学习入门，详见：[队伍入门教程](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/wiki)    
@@ -13,7 +13,7 @@
 | [wiki](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/wiki)     | 队伍入门教程                     |
 | [docs/task.md](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/task.md)          | 秋季实战任务列表                   |
 | [task_submit/](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/master/task_submit)     | 用于提交任务结果的文件夹（注意，是在你的分支上提交）|
-| [docs/team_program_specification.md](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_code_style.md)|团队代码规范|
+| [docs/team_code_style.md](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_code_style.md)|团队代码规范|
 
 ## Issues 功能
 如有任何问题可以在Issues中发起讨论。    

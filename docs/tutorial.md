@@ -1,7 +1,7 @@
 # SYSU AERO-SWIFT 入门教程汇总
 
 ## 0. Ubuntu系统安装指南  
-电脑启动方式分为UEFI和BIOS两种方式，其中UEFI是近年来新电脑的主要启动方式，所以本教程针对的是UEFI启动方式的Windows和ubuntu 18.04双系统的安装教程.
+电脑启动方式分为UEFI和BIOS两种方式，其中UEFI是近年来新电脑的主要启动方式，所以本教程针对的是UEFI启动方式的Windows和Ubuntu 18.04双系统的安装教程.
 ### 0.1 UEFI启动方式的查看
 运行->输入msinfo32->系统信息->bios模式
 ![UEFI启动方式查看](https://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh=600,800/sign=bbcb4c9ee7c4b74534c1bf10ffcc322f/d0c8a786c9177f3ed69736ba7ccf3bc79e3d56e2.jpg)
@@ -58,6 +58,7 @@
 * 删除ubuntu时不会影响windows,直接在windows上面把之前给Ubuntu划分的区域，在磁盘管理里面全部格式化，就可以做到直接删除.(日后大家不避免的会遇到系统崩溃等问题，方便大家安装)
 * 安装`opencv`是在`/home`目录下安装的，留够充足的空间有利于安装过程不出现错误.
 * 这个系统分区一旦设置好了以后很难更改.所以推荐大家分配的空间越多越好.
+
 ## 1. Linux应用相关资料
 [鸟哥的Linux教程](http://linux.vbird.org/)  
 [Github的正确打开方式](https://github.com/baixing/FE-Blog/issues)  
@@ -97,7 +98,7 @@ git checkout 3.4.3
 另外，安装opencv遇到的一些问题，可参见：[opencv3常见问题合集](https://shimo.im/doc/p3gRFoLd7Z43lkXZ)
 
 ## 3. 团队推荐阅读资料
-- [团队代码规范(18版)](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_program_specification.md)
+- [团队代码规范(18版)](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/team_code_style.md)
 - [团队编程规范(17版)](https://shimo.im/doc/rfK9ome7WLEZ0xrA/)
 - [程序员的自我修养（1-4章，其余选读）](https://leohxj.gitbooks.io/a-programmer-prepares/content/) （可能需要翻墙阅读）
 
