@@ -1,7 +1,7 @@
 /***************************************** 
 *palindromes.cpp                     
 *
-*@author    luhz 
+*@author    lhz_demo 
 *@email     luhzh5@mail2.sysu.edu.cn 
 *@version   1.0.0 
 *@date      2018/9/26 
