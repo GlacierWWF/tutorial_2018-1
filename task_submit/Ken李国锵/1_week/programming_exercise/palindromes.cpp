@@ -29,9 +29,9 @@ int main ()
 				for (int i = 0; i < s.size() / 2 + 1; i++)
 				{
 						if (s[i] != s[s.size() - i - 1])
-								Mirror = false;
-						if (s[i] != R(s[s.size() - i - 1])) 
 								Palindrome = false;
+						if (s[i] != R(s[s.size() - i - 1])) 
+								Mirror = false;
 				}
 				//判断输出区
 				cout << s << " -- is ";
@@ -45,6 +45,7 @@ int main ()
 						cout << ans[0];
 				cout << endl;
 		}
+		return 0;
 }
 
 
