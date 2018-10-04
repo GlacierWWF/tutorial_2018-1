@@ -1,6 +1,7 @@
 //C++ bulid files
 *.[oa]
 *.exe
+build/
 
 //Visual Studio Code config files
 .vscode/
