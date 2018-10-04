@@ -1,4 +1,10 @@
 # Shell Exercises
+- **Auther** : yzstr朱浩男
+- **Revised** : yzstr朱浩男
+- **Version** : 1.0.0
+- **Date** : 2018-10-04
+- **Abstrace** : Shell Exercises
+
 ## Task 1
 ### Description
 - Pass two integers to the shell.
