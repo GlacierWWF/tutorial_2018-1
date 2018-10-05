@@ -5,3 +5,6 @@ build/
 
 //Visual Studio Code config files
 .vscode/
+
+//Input and output files
+*.dat
