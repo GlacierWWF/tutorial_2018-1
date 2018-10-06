@@ -3,7 +3,7 @@ CC = g++
 # 可执行文件
 TARGET = open
 # C文件
-SRCS = Timer.cpp
+SRCS = Timer_unifile.cpp
 # 目标文件
 OBJS = $(SRCS:.cpp=.o)
 # 库文件
