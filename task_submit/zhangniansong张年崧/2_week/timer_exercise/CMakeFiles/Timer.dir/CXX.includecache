@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/niansong/tutorial_2018/task_submit/zhangniansong张年崧/2_week/timer_exercise/src/Timer.cpp
+Timer.hpp
+/home/niansong/tutorial_2018/task_submit/zhangniansong张年崧/2_week/timer_exercise/src/Timer.hpp
+
+/home/niansong/tutorial_2018/task_submit/zhangniansong张年崧/2_week/timer_exercise/src/main.cpp
+thread
+-
+mutex
+-
+Timer.hpp
+/home/niansong/tutorial_2018/task_submit/zhangniansong张年崧/2_week/timer_exercise/src/Timer.hpp
+
+include/Timer.hpp
+iostream
+-
+sstream
+-
+string
+-
+chrono
+-
+opencv2/core/core.hpp
+-
+opencv2/imgproc/imgproc.hpp
+-
+opencv2/highgui/highgui.hpp
+-
+

@@ -1,0 +1,3 @@
+/home/niansong/tutorial_2018/task_submit/zhangniansong张年崧/2_week/timer_exercise/CMakeFiles/rebuild_cache.dir
+/home/niansong/tutorial_2018/task_submit/zhangniansong张年崧/2_week/timer_exercise/CMakeFiles/Timer.dir
+/home/niansong/tutorial_2018/task_submit/zhangniansong张年崧/2_week/timer_exercise/CMakeFiles/edit_cache.dir
