@@ -1,0 +1,13 @@
+#Makefile
+#-include <iostream>
+jishiqi: jishiqi.o jishiqi2.o
+
+jishiqi.o: jishiqi.c jishiqi.h 
+	cc -c jishiqi.c
+ 
+jishiqi2.o: jishiqi2.c jishiqi2.h
+	cc -c jishiqi2.c
+
+.PHONY:clean
+clean:
+	rm *.o jishiqi
