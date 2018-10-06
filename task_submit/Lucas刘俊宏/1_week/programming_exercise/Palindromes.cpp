@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstring>
 using namespace std;
+//将镜像数字和字母存起来
 const char rev[100]={'A','3','H','I','L','J','M','O','2','T','U','V','W','X','Y', '5','1','S','E','Z','8'};
 int main(int argc, const char * argv[])
 {
@@ -8,7 +9,7 @@ int main(int argc, const char * argv[])
     while(cin >> str)
     {
         int i = 0;
-        int p = 1,q = 1;
+        int p = 1,q = 1;//判断是否为回文和镜像的flag
         int len = (int)strlen(str);
         int count = 0;
         for(int j = 0;j < len;j++)
