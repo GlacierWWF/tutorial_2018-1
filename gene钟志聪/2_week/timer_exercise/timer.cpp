@@ -21,7 +21,7 @@ void Timer::open()
     closeFlag = false;
     endFlag = false;
     pauseFlag = false;
-    image = imread("/home/gene/welcome.jpg",1);
+    image = imread(path,1);
 #ifdef DEBUG
     cout << image;
 #endif
@@ -108,4 +108,4 @@ clock_t Timer::beg = 0;
 clock_t Timer::current = 0;
 Mat Timer::image;
 bool Timer::stopFlag = false;
-
+string Timer::path = "/home/gene/welcome.jpg";

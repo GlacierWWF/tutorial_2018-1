@@ -36,6 +36,7 @@
 ### test
     cd build
     ./Timer
+    可执行程序在build中
 
 ### the structure of the program
     Timer

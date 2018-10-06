@@ -27,5 +27,6 @@ private:
 	static clock_t beg;
 	static clock_t current;
 	static Mat image;
+	static string path;
 };
 
