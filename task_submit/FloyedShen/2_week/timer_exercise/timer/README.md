@@ -1,4 +1,4 @@
-###TIMER
+###  TIMER
 
 - **作者**：申国斌（Floyed_Shen）
 - **修订**：Floyed_Shen
@@ -14,12 +14,11 @@
     需要包括opencv2
     请使用兼容c++11标准的编译器
 
-- **编译提示**：
+### 编译提示:
     cmake .
     make
     bin/./TIMER_PRO
 
-- **测试程序**：
 ### How to run:
     cd bin
     ./TIMER_PRO
