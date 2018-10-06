@@ -21,4 +21,4 @@
 
 ----
 ## 窗口<br>
-![window](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/卢淮智/task_submit/lhz_demo/2_week/timer_exercise/finalpicture.png)
+![window](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/卢淮智/task_submit/lhz_demo/2_week/timer_exercise/finalpicture.png)
