@@ -1,3 +1,10 @@
+/*Title:IP.hpp
+*Author:Chen Ruijia
+*Revised:Chen Ruijia
+*Date:2018-10-04
+*Version:1.0.0
+*Abstract: A head file to describe IP class
+*/
 #pragma once
 #define TIMER_H
 #include<iostream> 
