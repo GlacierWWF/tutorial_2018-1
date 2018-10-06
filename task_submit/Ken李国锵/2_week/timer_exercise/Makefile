@@ -1,11 +1,11 @@
 
-Timer:Timer.o main.o visualise.o
-	g++ Timer.o main.o -o Timer
+timer:timer.o main.o visualise.o
+	g++ timer.o main.o visualise.o -o timer
 	
-Timer.o:Timer.cpp Timer.h
-	g++ -std=c++11 Timer.cpp 
+timer.o:timer.cpp timer.h
+	g++ -std=c++11 timer.cpp 
 	
-main.o:main.cpp Timer.h 
+main.o:main.cpp timer.h 
 	g++ -std=c++11 main.cpp 
 
 visualise.o:visualise.cpp 
