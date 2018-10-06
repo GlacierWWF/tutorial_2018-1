@@ -2,6 +2,7 @@
 - Author: 张浩轩
 - Date: 2018-09-28
 - Version: 1.0.0
+- Emial: 376456106@qq.com
 - Information: This is my Timer.cpp for second week.  
 
 ### How to complie?

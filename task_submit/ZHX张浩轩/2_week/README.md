@@ -2,7 +2,8 @@
 - Author: 张浩轩
 - Date: (last)2018-10-05
 - Version: 1.0.0
-- Information: I张浩轩的code
+- Emial: 376456106@qq.com
+- Information: 张浩轩的code  
 
 ### Notice:  
 - Notice: Pause and Resume are completed.
