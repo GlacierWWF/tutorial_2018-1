@@ -1,3 +1,16 @@
+/**************************************************
+*                                                 *
+*  @file     Address.hpp                          *
+*  @brief    Addresss structure header file       *
+*                                                 *
+*                                                 *
+*  @author   atlanswer                            *
+*  @email    atlanswer@gmail.com                  *
+*  @version  Beta-2                               *
+*  @date     2018-10-06                           *
+*                                                 *
+***************************************************/
+
 #include <cstdio>
 #include <cstdlib>
 #include <cstdint>

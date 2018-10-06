@@ -1,3 +1,16 @@
+/**************************************************
+*                                                 *
+*  @file     Timer.hpp                            *
+*  @brief    Timer class header file              *
+*                                                 *
+*                                                 *
+*  @author   atlanswer                            *
+*  @email    atlanswer@gmail.com                  *
+*  @version  Beta-2                               *
+*  @date     2018-10-06                           *
+*                                                 *
+***************************************************/
+
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>

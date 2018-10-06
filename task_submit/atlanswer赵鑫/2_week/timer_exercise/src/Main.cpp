@@ -1,3 +1,15 @@
+/**************************************************
+*                                                 *
+*  @file     Main.cpp                             *
+*  @brief    Main source file for test            *
+*                                                 *
+*                                                 *
+*  @author   atlanswer                            *
+*  @email    atlanswer@gmail.com                  *
+*  @version  Beta-2                               *
+*  @date     2018-10-06                           *
+*                                                 *
+***************************************************/
 
 #include "../inc/Timer.hpp"
 //! [includes]

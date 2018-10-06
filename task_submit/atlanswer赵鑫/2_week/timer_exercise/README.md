@@ -40,7 +40,7 @@ $ ./bin/Timer
 
 ![Screenshot](./res/Screenshot.png)
 
-#### Test enviorment
+#### Test environment
 
 * Arch Linux 4.18.12
 * Gnome 3.30.1

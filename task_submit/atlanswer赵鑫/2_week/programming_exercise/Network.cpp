@@ -1,3 +1,16 @@
+/**************************************************
+*                                                 *
+*  @file     Network.cpp                          *
+*  @brief    Network class source file            *
+*                                                 *
+*                                                 *
+*  @author   atlanswer                            *
+*  @email    atlanswer@gmail.com                  *
+*  @version  Beta-2                               *
+*  @date     2018-10-06                           *
+*                                                 *
+***************************************************/
+
 #include "Network.hpp"
 
 Network::Network(FILE* input) {

@@ -1,3 +1,16 @@
+/**************************************************
+*                                                 *
+*  @file     Network.hpp                          *
+*  @brief    Network class header file            *
+*                                                 *
+*                                                 *
+*  @author   atlanswer                            *
+*  @email    atlanswer@gmail.com                  *
+*  @version  Beta-2                               *
+*  @date     2018-10-06                           *
+*                                                 *
+***************************************************/
+
 #include <cstdio>
 #include <fstream>
 #include "Address.hpp"

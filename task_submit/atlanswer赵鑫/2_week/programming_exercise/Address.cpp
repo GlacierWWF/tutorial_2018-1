@@ -1,3 +1,16 @@
+/**************************************************
+*                                                 *
+*  @file     Address.cpp                          *
+*  @brief    Addresss structure source file       *
+*                                                 *
+*                                                 *
+*  @author   atlanswer                            *
+*  @email    atlanswer@gmail.com                  *
+*  @version  Beta-2                               *
+*  @date     2018-10-06                           *
+*                                                 *
+***************************************************/
+
 #include "Address.hpp"
 
 void Address::init(FILE* ipAddresses) {

@@ -1,8 +1,8 @@
 /**
  * @file IPNetwork.cpp
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
+ * @author atlanswer (atlanswer@gmail.com)
+ * @brief IPNetwork test source file
+ * @version Beta-1
  * @date 2018-10-04
  * 
  * @copyright Copyright (c) 2018
