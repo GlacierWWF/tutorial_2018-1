@@ -1,0 +1,9 @@
+redame.md
+jishiqi.text 
+jishiqi.o  jishiqi2.o
+jishiqi.o: jishiqi.c jishiqi.h
+jishiqi2.o: jishiqi2.c jishiqi2.h
+jishiqi.c:主要实现timer的开始、继续、暂停、结束等功能。
+          用long pause/stop分割出了四个状态，用viod实现了五个分支，分别为starttiming、pause、stoptiming、resume、show，用true、fault实现计时器状态的调控，还包含对光标的定位和隐含等函数。
+jishiqi.h:是jishiqi.c的头文件，包含各种timer运行需要使用的头文件，本身也有对各种函数的定义。
+jishiqi2.c:用opencv实现对图片的打开，和关闭，有两个void分支，简单的opencv代码。jishiqi2.h:定义了open（）和quit（），也包含实现图片打开和关闭的头文件。
