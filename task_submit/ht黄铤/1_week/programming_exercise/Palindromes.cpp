@@ -2,8 +2,9 @@
 #include<string.h>
 using namespace std;
 
-int flagp=1,flagm;
+int flagp=1,flagm;//flagp记录是否为回文，flagm记录是否为镜像文
 
+//回文判断函数
 void pal(char ch[])
 {
 	int l=strlen(ch);
@@ -14,6 +15,7 @@ void pal(char ch[])
 	}
 }
 
+//镜像文判断函数
 void mir(char ch[])
 {
 	int l=strlen(ch);
