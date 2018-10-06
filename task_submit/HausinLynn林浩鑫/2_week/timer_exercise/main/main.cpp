@@ -94,7 +94,7 @@ int main(int argc, char** argv) {
 	cout << "\t\t" << "quit"   << "\t-----\t" << "quit program"    << endl;
 	
 	/* create timer object */
-	Timer myTimer("./images/sysu.jpg");
+	Timer myTimer("../images/sysu.jpg");
 	myTimer.open();
 
 	/* user's request */
