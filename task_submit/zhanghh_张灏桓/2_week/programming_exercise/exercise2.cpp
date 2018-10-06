@@ -1,3 +1,10 @@
+//Author:zhanghaohuan
+//Revised:zhanghaohuan
+//Date:2018_10_6
+//Version:v1.0.0
+//Abstract:Programing exercise week2 - IP Networks
+
+
 #include <iostream>
 #include <cstdio>
 using namespace std;
