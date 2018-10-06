@@ -1,0 +1,3 @@
+/home/gene/tutorial_2018/gene钟志聪/2_week/timer_exercise/build/CMakeFiles/rebuild_cache.dir
+/home/gene/tutorial_2018/gene钟志聪/2_week/timer_exercise/build/CMakeFiles/Timer.dir
+/home/gene/tutorial_2018/gene钟志聪/2_week/timer_exercise/build/CMakeFiles/edit_cache.dir
