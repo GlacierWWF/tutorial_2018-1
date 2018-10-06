@@ -1,13 +1,8 @@
-PROJECT(Timer)
-SET (CMAKE_CXX_STANDARD 11)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6) 
-FIND_PACKAGE( OpenCV REQUIRED )
-INCLUDE_DIRECTORIES( ${OpenCV_INCLUDE_DIRS} )
-AUX_SOURCE_DIRECTORY(src DIR_SRCS)
-MESSAGE(STATUS "Src file: ${DIR_SRCS}")
-ADD_EXECUTABLE(${PROJECT_NAME} ${DIR_SRCS})
-TARGET_LINK_LIBRARIES( Timer ${OpenCV_LIBS} )
-
-
-
-
+cmake_minimum_required(VERSION 2.8)
+project( Timer )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+add_executable( Timer main.cpp timer.hpp timer.cpp)
+find_package(Threads)
+target_link_libraries (${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries( Timer ${OpenCV_LIBS} )
