@@ -1,0 +1,18 @@
+## Title Here: Readme Timer
+- Author: Lucas刘俊宏
+- Revised: Lucas刘俊宏
+- Date: 2018-10-6
+- Version: 1.0.0
+- Abstract: 头文件在同一个文件夹下却无法引用
+### Functions: 
+	实现计时器功能，有三个按键，分别是start，stop，close
+### Interfaces:
+	/// Initialize the module
+	static bool main::init();
+	/// Quit the module
+	static void main::quit();
+### Depend Libraries:
+	opencv3.4.3
+# how to run
+cd bin
+./main.o

@@ -1,0 +1,10 @@
+PROJECT(testShowsky) 
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+
+FIND_PACKAGE( OpenCV REQUIRED )
+
+ADD_EXECUTABLE(testShowsky  main.cpp) 
+
+TARGET_LINK_LIBRARIES(testShowsky ${OpenCV_LIBS})
+
