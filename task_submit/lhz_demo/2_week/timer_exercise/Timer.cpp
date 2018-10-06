@@ -9,7 +9,7 @@
 *Abustract: Implements the header file's functions
 			and the main program
 ***************************************************/ 
-#include "Timer.h"
+#include "Timer.hpp"
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/core/core.hpp>

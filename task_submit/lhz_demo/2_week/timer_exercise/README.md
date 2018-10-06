@@ -20,3 +20,5 @@
 在运行截图可以看到3这个数据重复了，是由于`pause`和`resume`的间隔比较短，显示过程中略去后面的，所有导致两个3的出现，不影响程序的可用性
 
 ----
+## 窗口<br>
+![window](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/卢淮智/task_submit/lhz_demo/2_week/timer_exercise/finalpicture.png)
