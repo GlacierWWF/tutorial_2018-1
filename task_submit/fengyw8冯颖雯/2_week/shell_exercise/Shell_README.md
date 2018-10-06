@@ -21,7 +21,7 @@ echo "a/b= `expr $a / $b`"
 ```
 **如何运行**：
 - 终端切换到shell1.sh文件所在目录
-- 输入 `bash chmod +x shell1.sh` （给予shell1.sh执行的权限） 
+- 输入 `chmod +x shell1.sh` （给予shell1.sh执行的权限） 
 - 输入 `./shell1.sh` （执行该文件）
 - 终端输出提示字符后输入两个非零整数（这里用10 20）（用空格隔开）
 
@@ -61,9 +61,9 @@ chmod -R o=--- ./test
   sudo cd /tem/scripts
   sudo cp -r /etc/pam.d ./test
 ```
-- 获取简略的用户列表，终端输入 `bash cat /etc/passwd|grep -v nologin|grep -v halt|grep -v shutdown|awk -F":" '{ print $1"|"$3"|"$4 }'|more `
-- 输入 `bash chown -R your_user_name ./test` (将your_user_name替换成其中上一命令结果中的一个用户名)
-- 输入`bash chmod -R o=--- ./test`
+- 获取简略的用户列表，终端输入 `cat /etc/passwd|grep -v nologin|grep -v halt|grep -v shutdown|awk -F":" '{ print $1"|"$3"|"$4 }'|more `
+- 输入 `chown -R your_user_name ./test` (将your_user_name替换成其中上一命令结果中的一个用户名)
+- 输入`chmod -R o=--- ./test`
 
 **输出示例**：
 ```bash
