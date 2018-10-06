@@ -20,7 +20,7 @@ make
 ```
 ### Run
 ```
-➜  programming_exercise git:(aero_task) ✗ ./main
+➜  programming_exercise git:(aero_task) ✗ ./Timer
 ```
 
 ## TODO
