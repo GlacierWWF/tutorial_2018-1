@@ -169,7 +169,7 @@ Project根据具体要求，需要提交工程代码或者技术报告。
 - 学习单片机的原理与应用。
     - 建议没有单片机基础的同学学习Arduino，比较容易入门。
     - 参考资源：[Arduino中文社区](https://www.arduino.cn/)、[STM32官方参考手册和数据手册](https://www.stmcu.com.cn/Designresource/design_list/cat_code/document/pro_cat/STM32/is_first/1)、[正点原子的《STM32开发指南》电子书](http://www.stmcu.org/module/forum/forum.php?mod=viewthread&tid=615919)、bilibili上的入门教程。
-- 学习 Arduino / STM32 基础编程，安装 Arduino IDE / Keil5。
+- 学习 Arduino / STM32 基础编程，安装 Arduino IDE / Keil5。（可在Windows上玩）
 - 掌握单片机系统架构，学习GPIO、中断、定时器、PWM、串口通信、ADC、I2C通信、SPI通信的原理与应用。（如果对单片机还不熟悉，推荐按照这个顺序学习。）
 - 学习使用外设，如LED灯、按键、数码管、激光发射器、激光接收器、MPU6050六轴传感器等。
 - 学习STM32单片机的需要了解标准库。

@@ -157,7 +157,7 @@ mv task_submit/example_your_name task_submit/your_name #改成你自己的名字
 
 ## 项目考核 - 第四至七周（10.14-11.9）
 
-[[ 项目考核题目 ](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/projects.md)]
+[[ 项目考核题目 ](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/master/docs/exercises/projects.md)]  
 你有多个可选方向进行，每个方向的要求请参考具体的文件。  
 你可以选择：编程技术方向、图像处理方向、性能优化方向、嵌入式与控制方向、导航与编队方向。  
 你只能选择一个方向进行专攻，每个方向都是没有上限的。有发挥部分可供选做，甚至可以自己再发挥。  
