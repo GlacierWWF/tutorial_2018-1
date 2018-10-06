@@ -1,3 +1,10 @@
+/*Title:IP.hpp
+*Author:Chen Ruijia
+*Revised:Chen Ruijia
+*Date:2018-10-04
+*Version:1.0.0
+*Abstract: A main.cpp file to finish a timer.
+*/
 #include<iostream>
 #include<cstdio>
 #include<cstring>
