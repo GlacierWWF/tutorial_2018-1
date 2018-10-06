@@ -1,3 +1,20 @@
+/*****************************************************************
+ * @file	Timer.hpp
+ * @brief	This file define class Timer.
+ * Details.
+ *
+ * @Author	Lomgahong
+ * @email	1073097404@qq.com
+ * @version	1.0.1
+ * ---------------------------------------------------------------
+ * Change History:
+ *    <Date>  |<Version>|<Author> |<Description>
+ * 2018/10/07 |  1.0.1  |Lomgahong|Create file
+ *---------------------------------------------------------------
+ *
+ * **************************************************************/
+
+
 #pragma once
 #include<iostream>
 #include<string>
