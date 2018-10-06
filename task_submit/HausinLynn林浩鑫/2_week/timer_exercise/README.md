@@ -71,5 +71,6 @@ quit
 [INFO] Program existed.
 ```
 
-window
+window:
+
 ![window](images/output1.png)
