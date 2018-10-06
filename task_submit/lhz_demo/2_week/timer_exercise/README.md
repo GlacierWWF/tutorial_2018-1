@@ -9,11 +9,11 @@
 ************************************
 
 ## How to run the program<br>
-        1.open the terminal in folder<br>
-        2.input>>><br>
-                    make<br>
-        3.input>>><br>
-                    ./Timer<br>
+        1.open the terminal in folder
+        2.input>>>
+                    make
+        3.input>>>
+                    ./Timer
 ----
 
 ## 分析<br>
