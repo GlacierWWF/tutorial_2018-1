@@ -8,10 +8,11 @@ void solve(int m,string *k)
 	string binary[m];
 	for(int i=0;i<m;i++)
 	{
+		
 		int pos = 0;
 		int dot_num = 1;
-		int size;
-		string temp =k[m];
+		//int size;
+		string temp =k[i];
 		string sub1,sub2,sub3,sub4;
 		int num1,num2,num3,num4;
 		int p[5];//p[1],p[2],p[3]
@@ -48,9 +49,10 @@ void solve(int m,string *k)
 		change2 =set2.to_string();
 		change3 =set3.to_string();
 		change4 =set4.to_string();
-		binary[m] = change1+change2+change3+change4;
-			
+		binary[i] = change1+change2+change3+change4;
+		//cout<<binary[m]
 	}
+			//ok
 	string standard = binary[0];
 	int wangluo_bit;
 	for(int i=0;i<32;i++)
@@ -66,7 +68,7 @@ void solve(int m,string *k)
 		}
 		if(j!=m)
 		{
-			wangluo_bit = j+1;//网络号位数
+			wangluo_bit = i;//网络号位数 第i位不同，i-1位相同
 			break;
 		}
 	}
@@ -87,12 +89,12 @@ void solve(int m,string *k)
 	for(int i=0;i<4;i++)
 	{
 		
-		wl[i] = wangluo_addr[i*8]+wangluo_addr[i*8+1]*2+wangluo_addr[i*8+2]*4+wangluo_addr[i*8+3]*8+wangluo_addr[i*8+4]*16+wangluo_addr[i*8+5]*32+wangluo_addr[i*8+6]*64+wangluo_addr[i*8+7]*128;
+		wl[i] = wangluo_addr[i*8]*128+wangluo_addr[i*8+1]*64+wangluo_addr[i*8+2]*32+wangluo_addr[i*8+3]*16+wangluo_addr[i*8+4]*8+wangluo_addr[i*8+5]*4+wangluo_addr[i*8+6]*2+wangluo_addr[i*8+7];
 	}
 	for(int i=0;i<4;i++)
 	{
 		
-		mask[i] = ziwang_mask[i*8]+ziwang_mask[i*8+1]*2+ziwang_mask[i*8+2]*4+ziwang_mask[i*8+3]*8+ziwang_mask[i*8+4]*16+ziwang_mask[i*8+5]*32+ziwang_mask[i*8+6]*64+ziwang_mask[i*8+7]*128;
+		mask[i] = ziwang_mask[i*8]*128+ziwang_mask[i*8+1]*64+ziwang_mask[i*8+2]*32+ziwang_mask[i*8+3]*16+ziwang_mask[i*8+4]*8+ziwang_mask[i*8+5]*4+ziwang_mask[i*8+6]*2+ziwang_mask[i*8+7];
 	}
 	cout<<wl[0]<<"."<<wl[1]<<"."<<wl[2]<<"."<<wl[3]<<endl;
 	cout<<mask[0]<<"."<<mask[1]<<"."<<mask[2]<<"."<<mask[3]<<endl;
@@ -103,15 +105,14 @@ int main()
 {
 	int m;
 	string k[1000];
+	string temp;
 	cin>>m;
+	//string k[m];
 	int po =0;
-	while(po<=m)
+	for(int i=0;i<m;i++)
 	{
-		cin>>k[po];
-		po++;
+		cin>>k[i];
+	//	k[i] =temp;
 	}
 	solve(m,k);
-	
-	
-	
 }
