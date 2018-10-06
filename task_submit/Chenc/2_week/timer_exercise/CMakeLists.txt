@@ -1,0 +1,6 @@
+project( TimerProject ) 
+INCLUDE_DIRECTORIES(Timer.h)
+AUX_SOURCE_DIRECTORY(main.cpp) 
+find_package( OpenCV REQUIRED )  
+add_executable( $(TimerProject) $(main.cpp) )  
+target_link_libraries( $(TimerProject) ${OpenCV_LIBS} )
