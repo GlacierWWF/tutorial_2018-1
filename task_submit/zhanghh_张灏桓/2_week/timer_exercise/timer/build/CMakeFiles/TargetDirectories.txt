@@ -1,0 +1,3 @@
+/home/zhh/桌面/timer/build/CMakeFiles/rebuild_cache.dir
+/home/zhh/桌面/timer/build/CMakeFiles/timer.dir
+/home/zhh/桌面/timer/build/CMakeFiles/edit_cache.dir
