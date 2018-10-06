@@ -35,7 +35,7 @@ A list of all valid characters and their reverses is as follows.
 |K	| 	|W	|W	|9	| |  
 |L	|J	|X	|X	| 	| |  
 
-Note that O (zero) and 0 (the letter) are considered the same character and therefore ONLY the letter "0" is a valid character.  
+Note that 0 (zero) and O (the letter) are considered the same character and therefore ONLY the letter "0" is a valid character.  
 
 ### Input
 Input consists of strings (one per line) each of which will consist of one to twenty valid characters. There will be no invalid characters in any of the strings. Your program should read to the end of file.  
