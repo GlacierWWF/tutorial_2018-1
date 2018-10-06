@@ -5,11 +5,11 @@
 - Information: I have read the answer, and understand the meaning about some shell code.  
 
 ### Notice:  
-one.sh for task one  
-two.sh for task two and so on.  
-In terminal, we should first inpur:  
-chmod +x ./one.sh  
-chmod +x ./two.sh  
-chmod +x ./three.sh
+	one.sh for task one  
+	two.sh for task two and so on.  
+	In terminal, we should first input:  
+	chmod +x ./one.sh  
+	chmod +x ./two.sh  
+	chmod +x ./three.sh
 
 

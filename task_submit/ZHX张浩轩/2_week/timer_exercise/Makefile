@@ -6,4 +6,4 @@ Timer.o: Timer.cpp Timer.h
 	g++ -c Timer.cpp -lpthread -o Timer.o `pkg-config --cflags --libs opencv`
 
 clean:
-	rm task.out main.o Timer.o
+	rm main.o Timer.o

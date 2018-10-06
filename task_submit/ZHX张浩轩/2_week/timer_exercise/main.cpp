@@ -7,7 +7,7 @@ void choice()
 {
     Timer task;
     string choose;
-    cout << "[INFO]Welcome!" << endl;
+    cout << "[INFO]Welcome! Please input start to start." << endl;
     while(true)
     {
         cin >> choose;
