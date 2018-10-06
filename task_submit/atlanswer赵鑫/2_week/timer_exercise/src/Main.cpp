@@ -1,4 +1,4 @@
-//! [includes]
+
 #include "../inc/Timer.hpp"
 //! [includes]
 
