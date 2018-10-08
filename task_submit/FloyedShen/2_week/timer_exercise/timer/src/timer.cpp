@@ -6,7 +6,7 @@
  * @version	1.0.0.0
  * @date	2018/10/4
  */
-#include "timer.h"
+#include "../inc/timer.h"
 #include <opencv2/opencv.hpp>
 #include <thread>
 #include <chrono>
