@@ -172,7 +172,7 @@ Project根据具体要求，需要提交工程代码或者技术报告。
     - 参考资源：[Arduino中文社区](https://www.arduino.cn/)、[STM32官方参考手册和数据手册](https://www.stmcu.com.cn/Designresource/design_list/cat_code/document/pro_cat/STM32/is_first/1)、[正点原子的《STM32开发指南》电子书](http://www.stmcu.org/module/forum/forum.php?mod=viewthread&tid=615919)、bilibili上的入门教程。
 - 学习 Arduino / STM32 基础编程，安装 Arduino IDE / Keil5。（可在Windows上玩）
 - 掌握单片机系统架构，学习GPIO、中断、定时器、PWM、串口通信、ADC、I2C通信、SPI通信的原理与应用。（如果对单片机还不熟悉，推荐按照这个顺序学习。）
-- 学习使用外设，如LED灯、按键、数码管、激光发射器、激光接收器、MPU6050六轴传感器等。
+- 学习使用外设，如LED灯、按键、数码管、激光发射器、激光接收器、MPU6050六轴传感器等。学会查阅芯片数据手册。
 - 学习STM32单片机的需要了解标准库。
 - 了解四元数和欧拉角，阅读[《Quadrotor Dynamics and Control》](http://scholarsarchive.byu.edu/cgi/viewcontent.cgi?article=2324&context=facpub&sei-redir=1&referer=http%3A%2F%2Fcn.bing.com%2Fsearch%3Fq%3Dquadrotor%2Bdynamics%2Band%2Bcontrol%26qs%3DAS%26pq%3Dquadrotor%2Bdynamics%2Band%2Bc%26sc%3D2-24%26cvid%3D87AAD3B1893942708BA5918528A944E3%26FORM%3DQBRE%26sp%3D1#search=%22quadrotor%20dynamics%20control%22) 论文第一章。
 - 阅读[libserial文档](https://github.com/crayzeewulf/libserial)，学习如何使用串口库读取串口传感器的数据。
@@ -215,7 +215,7 @@ Project根据具体要求，需要提交工程代码或者技术报告。
         - 4、治疗激光最多只能接收四次，超过次数不加生命值。
     - （4）（发挥部分）每架飞机只能对人治疗一次。因此需要在治疗激光发射的信号中加入通信协议（可参考红外通信协议），使激光能发射出四种载波频率相同但携带信息不同的信号，能够被接收装置识别。如治疗光线带有第一架飞机的信息，接收装置接收到后能知道是第一架飞机发射过来的。
 
-- 3、用自己的话归纳总结串口通信、I2C通信、SPI通信、红外通信的原理与应用，写在一份技术报告中。
+- 3、用自己的话归纳总结串口通信、I2C通信、SPI通信、红外通信的原理与应用，写在一份技术报告中，字数一千字左右。角度可以包括从芯片数据手册、时序图、程序代码、实际工程测试等分析。  
 
 - 4、通过查找文献的方式认识和改进基本的PID算法（如位置式PID、增量式PID、串级PID等），并阐述PID如何运用到四轴飞行器的控制上。撰写一份技术报告。如有余力，请实现PID改进算法，在 MATLAB/Python 平台上仿真，一并写在报告中。
 
