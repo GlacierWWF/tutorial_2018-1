@@ -65,9 +65,14 @@ void Timer::startTiming() {
                 lk.unlock();
                 break;
             }
-            case sStop: {
+            case sQuit: {
                 cout << "[info] Quitting.\n";
                 destroyWindow(wlcWinName);
+                return;
+            }
+            case sStop: {
+                cout << "[info] Stopping.\n";
+                imshow(wlcWinName, wlcImg);
                 return;
             }
         }
@@ -87,10 +92,16 @@ void Timer::resume() {
     return;
 }
 
+void Timer::stopTiming() {
+    action = sStop;
+    cvar.notify_one();
+    return;
+}
+
 void Timer::close() {
     action = sContinue;
     cvar.notify_one();
-    action = sStop;
+    action = sQuit;
     this_thread::sleep_for(2s);
     return;
 }

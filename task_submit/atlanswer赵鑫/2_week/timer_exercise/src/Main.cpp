@@ -23,6 +23,7 @@ int main(int argc, char** argv) {
 
     cout << "[info] Initialization completed, waiting for command:\n"
          << "start - start timing\n"
+         << "stop - stop timing.\n"
          << "pause - pause timing\n"
          << "resume - resume timing\n"
          << "quit - quit the timer\n";
@@ -41,6 +42,8 @@ int main(int argc, char** argv) {
             } else if (command == "resume") {
                 thread tWindowResume(bind(&Timer::resume, &timer));
                 tWindowResume.join();
+            } else if (command == "stop") {
+                timer.stopTiming();
             } else if (command == "quit") {
                 thread tWindowClose(bind(&Timer::close, &timer));
                 tWindowClose.join();

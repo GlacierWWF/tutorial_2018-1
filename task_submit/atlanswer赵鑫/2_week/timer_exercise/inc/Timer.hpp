@@ -21,6 +21,7 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
+#include <functional>
 
 using namespace cv;
 using namespace std;
@@ -28,7 +29,7 @@ using decisecond = chrono::duration<float, ratio<1>>;
 
 extern decisecond timeDelta;
 extern bool doNotTiming;
-enum status{sPause, sContinue, sStop};
+enum status{sPause, sContinue, sStop, sQuit};
 extern mutex mut;
 extern condition_variable cvar;
 
