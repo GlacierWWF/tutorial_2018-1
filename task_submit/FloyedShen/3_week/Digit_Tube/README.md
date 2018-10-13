@@ -38,12 +38,12 @@ How to run:
     1 :两张图片
 
     然后直接输入图片名称
-    (图片路径已经定义到 [输入图片](input) ,并忽略文件扩展名,默认为*.jpg)
-    显示结果如 [输出结果](/output) 所示
+    (图片路径已经定义到 [输入图片](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/申国斌/task_submit/FloyedShen/3_week/Digit_Tube/input) ,并忽略文件扩展名,默认为*.jpg)
+    显示结果如 [输出结果](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/申国斌/task_submit/FloyedShen/3_week/Digit_Tube/output) 所示
 
 test result:
 ---------------
-    [输出结果](./output)
+    [输出结果](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/申国斌/task_submit/FloyedShen/3_week/Digit_Tube/output)
     注:s1 means sim_sample1.jpg
        a1 means act_sample1.jpg
        h1_1 means hard_sample1_1.jpg
