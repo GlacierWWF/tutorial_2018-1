@@ -48,10 +48,10 @@ RM = /usr/local/Cellar/cmake/3.12.3/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/2_week/timer_exercise/timer
+CMAKE_SOURCE_DIR = /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/2_week/timer_exercise/timer
+CMAKE_BINARY_DIR = /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/2_week/timer_exercise/timer/CMakeFiles /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/2_week/timer_exercise/timer/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/2_week/timer_exercise/timer/CMakeFiles 0
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(CMAKE_COMMAND) -E cmake_progress_start /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube/CMakeFiles /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube/src/CMakeFiles/progress.marks
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,71 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named TIMER_PRO
+# Convenience name for target.
+src/CMakeFiles/Digit_Tube.dir/rule:
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/Digit_Tube.dir/rule
+.PHONY : src/CMakeFiles/Digit_Tube.dir/rule
 
-# Build rule for target.
-TIMER_PRO: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TIMER_PRO
-.PHONY : TIMER_PRO
+# Convenience name for target.
+Digit_Tube: src/CMakeFiles/Digit_Tube.dir/rule
 
-# fast build rule for target.
-TIMER_PRO/fast:
-	$(MAKE) -f CMakeFiles/TIMER_PRO.dir/build.make CMakeFiles/TIMER_PRO.dir/build
-.PHONY : TIMER_PRO/fast
-
-#=============================================================================
-# Target rules for targets named timer
-
-# Build rule for target.
-timer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 timer
-.PHONY : timer
+.PHONY : Digit_Tube
 
 # fast build rule for target.
-timer/fast:
-	$(MAKE) -f src/CMakeFiles/timer.dir/build.make src/CMakeFiles/timer.dir/build
-.PHONY : timer/fast
+Digit_Tube/fast:
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(MAKE) -f src/CMakeFiles/Digit_Tube.dir/build.make src/CMakeFiles/Digit_Tube.dir/build
+.PHONY : Digit_Tube/fast
 
-test.o: test.cpp.o
+Digit_Tube.o: Digit_Tube.cpp.o
 
-.PHONY : test.o
+.PHONY : Digit_Tube.o
 
 # target to build an object file
-test.cpp.o:
-	$(MAKE) -f CMakeFiles/TIMER_PRO.dir/build.make CMakeFiles/TIMER_PRO.dir/test.cpp.o
-.PHONY : test.cpp.o
+Digit_Tube.cpp.o:
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(MAKE) -f src/CMakeFiles/Digit_Tube.dir/build.make src/CMakeFiles/Digit_Tube.dir/Digit_Tube.cpp.o
+.PHONY : Digit_Tube.cpp.o
 
-test.i: test.cpp.i
+Digit_Tube.i: Digit_Tube.cpp.i
 
-.PHONY : test.i
+.PHONY : Digit_Tube.i
 
 # target to preprocess a source file
-test.cpp.i:
-	$(MAKE) -f CMakeFiles/TIMER_PRO.dir/build.make CMakeFiles/TIMER_PRO.dir/test.cpp.i
-.PHONY : test.cpp.i
+Digit_Tube.cpp.i:
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(MAKE) -f src/CMakeFiles/Digit_Tube.dir/build.make src/CMakeFiles/Digit_Tube.dir/Digit_Tube.cpp.i
+.PHONY : Digit_Tube.cpp.i
 
-test.s: test.cpp.s
+Digit_Tube.s: Digit_Tube.cpp.s
 
-.PHONY : test.s
+.PHONY : Digit_Tube.s
 
 # target to generate assembly for a file
-test.cpp.s:
-	$(MAKE) -f CMakeFiles/TIMER_PRO.dir/build.make CMakeFiles/TIMER_PRO.dir/test.cpp.s
-.PHONY : test.cpp.s
+Digit_Tube.cpp.s:
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(MAKE) -f src/CMakeFiles/Digit_Tube.dir/build.make src/CMakeFiles/Digit_Tube.dir/Digit_Tube.cpp.s
+.PHONY : Digit_Tube.cpp.s
 
 # Help Target
 help:
@@ -171,11 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... TIMER_PRO"
-	@echo "... timer"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
+	@echo "... Digit_Tube"
+	@echo "... Digit_Tube.o"
+	@echo "... Digit_Tube.i"
+	@echo "... Digit_Tube.s"
 .PHONY : help
 
 
@@ -187,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

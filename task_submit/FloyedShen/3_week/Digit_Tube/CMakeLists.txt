@@ -1,11 +1,11 @@
 #设置工程名称
-PROJECT(TIMER_PRO_PRO)
+PROJECT(Digit_Tube)
 
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 #自己定制
-SET(MY_TARGET TIMER_PRO)
-SET(MY_LINK timer)
+SET(MY_TARGET Digit_Tube_PRO)
+SET(MY_LINK Digit_Tube)
 
 
 #设置CMAKE最小版本
@@ -38,4 +38,4 @@ SET(EXTRA_LIBS ${EXTRA_LIBS} ${MY_LINK})
 ADD_EXECUTABLE(${MY_TARGET} ${SRC_LIST})
 #执行文件链接属性
 TARGET_LINK_LIBRARIES(${MY_TARGET} ${EXTRA_LIBS})
-target_link_libraries(TIMER_PRO ${OpenCV_LIBS})
+target_link_libraries(Digit_Tube_PRO ${OpenCV_LIBS})

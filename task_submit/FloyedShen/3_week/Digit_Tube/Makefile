@@ -48,10 +48,10 @@ RM = /usr/local/Cellar/cmake/3.12.3/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/2_week/timer_exercise/timer
+CMAKE_SOURCE_DIR = /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/2_week/timer_exercise/timer
+CMAKE_BINARY_DIR = /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/2_week/timer_exercise/timer/CMakeFiles /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/2_week/timer_exercise/timer/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube/CMakeFiles /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/2_week/timer_exercise/timer/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/stranger/Documents/GitHub/tutorial_2018/task_submit/FloyedShen/3_week/Digit_Tube/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,30 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named TIMER_PRO
+# Target rules for targets named Digit_Tube_PRO
 
 # Build rule for target.
-TIMER_PRO: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TIMER_PRO
-.PHONY : TIMER_PRO
+Digit_Tube_PRO: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Digit_Tube_PRO
+.PHONY : Digit_Tube_PRO
 
 # fast build rule for target.
-TIMER_PRO/fast:
-	$(MAKE) -f CMakeFiles/TIMER_PRO.dir/build.make CMakeFiles/TIMER_PRO.dir/build
-.PHONY : TIMER_PRO/fast
+Digit_Tube_PRO/fast:
+	$(MAKE) -f CMakeFiles/Digit_Tube_PRO.dir/build.make CMakeFiles/Digit_Tube_PRO.dir/build
+.PHONY : Digit_Tube_PRO/fast
 
 #=============================================================================
-# Target rules for targets named timer
+# Target rules for targets named Digit_Tube
 
 # Build rule for target.
-timer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 timer
-.PHONY : timer
+Digit_Tube: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Digit_Tube
+.PHONY : Digit_Tube
 
 # fast build rule for target.
-timer/fast:
-	$(MAKE) -f src/CMakeFiles/timer.dir/build.make src/CMakeFiles/timer.dir/build
-.PHONY : timer/fast
+Digit_Tube/fast:
+	$(MAKE) -f src/CMakeFiles/Digit_Tube.dir/build.make src/CMakeFiles/Digit_Tube.dir/build
+.PHONY : Digit_Tube/fast
 
 test.o: test.cpp.o
 
@@ -142,7 +142,7 @@ test.o: test.cpp.o
 
 # target to build an object file
 test.cpp.o:
-	$(MAKE) -f CMakeFiles/TIMER_PRO.dir/build.make CMakeFiles/TIMER_PRO.dir/test.cpp.o
+	$(MAKE) -f CMakeFiles/Digit_Tube_PRO.dir/build.make CMakeFiles/Digit_Tube_PRO.dir/test.cpp.o
 .PHONY : test.cpp.o
 
 test.i: test.cpp.i
@@ -151,7 +151,7 @@ test.i: test.cpp.i
 
 # target to preprocess a source file
 test.cpp.i:
-	$(MAKE) -f CMakeFiles/TIMER_PRO.dir/build.make CMakeFiles/TIMER_PRO.dir/test.cpp.i
+	$(MAKE) -f CMakeFiles/Digit_Tube_PRO.dir/build.make CMakeFiles/Digit_Tube_PRO.dir/test.cpp.i
 .PHONY : test.cpp.i
 
 test.s: test.cpp.s
@@ -160,7 +160,7 @@ test.s: test.cpp.s
 
 # target to generate assembly for a file
 test.cpp.s:
-	$(MAKE) -f CMakeFiles/TIMER_PRO.dir/build.make CMakeFiles/TIMER_PRO.dir/test.cpp.s
+	$(MAKE) -f CMakeFiles/Digit_Tube_PRO.dir/build.make CMakeFiles/Digit_Tube_PRO.dir/test.cpp.s
 .PHONY : test.cpp.s
 
 # Help Target
@@ -171,8 +171,8 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... TIMER_PRO"
-	@echo "... timer"
+	@echo "... Digit_Tube_PRO"
+	@echo "... Digit_Tube"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"
