@@ -13,6 +13,12 @@
 #include <vector>
 #include <algorithm>
 #include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/objdetect/objdetect.hpp>
+#include <opencv2/imgproc/types_c.h>
+#include <opencv2/objdetect/objdetect_c.h>
 #include "../inc/Digit_Tube.h"
 bool cmp_area(cv::Rect x,cv::Rect y){
     return x.area()>y.area();
@@ -270,7 +276,7 @@ void Digit_Tube::img_divide(){
         //cv::drawContours(drawing,contours_poly,i,color,1,8,std::vector<cv::Vec4i>(),0,cv::Point());
         cv::rectangle(drawing,rect[i].tl(),rect[i].br(),color,2,8,0);
         //cv::circle(drawing,center[i],(int)radius[i],color,2,8,0);
-        cv::namedWindow("DIVIDE_RES",CV_WINDOW_AUTOSIZE);
+        cv::namedWindow("DIVIDE_RES",0);
         cv::imshow("DIVIDE_RES",drawing);
     }
 #endif
