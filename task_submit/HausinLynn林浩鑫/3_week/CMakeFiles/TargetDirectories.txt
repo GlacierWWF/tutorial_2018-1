@@ -1,0 +1,4 @@
+/home/hausinlynn/appraisal/tutorial_2018/task_submit/HausinLynn林浩鑫/3_week/CMakeFiles/rebuild_cache.dir
+/home/hausinlynn/appraisal/tutorial_2018/task_submit/HausinLynn林浩鑫/3_week/CMakeFiles/edit_cache.dir
+/home/hausinlynn/appraisal/tutorial_2018/task_submit/HausinLynn林浩鑫/3_week/CMakeFiles/digit4.dir
+/home/hausinlynn/appraisal/tutorial_2018/task_submit/HausinLynn林浩鑫/3_week/CMakeFiles/DigitRecognize.dir

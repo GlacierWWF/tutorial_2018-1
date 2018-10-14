@@ -1,0 +1,2 @@
+/usr/bin/ar qc libdigit4.a  CMakeFiles/digit4.dir/src/digit4_recognize.cpp.o
+/usr/bin/ranlib libdigit4.a

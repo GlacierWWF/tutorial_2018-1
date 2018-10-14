@@ -51,7 +51,7 @@ int main (int argc, char** argv) {
 	digit4::gaussian_blur(img, Size(9, 9));    
 	cout << "done." << endl;
 	cout << "binarizing ........................... ";
-	digit4::binarize(img, 150, 175, 175);	   
+	digit4::binarize(img, 150, 160, 160);	   
 	cout << "done." << endl;
 	cout << "bluring edge ......................... ";
 	digit4::blur_edge(img);					   
