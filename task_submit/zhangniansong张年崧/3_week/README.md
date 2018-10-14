@@ -33,7 +33,6 @@ make
 
 # runtest
 
-```
 ./bin/identifier ./test/sim_samples/sim_sample1.jpg
 
 ./bin/identifier ./test/act_samples/act_sample1.jpg
