@@ -1,3 +1,13 @@
+/***************************************** 
+*main.cpp                     
+*
+*@author    lhz_demo 
+*@email     luhzh5@mail2.sysu.edu.cn 
+*@version   1.0.0 
+*@date      2018/10/14 
+*
+*Abustract: The main program of sim_sample
+****************************************/ 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>

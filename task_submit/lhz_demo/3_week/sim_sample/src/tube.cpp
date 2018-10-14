@@ -1,3 +1,13 @@
+/***************************************** 
+*tube.cpp                    
+*
+*@author    lhz_demo 
+*@email     luhzh5@mail2.sysu.edu.cn 
+*@version   1.0.0 
+*@date      2018/10/14 
+*
+*Abustract: 实现头文件函数
+****************************************/ 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
