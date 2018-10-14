@@ -17,7 +17,6 @@ class SSD {
         void threshold();
         void findContour();
         void warp();
-        void readDigit();
 
     protected:
         cv::Mat originalImage{};
@@ -29,11 +28,24 @@ class SSD {
         cv::Mat erosion{};
         cv::RotatedRect bounding{};
         cv::Point2f verticies[4];
-        cv::Mat warpped{};
         std::vector<int> answer{};
 
     public:
         SSD(char*);
+        cv::Mat warpped{};
         void playground();
+        void readDigit();
 
+};
+
+class SSD2 {
+    SSD* img1;
+    SSD* img2;
+    cv::Size combinedSize{};
+    cv::Mat combined{};
+
+    public:
+        SSD2(char*, char*);
+        void combine();
+        void readDigit();
 };
