@@ -12,7 +12,5 @@ using namespace std;
 bool IsAllWhite(Mat inputmat);
 bool IsAllBlack(Mat inputmat);
 bool Iswhite(Mat inputmat, int row_start, int row_end, int col_start, int col_end);
-int TubeIdentification(Mat inputmat);
-//void TraindataRead(Mat* traindata, int traindatanum);
 
 #endif

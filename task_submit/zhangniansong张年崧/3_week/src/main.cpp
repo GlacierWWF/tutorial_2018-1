@@ -1,6 +1,9 @@
 #include <opencv2/opencv.hpp> 
 #include <opencv2/ml.hpp>
 #include "lineidentify.hpp"
+#include "ImageRecify.hpp"
+#include "preprocess.hpp"
+
 using namespace std;
 using namespace cv;
 using namespace cv::ml;
@@ -14,97 +17,89 @@ bool cmp(const Rect& a, const Rect& b);
 
 int main(int argc, char *argv[])
 {
-	// handle input images
-	Mat image_gry, image_org, image_copy;
-	if (argc-1 == 1){
-		image_org = imread(argv[1]);
-		image_copy = image_org.clone();
-		image_gry = imread(argv[1], IMREAD_GRAYSCALE);
-		if (image_gry.empty()){
-			cout << "open image " << argv[1] << " failed." <<endl;
-			return -1;
-		}
 
-	}else if (argc-1 == 2){
-		// combine two images into 1
-		Mat src1 = imread(argv[1], IMREAD_GRAYSCALE);
-		Mat src2 = imread(argv[2], IMREAD_GRAYSCALE);
-		Mat src1_org = imread(argv[1]);
-		Mat src2_org = imread(argv[2]);
+	Mat image_org, image_gry;
 
-		if( !src1.data) {printf("Error loading src1. \n"); return -1;}
-		if( !src2.data) {printf("Error loading src2. \n"); return -1;}
+	/************parameters****************/
+	int _threshold;                   // 0~255, binarize threshold
+	int dil;                          // dilation kernel size
+	int _blur;                        // Gaussian blur kernel size *must be odd*
+	bool ifGamma = 0;				  // flag: if I need gamma correction
+	bool isRecify = 0;                // flag: if image is recified
+	int w1_low = 10, w1_high = 40;    // width boundary for number "1"
+	int w2_low = 55, w2_high = 100;   // width boundary for other numbers
+	int h_low = 100, h_high = 160;
+	/*************************************/
 
-		addWeighted(src1, 0.5, src2, 0.5, 0.0, image_gry);
-		addWeighted(src1_org, 0.5, src2_org, 0.5, 0.0, image_org);
-		image_copy = image_org.clone();
-
-	}else if (argc-1 > 2){
-		cout << "too many arguments" << endl;
-		return -1;
-	} 
-	
-	// display test image in gray scale 	
-	imshow("image_gry", image_gry);
-	waitKey(0);
-	
-	// eliminate blooming
-	/*uchar value;
-	for (int col = 0; col < test.cols; col++){
-		for (int row = 0; row < test.rows; row++){
-			value = image_gry.at<unsigned char>(row, col);
-			if (value >= 150){
-				value *= value - 50;
-				image_gry.at<unsigned char>(row, col) = value;
-			}
-		}
+	if (argc-1 == 2){
+		hard(argv[1], argv[2], image_gry, ifGamma, isRecify); 
+		if (ifGamma == true) _threshold = 10; else _threshold = 200;
+		if (ifGamma == true) dil = 10; else dil = 15;
+		_blur = 7;
+		w1_low = 10, w1_high = 40;
+		w2_low = 75; w2_high = 110;
+		h_low = 90;  h_high = 160;
 	}
-	imshow("elimate blooming", image_gry);
-	waitKey(0);*/
-	Mat equ;
-	Ptr<CLAHE> clahe = createCLAHE();
-	clahe->setClipLimit(1);
-	clahe->apply(image_gry, equ);
-	imshow("equalized", equ);
-	waitKey(0);
-
-	// make a mask to remove reflection
-	Mat mask;
-	threshold(image_gry, mask, 150, 255, THRESH_BINARY);
-	
-
+	else if (argc-1 == 1){
+		image_org = imread(argv[1]);
+		imshow("original image", image_org);
+		if (image_org.rows == 180 && image_org.cols == 480){
+			
+			simple(image_org, image_gry, ifGamma);
+			_threshold = 120;
+			if (ifGamma == true) dil = 11; else dil = 7;
+			_blur = 11;
+			w2_low = 60; w2_high = 100;
+			w1_low = 10; w1_high = 40;
+			h_low = 100; h_high = 160;
+		}
+		else if (image_org.rows == 600 && image_org.cols == 800){
+			actual(image_org, image_gry, isRecify);
+			_threshold = 200;
+			dil = 13;
+			_blur = 5;
+			w1_low = 10; w1_high = 40;
+			w2_low = 54; w2_high = 100;
+			h_low = 95; h_high = 160; 
+		}
+	}else{
+		cout << "the picture doesn't seem to be right" << endl;
+		return -1;
+	}
 
 
 	// binarize image
 	Mat image_bin;
-	threshold(image_gry, image_bin, 150, 255, THRESH_BINARY);
-	imshow("image_bin", image_bin);
-	waitKey(0);
+	threshold(image_gry, image_bin, _threshold, 255, THRESH_BINARY);
+	//imshow("image_bin", image_bin);
 
 	// dilated binary image
 	Mat image_dil;
-	Mat element = getStructuringElement(MORPH_RECT, Size(10, 10));
+	Mat element = getStructuringElement(MORPH_RECT, Size(dil, dil));
 	dilate(image_bin, image_dil, element);
 	imshow("image_dil1", image_dil);
-	waitKey(0);
 
 	// edge detection dilated image
 	Mat blurred;
-	GaussianBlur(image_dil, blurred, Size(5,5), 0);
+	GaussianBlur(image_dil, blurred, Size(_blur,_blur), 0);
 	Mat edged;
 	Canny(blurred, edged, 50, 200);
 	imshow("edged", edged);
-	waitKey(0);
 
 	// find all contours and draw them out
 	vector<vector<Point> > contours;
 	vector<Vec4i> hierarchy;
 	findContours(edged, contours, hierarchy, RETR_LIST, CHAIN_APPROX_NONE); 
-	Scalar color(0, 255, 0);
+	Mat image_copy;
+	Scalar color(0,255,0);
+	if (isRecify || argc-1==2){
+		image_copy = image_gry.clone();
+		cvtColor(image_copy, image_copy, cv::COLOR_GRAY2BGR);
+	}else{
+		image_copy = image_org.clone();
+	}
 	drawContours(image_copy, contours, -1, color, LINE_8, 8, hierarchy);  
-	imshow("location", image_copy);
-	waitKey(0);
-
+	//imshow("location", image_copy);
 
 	// create and sort bounding boxes
 	const size_t size = contours.size();
@@ -117,36 +112,51 @@ int main(int argc, char *argv[])
 		int height = box.height;
 		all_boxes.push_back(box);
 		// output all boxes width & height
-		cout << "box = " << i << " width = " << width << " height = " << height << endl;
+		//cout << "box = " << i << " width = " << width << " height = " << height << endl;
 		// select boxes
-		if ((width >=70 && width <=100 || width>=25 && width <= 35) && height >= 110 && height <= 150){
+		if ((width >= w1_low && width <= w1_high || width == 70 ||
+			width  >= w2_low && width <= w2_high) && 
+			height >= h_low  && height <= h_high){
+
 			num_location.push_back(box);
 		}
 	}
 	sort(num_location.begin(), num_location.end(), cmp);
 	// remove duplicate boxes
 	for (int i = num_location.size(); i > 0; --i){
-		if (num_location[i].width == num_location[i-1].width){
+		if (num_location[i].width == num_location[i-1].width && num_location[i].height == num_location[i-1].height){
 			num_location.erase(num_location.begin()+i);
 		}
 	}
 
 	//Display all bounding boxes
-	Mat image_copy3 = image_org.clone();
+	Mat image_copy2;
+	if (isRecify || argc-1==2){
+		image_copy2 = image_gry.clone();
+		cvtColor(image_copy2, image_copy2, cv::COLOR_GRAY2BGR);
+	}else{
+		image_copy2 = image_org.clone();
+	}
 	for (int i=0; i < all_boxes.size(); i++){
-		rectangle(image_copy3, all_boxes[i], color, 8, 8, 0);
+		rectangle(image_copy2, all_boxes[i], color, 8, 8, 0);
 	}
-	imshow("all bounding boxes", image_copy3);
-	waitKey(0);
-	
+	//imshow("all bounding boxes", image_copy2);
+
 	// Display selected bounding boxes
-	Mat image_copy2 = image_org.clone();
-	for (int i=0; i < num_location.size(); i++){
-		rectangle(image_copy2, num_location[i], color, 8, 8, 0);
-		cout << "selected box = "<< i << " width = " << num_location[i].width << " height = " << num_location[i].height << endl;
+	Mat image_copy3;
+	if (isRecify || argc-1==2){
+		image_copy3 = image_gry.clone();
+		cvtColor(image_copy3, image_copy3, cv::COLOR_GRAY2BGR);
+	}else{
+		image_copy3 = image_org.clone();
 	}
-	imshow("Number bounding boxes", image_copy2);
-	waitKey(0);
+	for (int i=0; i < num_location.size(); i++){
+		rectangle(image_copy3, num_location[i], color, 8, 8, 0);
+		//cout << "selected box = "<< i << " width = " << num_location[i].width << " height = " << num_location[i].height << endl;
+	}
+	imshow("Number bounding boxes", image_copy3);
+
+
 
 	// number extraction with selected bounding boxes
 	char filenamew[255];
@@ -156,31 +166,17 @@ int main(int argc, char *argv[])
 	{
 		if (!IsAllWhite(image_dil(num_location.at(i))))
 		{
-			tube.push_back(image_bin(num_location.at(i)));
+			tube.push_back(image_dil(num_location.at(i)));
 			sprintf(filenamew, "%s%d.jpg", "./location/location", tube_num);
-			imshow(filenamew, tube.at(tube_num));
+			//imshow(filenamew, tube.at(tube_num));
 			imwrite(filenamew, tube.at(tube_num));
 			tube_num++;
 		}
 	}
 	
-	// number extraction with all bounding boxes
-	/*char filenamew[255];
-	int tube_num = 0;
-	vector<Mat> tube;
-	for (int i = 0; i < all_boxes.size(); i++)
-	{
-		if (!IsAllWhite(image_dil(all_boxes.at(i))))
-		{
-			tube.push_back(image_bin(all_boxes.at(i)));
-			sprintf(filenamew, "%s%d.jpg", "./location/location", tube_num);
-			imshow(filenamew, tube.at(tube_num));
-			imwrite(filenamew, tube.at(tube_num));
-			tube_num++;
-		}
-	}*/
-	
-	//cout << "start training" << endl;
+	/*************************------------------------------------********************/
+	/*----------------------------------KNN------------------------------------------*/
+	/*************************------------------------------------********************/
 	char trainfile[100];
 	Mat traindata, trainlabel, tmp;
 	for (int i = 0; i < TRAINDATANUM; i++)
@@ -215,8 +211,8 @@ int main(int argc, char *argv[])
 	}
 	cout << endl;
 
-	waitKey(1);
-	//destroyAllWindows();
+	waitKey(0);
+
 	return 0;
 }
 

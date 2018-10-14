@@ -10,7 +10,13 @@ add_executable(
 	identifier
 	src/main.cpp
 	src/lineidentify.cpp
+	src/ImageRecify.cpp
+	src/preprocess.cpp
+	src/perspective.cpp
 	include/lineidentify.hpp
+	include/ImageRecify.hpp
+	include/preprocess.hpp
+	include/perspective.hpp
 )
 
 INCLUDE_DIRECTORIES( ${CMAKE_CURRENT_SOURCE_DIR}/include )
