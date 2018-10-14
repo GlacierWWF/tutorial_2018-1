@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+=======
+/*Title:IP.hpp
+*Author:Chen Ruijia
+*Revised:Chen Ruijia
+*Date:2018-10-04
+*Version:1.0.0
+*Abstract: A head file to describe Timer class
+*/
+>>>>>>> bd52905bf6d2bd74a5ebd685630c7ccf10d49c09
 #pragma once
 #define TIMER_H
 #include<iostream> 
