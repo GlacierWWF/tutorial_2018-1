@@ -39,6 +39,8 @@ make
 
 ./bin/identifier ./test/hard_samples/hard_sample1_1.jpg ./test/hard_samples/hard_sample1_2.jpg
 
+```
+
 ---
 
 ### Sample OUTPUT
