@@ -1,0 +1,3 @@
+/home/zhh/桌面/tutorial_2018/task_submit/zhanghh_张灏桓/3_week/build/CMakeFiles/rebuild_cache.dir
+/home/zhh/桌面/tutorial_2018/task_submit/zhanghh_张灏桓/3_week/build/CMakeFiles/Nixie_tube.dir
+/home/zhh/桌面/tutorial_2018/task_submit/zhanghh_张灏桓/3_week/build/CMakeFiles/edit_cache.dir
