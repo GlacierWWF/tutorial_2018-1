@@ -1,0 +1,4 @@
+/home/lomgahong/test/Image_Recognition/file/CMakeFiles/rebuild_cache.dir
+/home/lomgahong/test/Image_Recognition/file/CMakeFiles/edit_cache.dir
+/home/lomgahong/test/Image_Recognition/file/CMakeFiles/numRec.dir
+/home/lomgahong/test/Image_Recognition/file/CMakeFiles/Image_Recognition.dir

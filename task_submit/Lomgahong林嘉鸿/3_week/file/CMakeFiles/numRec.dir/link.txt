@@ -1,0 +1,2 @@
+/usr/bin/ar qc libnumRec.a  CMakeFiles/numRec.dir/src/fun.cpp.o
+/usr/bin/ranlib libnumRec.a
