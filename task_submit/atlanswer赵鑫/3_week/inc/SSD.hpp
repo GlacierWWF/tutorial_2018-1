@@ -12,13 +12,12 @@ class SSD {
         // std::string originalImageUri{};
         void display(cv::Mat&);
         void save(cv::Mat&);
-        void gaussianBlur();
         void histrogram(cv::Mat&, bool);
         void extract();
         void threshold();
-        void morphology();
         void findContour();
         void warp();
+        void readDigit();
 
     protected:
         cv::Mat originalImage{};
@@ -30,6 +29,8 @@ class SSD {
         cv::Mat erosion{};
         cv::RotatedRect bounding{};
         cv::Point2f verticies[4];
+        cv::Mat warpped{};
+        std::vector<int> answer{};
 
     public:
         SSD(char*);

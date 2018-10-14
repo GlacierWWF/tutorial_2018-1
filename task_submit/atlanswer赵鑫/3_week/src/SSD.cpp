@@ -20,10 +20,6 @@ void SSD::save(cv::Mat& image) {
     std::cout << "saved.\n";
 }
 
-void SSD::gaussianBlur() {
-    cv::GaussianBlur(originalImage, blurred, cv::Size(7, 7), 0);
-}
-
 void SSD::histrogram(cv::Mat& channel, bool thresh) {
     int histSize{256};
     float range[]{0, 256};
@@ -46,74 +42,70 @@ void SSD::extract() {
     histrogram(channelBGR[2], false);
 
     if (maxLoc > 175) {
+        std::cout << "[info] The image is overexposed." << std::endl;
         cv::Mat BxG{};
         cv::addWeighted(channelBGR[0], 0.3, channelBGR[1], 0.3, 0, BxG);
         cv::subtract(channelBGR[2], BxG, extracted);
     } else {
+        std::cout << "[info] The image exposure is normal." << std::endl;
         extracted = channelBGR[2].clone();
     }
 }
 
 void SSD::threshold() {
     if (maxLoc > 175) {
+        std::cout << "[info] Removing bright spots." << std::endl;
         cv::GaussianBlur(extracted, extracted, cv::Size(9, 9), 0);
         histrogram(extracted, true);
         if (maxLoc < 73) {
             cv::threshold(extracted, thresholded, 106, 255, cv::THRESH_BINARY);
         } else {
-        cv::threshold(extracted, thresholded, maxLoc + 10, 255, cv::THRESH_BINARY);
+        cv::threshold(extracted, thresholded, maxLoc + 9, 255, cv::THRESH_BINARY);
         }
-        cv::namedWindow("Thr", cv::WINDOW_AUTOSIZE);
+        /* cv::namedWindow("Thr", cv::WINDOW_AUTOSIZE);
         cv::imshow("Thr", thresholded);
-        cv::waitKey(0);
+        cv::waitKey(0); */
     } else {
+        std::cout << "[info] Emphasizing LED segments." << std::endl;
         histrogram(extracted, true);
-        cv::threshold(extracted, thresholded, 180, 255, cv::THRESH_BINARY);
+        cv::threshold(extracted, thresholded, 190, 255, cv::THRESH_BINARY);
     
-        cv::namedWindow("Thr1", cv::WINDOW_AUTOSIZE);
+        /* cv::namedWindow("Thr1", cv::WINDOW_AUTOSIZE);
         cv::imshow("Thr1", thresholded);
-        cv::waitKey(0);    
+        cv::waitKey(0); */
         // cv::GaussianBlur(thresholded, thresholded, cv::Size(11, 11), 0);
     }
 }
 
-void SSD::morphology() {
-    cv::Mat kernel{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(2, 2))};
+void SSD::findContour() {
+    cv::Mat kernel{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(4, 4))};
     cv::morphologyEx(thresholded, erosion, cv::MORPH_ERODE, kernel);
     cv::threshold(erosion, erosion, 0, 255, cv::THRESH_OTSU);
-}
-
-void SSD::findContour() {
-    cv::Rect roi = cv::Rect(erosion.cols * 0.08, 
+    cv::Rect roi = cv::Rect(erosion.cols * 0.02, 
                             erosion.rows * 0.05, 
-                            erosion.cols * 0.84, 
-                            erosion.rows * 0.95);
+                            erosion.cols * 0.94,
+                            erosion.rows * 0.9);
     std::vector<std::vector<cv::Point> > contours, filteredContours;
     std::vector<cv::Rect> boundingBoxes;
     cv::findContours(erosion(roi), contours, CV_RETR_EXTERNAL,
                      CV_CHAIN_APPROX_NONE,
-                     cv::Point(erosion.cols * 0.08,
+                     cv::Point(erosion.cols * 0.02,
                                erosion.rows * 0.05));
-        cv::namedWindow("Cont", cv::WINDOW_AUTOSIZE);
+        /* cv::namedWindow("Cont", cv::WINDOW_AUTOSIZE);
         cv::imshow("Cont", thresholded);
-        cv::waitKey(0);
+        cv::waitKey(0); */
     
     for (size_t i{0}; i < contours.size(); ++i) {
         cv::Rect bounds = cv::boundingRect(contours[i]);
-        if (bounds.x > erosion.cols * 0.08
-            and bounds.area() > 200
+        if (bounds.x > erosion.cols * 0.03
+            and bounds.area() > 600
             and (bounds.height > bounds.width * 1.5
                  or bounds.width > bounds.height * 1.5
-                 or bounds.area() > 2000)) {
+                 or bounds.area() > 1800)) {
             boundingBoxes.push_back(bounds);
             filteredContours.push_back(contours[i]);
         }
     }
-
-    /* std::sort(boundingBoxes.begin(), boundingBoxes.end(),
-              [](cv::Rect& a, cv::Rect& b) {
-                  return a.x < b.x;
-              }); */
 
     /* for (size_t i{0}; i < boundingBoxes.size(); ++i) {
         cv::rectangle(erosion, boundingBoxes[i], cv::Scalar(150), 2);
@@ -139,6 +131,117 @@ void SSD::findContour() {
 }
 
 void SSD::warp() {
+    cv::Point2f dst[4];
+    cv::Size size;
+    bool ret{bounding.size.width > bounding.size.height};
+    std::cout << bounding.size << std::endl;
+    size.width = ret ? bounding.size.width : bounding.size.height;
+    size.height = ret ? bounding.size.height : bounding.size.width;
+
+    if (ret) {
+        dst[0] = cv::Point2f(0, size.height);
+        dst[1] = cv::Point2f(0, 0);
+        dst[2] = cv::Point2f(size.width, 0);
+        dst[3] = cv::Point2f(size.width, size.height);
+    } else {
+        dst[1] = cv::Point2f(0, size.height);
+        dst[2] = cv::Point2f(0, 0);
+        dst[3] = cv::Point2f(size.width, 0);
+        dst[0] = cv::Point2f(size.width, size.height);
+    }
+    cv::Mat warpMat = cv::getAffineTransform(verticies,
+                                             dst);
+    cv::warpAffine(thresholded, warpped, warpMat, size);
+
+    /* cv::namedWindow("warp1", cv::WINDOW_AUTOSIZE);
+    cv::imshow("warp1", warpped);
+    cv::waitKey(0); */
+}
+
+void SSD::readDigit() {
+    // cv::Mat warpDigit{};
+    cv::Mat kernel{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(2, 10))};
+    cv::morphologyEx(warpped, warpped, cv::MORPH_DILATE, kernel);
+    // cv::threshold(erosion, erosion, 0, 255, cv::THRESH_OTSU);
+
+    std::vector<std::vector<cv::Point> > contours, filteredContours;
+    std::vector<cv::Rect> boundingBoxes;
+    cv::findContours(warpped, contours, CV_RETR_EXTERNAL,
+                     CV_CHAIN_APPROX_NONE);
+    
+    for (size_t i{0}; i < contours.size(); ++i) {
+        boundingBoxes.push_back(cv::boundingRect(contours[i]));
+        cv::rectangle(warpped, boundingBoxes[i],
+                      cv::Scalar(150), 2);
+    }
+
+    std::sort(boundingBoxes.begin(), boundingBoxes.end(),
+              [](cv::Rect& a, cv::Rect& b) {
+                  return a.x < b.x;
+              });
+
+    std::cout << "Answer: ";
+    for (size_t i{0}; i < boundingBoxes.size(); ++i) {
+        if (boundingBoxes[i].height > boundingBoxes[i].width * 3) {
+            answer.push_back(1);
+        }
+        else if (warpped.at<uchar>(
+            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 2,
+                        boundingBoxes[i].y + boundingBoxes[i].height / 9))
+            < 100) {
+            answer.push_back(4);
+        } else if (warpped.at<uchar>(
+            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 2,
+                        boundingBoxes[i].y + boundingBoxes[i].height / 2))
+            < 100) {
+                if (warpped.at<uchar>(
+            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 8,
+                        boundingBoxes[i].y + boundingBoxes[i].height / 8 * 6))
+            < 100) {
+                answer.push_back(7);
+            } else {
+                answer.push_back(0);
+            }
+        } else if (warpped.at<uchar>(
+            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 8,
+                        boundingBoxes[i].y + boundingBoxes[i].height / 8 * 2))
+            < 100) {
+                if (warpped.at<uchar>(
+            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 8,
+                        boundingBoxes[i].y + boundingBoxes[i].height / 8 * 6))
+            < 100) {
+                answer.push_back(3);
+            } else {
+                answer.push_back(2);
+            }
+        } else if (warpped.at<uchar>(
+            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 9 * 8,
+                        boundingBoxes[i].y + boundingBoxes[i].height / 3))
+            < 100) {
+                if (warpped.at<uchar>(
+            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 8,
+                        boundingBoxes[i].y + boundingBoxes[i].height / 8 * 7))
+            < 100) {
+                answer.push_back(5);
+            } else {
+                answer.push_back(6);
+            }
+        } else if (warpped.at<uchar>(
+            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 8,
+                        boundingBoxes[i].y + boundingBoxes[i].height / 8 * 6))
+            < 100) {
+                answer.push_back(9);
+            } else {
+                answer.push_back(8);
+        }
+    }
+
+    for (int i{0}; i < 4; ++i)
+        std::cout << answer[i];
+    std::cout << std::endl;
+    cv::namedWindow("warp", cv::WINDOW_AUTOSIZE);
+    cv::imshow("warp", warpped);
+    cv::waitKey(0);
 
 }
 
@@ -147,7 +250,7 @@ void SSD::playground() {
     extract();
     threshold();
     // rotate(detectSkew());
-    morphology();
     findContour();
-
+    warp();
+    readDigit();
 }

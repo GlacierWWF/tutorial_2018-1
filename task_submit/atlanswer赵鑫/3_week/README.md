@@ -23,3 +23,17 @@
 ---
 
 ### Build
+
+```shell
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+```
+
+### Run
+
+```shell
+$ cd bin
+$ ./test <relativePathToImage>
+```
