@@ -133,12 +133,6 @@ int main(int argc,char **argv)
 	{
 	for(int i=0;i<rect_num;i++)
 	{
-	/*	if((double)boundRect_1[i].height/boundRect_1[i].width>2.8&&(double)boundRect_1[i].height/boundRect_1[i].width<3.5&&boundRect_1[i].area()<3000)
-		{
-			
-			used.push_back(boundRect_1[i]);
-			used_rect++;
-		}*/
 		if(boundRect_1[i].width<boundRect_1[i].height&&boundRect_1[i].height>100){
 			used_0.push_back(boundRect_1[i]);
 			used_rect_0++;
@@ -159,6 +153,15 @@ int main(int argc,char **argv)
 		{
 			used.push_back(boundRect_1[i]);
 			used_rect=rect_num;
+		
+		}
+	
+	}
+	for(int i=0;i<rect_num;i++)
+	{
+		if(used[i].width>100)
+		{
+			used[i]+=Size(-30,0);
 		
 		}
 	
