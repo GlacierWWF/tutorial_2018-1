@@ -1,3 +1,4 @@
+all: task.out clean
 task.out: main.o Timer.o
 	g++ Timer.o main.o -lpthread -o task.out `pkg-config --cflags --libs opencv`
 main.o: main.cpp Timer.h
