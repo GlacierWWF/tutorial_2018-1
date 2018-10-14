@@ -1,0 +1,3 @@
+/media/lhz/DATA/AERO/act_sample/build/CMakeFiles/rebuild_cache.dir
+/media/lhz/DATA/AERO/act_sample/build/CMakeFiles/main.dir
+/media/lhz/DATA/AERO/act_sample/build/CMakeFiles/edit_cache.dir
