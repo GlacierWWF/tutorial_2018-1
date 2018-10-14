@@ -11,20 +11,15 @@
 ### Project structure
 
 ```
-
-```
-
-   3_week
-   |- include/  (头文件)
-   |- src/  (源文件)
-   |- bin/  (可执行文件)
-   |- result_image/ (结果输出图)
-   |- sample_image/ (测试样本图)
-   |- procedure_image/ (测试过程图)
-   |- README.md
-   |- CMakelists.txt
-
-```
+3_week
+|- include/  (头文件)
+|- src/  (源文件)
+|- bin/  (可执行文件)
+|- result_image/ (结果输出图)
+|- sample_image/ (测试样本图)
+|- procedure_image/ (测试过程图)
+|- README.md
+|- CMakelists.txt
 
 ```
 
