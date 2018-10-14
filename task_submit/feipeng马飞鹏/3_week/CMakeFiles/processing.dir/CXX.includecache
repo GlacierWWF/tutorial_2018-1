@@ -11,6 +11,14 @@ compare_pic.h
 /home/mafp/tutorial_2018/task_submit/feipeng马飞鹏/3_week/compare_pic.h
 
 /home/mafp/tutorial_2018/task_submit/feipeng马飞鹏/3_week/compare_pic.h
+iostream
+-
+opencv2/opencv.hpp
+-
+opencv2/imgproc/imgproc.hpp
+-
+vector
+-
 
 /home/mafp/tutorial_2018/task_submit/feipeng马飞鹏/3_week/processing.cpp
 iostream
