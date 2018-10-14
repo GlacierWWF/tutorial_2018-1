@@ -10,6 +10,10 @@
 
 ### Project structure
 
+```
+
+```
+
    3_week
    |- include/  (头文件)
    |- src/  (源文件)
@@ -20,6 +24,10 @@
    |- README.md
    |- CMakelists.txt
 
+```
+
+```
+
 ---
 
 ### Dependence
@@ -29,14 +37,14 @@
 
 ---
 
-
 ### Compile and Run
 
-**# compile**
+```
+# compile
 cmake .
 make
 
-**# run**
+# run
 ./bin/DigitRecognization ./sample_image/sim_sample1.jpg
 ./bin/DigitRecognization ./sample_image/sim_sample2.jpg
 ...
@@ -44,6 +52,8 @@ make
 ./bin/DigitRecognization ./sample_image/act_sample1.jpg
 ./bin/DigitRecognization ./sample_image/act_sample2.jpg
 ...
+
+```
 
 ---
 ### Test Result
@@ -70,8 +80,10 @@ act_sample8:1884    answer：1427
 
 ### Sample Output
 
-![window](sesult_image/sim_sample1.JPG)
+![sim_sample1](sesult_image/sim_sample1.JPG)
 
-![window](sesult_image/sim_sample8.JPG)
+![sim_sample8](sesult_image/sim_sample8.JPG)
 
-![window](sesult_image/act_sample3.JPG)
+![act_sample3](sesult_image/act_sample3.JPG)
+
+
