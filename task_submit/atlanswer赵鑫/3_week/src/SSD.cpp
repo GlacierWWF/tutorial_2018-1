@@ -67,6 +67,7 @@ void SSD::threshold() {
         cv::waitKey(0); */
     } else {
         std::cout << "[info] Emphasizing LED segments." << std::endl;
+        cv::GaussianBlur(extracted, extracted, cv::Size(9, 9), 0);
         histrogram(extracted, true);
         cv::threshold(extracted, thresholded, 190, 255, cv::THRESH_BINARY);
     
@@ -78,10 +79,10 @@ void SSD::threshold() {
 }
 
 void SSD::findContour() {
-    cv::Mat kernel{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(4, 4))};
-    cv::morphologyEx(thresholded, erosion, cv::MORPH_ERODE, kernel);
+    cv::Mat kernel{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(2, 2))};
+    cv::morphologyEx(thresholded, erosion, cv::MORPH_OPEN, kernel);
     cv::threshold(erosion, erosion, 0, 255, cv::THRESH_OTSU);
-    cv::Rect roi = cv::Rect(erosion.cols * 0.02, 
+    cv::Rect roi = cv::Rect(erosion.cols * 0.01, 
                             erosion.rows * 0.05, 
                             erosion.cols * 0.94,
                             erosion.rows * 0.9);
@@ -89,7 +90,7 @@ void SSD::findContour() {
     std::vector<cv::Rect> boundingBoxes;
     cv::findContours(erosion(roi), contours, CV_RETR_EXTERNAL,
                      CV_CHAIN_APPROX_NONE,
-                     cv::Point(erosion.cols * 0.02,
+                     cv::Point(erosion.cols * 0.01,
                                erosion.rows * 0.05));
         /* cv::namedWindow("Cont", cv::WINDOW_AUTOSIZE);
         cv::imshow("Cont", thresholded);
@@ -97,8 +98,8 @@ void SSD::findContour() {
     
     for (size_t i{0}; i < contours.size(); ++i) {
         cv::Rect bounds = cv::boundingRect(contours[i]);
-        if (bounds.x > erosion.cols * 0.03
-            and bounds.area() > 600
+        if (bounds.x > erosion.cols * 0.01
+            and bounds.area() > 300
             and (bounds.height > bounds.width * 1.5
                  or bounds.width > bounds.height * 1.5
                  or bounds.area() > 1800)) {
@@ -160,7 +161,7 @@ void SSD::warp() {
 
 void SSD::readDigit() {
     // cv::Mat warpDigit{};
-    cv::Mat kernel{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(2, 10))};
+    cv::Mat kernel{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(3, 10))};
     cv::morphologyEx(warpped, warpped, cv::MORPH_DILATE, kernel);
     // cv::threshold(erosion, erosion, 0, 255, cv::THRESH_OTSU);
 
@@ -169,6 +170,13 @@ void SSD::readDigit() {
     cv::findContours(warpped, contours, CV_RETR_EXTERNAL,
                      CV_CHAIN_APPROX_NONE);
     
+    if (contours.size() > 4) {
+        cv::Mat kernel{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(15, 15))};
+        cv::morphologyEx(warpped, warpped, cv::MORPH_DILATE, kernel);
+        cv::findContours(warpped, contours, CV_RETR_EXTERNAL,
+                     CV_CHAIN_APPROX_NONE);
+    }
+
     for (size_t i{0}; i < contours.size(); ++i) {
         boundingBoxes.push_back(cv::boundingRect(contours[i]));
         cv::rectangle(warpped, boundingBoxes[i],
@@ -187,7 +195,7 @@ void SSD::readDigit() {
         }
         else if (warpped.at<uchar>(
             cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 2,
-                        boundingBoxes[i].y + boundingBoxes[i].height / 9))
+                        boundingBoxes[i].y + boundingBoxes[i].height / 11))
             < 100) {
             answer.push_back(4);
         } else if (warpped.at<uchar>(
@@ -215,12 +223,12 @@ void SSD::readDigit() {
                 answer.push_back(2);
             }
         } else if (warpped.at<uchar>(
-            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 9 * 8,
-                        boundingBoxes[i].y + boundingBoxes[i].height / 3))
+            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 12 * 11,
+                        boundingBoxes[i].y + boundingBoxes[i].height / 4))
             < 100) {
                 if (warpped.at<uchar>(
             cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 8,
-                        boundingBoxes[i].y + boundingBoxes[i].height / 8 * 7))
+                        boundingBoxes[i].y + boundingBoxes[i].height / 12 * 11))
             < 100) {
                 answer.push_back(5);
             } else {
