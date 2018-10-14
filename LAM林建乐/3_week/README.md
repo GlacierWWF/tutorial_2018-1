@@ -3,7 +3,7 @@
 * Revised: Lam
 * Version: 0.0.5
 * Date: 2018-10-14
-* Abstrat: I just finish a very little part of the Difit Identifier. It can only run on sim_samples and it can't identify the number.
+* Abstrat: I just finish a very little part of the Digit Identifier. It can only run on sim_samples and it can't identify the number.
 ***
 **Required**
 
