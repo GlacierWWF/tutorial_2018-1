@@ -19,7 +19,7 @@
 - ..../3_week/build$ ***make***
 
 
-##How to run?
+## How to run?
 - **For example:**
 - ..../3_week/$ ***cd bin***
 - ..../3_week/bin$ ***./a.out sim_sample1.jpg***
