@@ -1,7 +1,35 @@
+/*****************************************************************************
+*  Seven-segment display ocr program                                         *
+*                                                                            *
+*  @file     SSD2.hpp                                                        *
+*  @brief    SSD2 class header file                                          *
+*                                                                            *
+*  @author   atlanswer                                                       *
+*  @email    atlanswer@gmail.com                                             *
+*  @version  Beta-2                                                          *
+*  @date     10/20/2018                                                      *
+*                                                                            *
+*----------------------------------------------------------------------------*
+*  Remark         : Description                                              *
+*----------------------------------------------------------------------------*
+*  Change History :                                                          *
+*  <Date>     | <Version> | <Author>       | <Description>                   *
+*----------------------------------------------------------------------------*
+*  2018/10/20 | Beta-2   | atlanswer      | Complete mission                 *
+*----------------------------------------------------------------------------*
+*                                                                            *
+*****************************************************************************/
+
 #include "SSD.hpp"
 
+//---------------------------------------------------------------------------
+// Platform Defines
+//---------------------------------------------------------------------------
 enum situation{normal, blurry, overexpose};
 
+/**
+    * @brief Class for dealing with one of two separate images
+    */
 class SSD0 {
     private:
         situation imgType;
@@ -17,9 +45,14 @@ class SSD0 {
         cv::Mat transform;
 };
 
+
+/**
+    * @brief Class for processing two images input
+    */
 class SSD2 {
     private:
         SSD0 *Img1, *Img2;
+        SSD* Img3;
         cv::Mat combineArm;
         void condense();
         void amalgamate();

@@ -1,27 +1,44 @@
+/*****************************************************************************
+*  Seven-segment display ocr program                                         *
+*                                                                            *
+*  @file     SSD.cpp                                                         *
+*  @brief    SSD class source file                                           *
+*                                                                            *
+*  @author   atlanswer                                                       *
+*  @email    atlanswer@gmail.com                                             *
+*  @version  Beta-2                                                          *
+*  @date     10/20/2018                                                      *
+*                                                                            *
+*----------------------------------------------------------------------------*
+*  Remark         : Description                                              *
+*----------------------------------------------------------------------------*
+*  Change History :                                                          *
+*  <Date>     | <Version> | <Author>       | <Description>                   *
+*----------------------------------------------------------------------------*
+*  2018/10/20 | Beta-2   | atlanswer      | Complete mission                 *
+*----------------------------------------------------------------------------*
+*                                                                            *
+*****************************************************************************/
+
 #include "SSD.hpp"
 
+
+/** 
+    * @brief SSD class constructor
+    * @param originalImageUri char*  
+    */
 SSD::SSD(char* originalImageUri) {
-    std::cout << "[info] Reading one image..." << std::endl;
     originalImage = cv::imread(originalImageUri, cv::IMREAD_COLOR);
+    if (!originalImage.data)
+        std::cout << "[Error] Image not found   ." << std::endl;
     playground();
 }
 
-void SSD::display(cv::Mat& image) {
-    if (!image.data) {
-        std::cout << "No image data." << std::endl;
-    }
-
-    cv::namedWindow(originalImageWindowName, cv::WINDOW_AUTOSIZE);
-    cv::imshow(originalImageWindowName, image);
-
-    cv::waitKey(0);
-}
-
-void SSD::save(cv::Mat& image) {
-    cv::imwrite("./save1.jpg", image);
-    std::cout << "saved.\n";
-}
-
+/** 
+    * @brief Calculate histrogram
+    * @param channel cv::Mat&
+    * @param thresh bool
+    */
 void SSD::histrogram(cv::Mat& channel, bool thresh) {
     int histSize{256};
     float range[]{0, 256};
@@ -37,6 +54,9 @@ void SSD::histrogram(cv::Mat& channel, bool thresh) {
     cv::minMaxIdx(histrogramed, NULL, NULL, NULL, &maxLoc);
 }
 
+/** 
+    * @brief Extract ROI
+    */
 void SSD::extract() {
     cv::Mat channelBGR[3];
     cv::split(originalImage, channelBGR);
@@ -54,6 +74,9 @@ void SSD::extract() {
     }
 }
 
+/** 
+    * @brief Binarization
+    */
 void SSD::threshold() {
     if (maxLoc > 175) {
         std::cout << "[info] Removing bright spots." << std::endl;
@@ -62,45 +85,39 @@ void SSD::threshold() {
         if (maxLoc < 73) {
             cv::threshold(extracted, thresholded, 106, 255, cv::THRESH_BINARY);
         } else {
-        cv::threshold(extracted, thresholded, maxLoc + 9, 255, cv::THRESH_BINARY);
+        cv::threshold(extracted, thresholded, maxLoc + 10, 255, cv::THRESH_BINARY);
         }
-        /* cv::namedWindow("Thr", cv::WINDOW_AUTOSIZE);
-        cv::imshow("Thr", thresholded);
-        cv::waitKey(0); */
     } else {
         std::cout << "[info] Emphasizing LED segments." << std::endl;
         cv::GaussianBlur(extracted, extracted, cv::Size(9, 9), 0);
         histrogram(extracted, true);
-        cv::threshold(extracted, thresholded, 190, 255, cv::THRESH_BINARY);
-    
-        /* cv::namedWindow("Thr1", cv::WINDOW_AUTOSIZE);
-        cv::imshow("Thr1", thresholded);
-        cv::waitKey(0); */
-        // cv::GaussianBlur(thresholded, thresholded, cv::Size(11, 11), 0);
+        cv::threshold(extracted, thresholded, 195, 255, cv::THRESH_BINARY);
     }
 }
 
+/** 
+    * @brief Locate segments
+    */
 void SSD::findContour() {
-    cv::Mat kernel{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(2, 2))};
-    cv::morphologyEx(thresholded, erosion, cv::MORPH_OPEN, kernel);
+    cv::Mat kernelE{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(4, 4))};
+    cv::Mat kernelD{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(8, 8))};
+    cv::morphologyEx(thresholded, erosion, cv::MORPH_ERODE, kernelE);
+    cv::morphologyEx(erosion, erosion, cv::MORPH_DILATE, kernelD);
     cv::threshold(erosion, erosion, 0, 255, cv::THRESH_OTSU);
-    cv::Rect roi = cv::Rect(erosion.cols * 0.01, 
+    cv::Rect roi = cv::Rect(erosion.cols * 0.04, 
                             erosion.rows * 0.05, 
-                            erosion.cols * 0.94,
+                            erosion.cols * 0.92,
                             erosion.rows * 0.9);
     std::vector<std::vector<cv::Point> > contours, filteredContours;
     std::vector<cv::Rect> boundingBoxes;
     cv::findContours(erosion(roi), contours, CV_RETR_EXTERNAL,
                      CV_CHAIN_APPROX_NONE,
-                     cv::Point(erosion.cols * 0.01,
+                     cv::Point(erosion.cols * 0.04,
                                erosion.rows * 0.05));
-        /* cv::namedWindow("Cont", cv::WINDOW_AUTOSIZE);
-        cv::imshow("Cont", thresholded);
-        cv::waitKey(0); */
     
     for (size_t i{0}; i < contours.size(); ++i) {
         cv::Rect bounds = cv::boundingRect(contours[i]);
-        if (bounds.x > erosion.cols * 0.01
+        if (bounds.x > erosion.cols * 0.04
             and bounds.area() > 300
             and (bounds.height > bounds.width * 1.5
                  or bounds.width > bounds.height * 1.5
@@ -110,9 +127,9 @@ void SSD::findContour() {
         }
     }
 
-    /* for (size_t i{0}; i < boundingBoxes.size(); ++i) {
+    for (size_t i{0}; i < boundingBoxes.size(); ++i) {
         cv::rectangle(erosion, boundingBoxes[i], cv::Scalar(150), 2);
-    } */
+    }
 
     std::vector<cv::Point> outlines;
     for (size_t i{0}; i < filteredContours.size(); ++i) {
@@ -124,20 +141,22 @@ void SSD::findContour() {
 
     bounding.points(verticies);
     for (int i{0}; i < 4; ++i) {
-        line(erosion, verticies[i], verticies[(i+1)%4],
+        line(originalImage, verticies[i], verticies[(i+1)%4],
              cv::Scalar(150), 2);
     }
 
         cv::namedWindow("box", cv::WINDOW_AUTOSIZE);
-        cv::imshow("box", erosion);
+        cv::imshow("box", originalImage);
         cv::waitKey(0);
 }
 
+/** 
+    * @brief Image correction
+    */
 void SSD::warp() {
     cv::Point2f dst[4];
     cv::Size size;
     bool ret{bounding.size.width > bounding.size.height};
-    std::cout << bounding.size << std::endl;
     size.width = ret ? bounding.size.width : bounding.size.height;
     size.height = ret ? bounding.size.height : bounding.size.width;
 
@@ -155,17 +174,14 @@ void SSD::warp() {
     cv::Mat warpMat = cv::getAffineTransform(verticies,
                                              dst);
     cv::warpAffine(thresholded, warpped, warpMat, size);
-
-    /* cv::namedWindow("warp1", cv::WINDOW_AUTOSIZE);
-    cv::imshow("warp1", warpped);
-    cv::waitKey(0); */
 }
 
+/** 
+    * @brief Extract digit
+    */
 void SSD::readDigit() {
-    // cv::Mat warpDigit{};
     cv::Mat kernel{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(3, 10))};
     cv::morphologyEx(warpped, warpped, cv::MORPH_DILATE, kernel);
-    // cv::threshold(erosion, erosion, 0, 255, cv::THRESH_OTSU);
 
     std::vector<std::vector<cv::Point> > contours, filteredContours;
     std::vector<cv::Rect> boundingBoxes;
@@ -192,7 +208,7 @@ void SSD::readDigit() {
 
     std::cout << "Answer: ";
     for (size_t i{0}; i < boundingBoxes.size(); ++i) {
-        if (boundingBoxes[i].height > boundingBoxes[i].width * 3) {
+        if (boundingBoxes[i].height > boundingBoxes[i].width * 2.5) {
             answer.push_back(1);
         }
         else if (warpped.at<uchar>(
@@ -225,12 +241,12 @@ void SSD::readDigit() {
                 answer.push_back(2);
             }
         } else if (warpped.at<uchar>(
-            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 12 * 11,
+            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 14 * 13,
                         boundingBoxes[i].y + boundingBoxes[i].height / 4))
             < 100) {
                 if (warpped.at<uchar>(
-            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 8,
-                        boundingBoxes[i].y + boundingBoxes[i].height / 12 * 11))
+            cv::Point2f(boundingBoxes[i].x + boundingBoxes[i].width / 9,
+                        boundingBoxes[i].y + boundingBoxes[i].height / 4 * 3))
             < 100) {
                 answer.push_back(5);
             } else {
@@ -252,9 +268,11 @@ void SSD::readDigit() {
     cv::namedWindow("warp", cv::WINDOW_AUTOSIZE);
     cv::imshow("warp", warpped);
     cv::waitKey(0);
-
 }
 
+/** 
+    * @brief Test function
+    */
 void SSD::playground() {
     extract();
     threshold();

@@ -1,3 +1,25 @@
+/*****************************************************************************
+*  Seven-segment display ocr program                                         *
+*                                                                            *
+*  @file     SSD.hpp                                                         *
+*  @brief    SSD class header file                                           *
+*                                                                            *
+*  @author   atlanswer                                                       *
+*  @email    atlanswer@gmail.com                                             *
+*  @version  Beta-2                                                          *
+*  @date     10/20/2018                                                      *
+*                                                                            *
+*----------------------------------------------------------------------------*
+*  Remark         : Description                                              *
+*----------------------------------------------------------------------------*
+*  Change History :                                                          *
+*  <Date>     | <Version> | <Author>       | <Description>                   *
+*----------------------------------------------------------------------------*
+*  2018/10/20 | Beta-2   | atlanswer      | Complete mission                 *
+*----------------------------------------------------------------------------*
+*                                                                            *
+*****************************************************************************/
+
 //Standard I/O
 #include <iostream>
 //Math operation
@@ -7,13 +29,13 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 
+/**
+    * @brief Class for processing a stand-alone image
+    */
 class SSD {
         std::string originalImageWindowName {
             "Original image"
         };
-        // std::string originalImageUri{};
-        void display(cv::Mat&);
-        void save(cv::Mat&);
         void histrogram(cv::Mat&, bool);
         void extract();
         void threshold();

@@ -1,13 +1,44 @@
+/*****************************************************************************
+*  Seven-segment display ocr program                                         *
+*                                                                            *
+*  @file     SSD2.cpp                                                        *
+*  @brief    SSD0 and SSD2 class source file                                 *
+*                                                                            *
+*  @author   atlanswer                                                       *
+*  @email    atlanswer@gmail.com                                             *
+*  @version  Beta-2                                                          *
+*  @date     10/20/2018                                                      *
+*                                                                            *
+*----------------------------------------------------------------------------*
+*  Remark         : Description                                              *
+*----------------------------------------------------------------------------*
+*  Change History :                                                          *
+*  <Date>     | <Version> | <Author>       | <Description>                   *
+*----------------------------------------------------------------------------*
+*  2018/10/20 | Beta-2   | atlanswer      | Complete mission                 *
+*----------------------------------------------------------------------------*
+*                                                                            *
+*****************************************************************************/
+
 #include "SSD2.hpp"
 
+/** 
+    * @brief SSD2 class constructor 1
+    * @param pImg char*  
+    */
 SSD2::SSD2(char* pImg) {
     std::cout << "[info] Reading one image..." << std::endl;
     
-    Img1 = new SSD0(pImg);
+    Img3 = new SSD(pImg);
 
     condense();
 }
 
+/** 
+    * @brief SSD2 class constructor 2
+    * @param pImg1 char*  
+    * @param pImg2 char*  
+    */
 SSD2::SSD2(char* pImg1, char* pImg2) {
     std::cout << "[info] Reading two images..." << std::endl;
 
@@ -17,20 +48,16 @@ SSD2::SSD2(char* pImg1, char* pImg2) {
     amalgamate();
 }
 
+/** 
+    * @brief Test function
+    */
 void SSD2::condense() {
-    cv::Point2f vImg[4];
-    cv::Mat oImg{Img1->oImg};
-    cv::Mat cImg;
-    cv::RotatedRect bImg{Img1->extract()};
-
-    bImg.points(vImg);
-    for (int i{0}; i< 4; ++i)
-        line(oImg, vImg[i], vImg[(i+1)%4], cv::Scalar(150), 2);
-
-    cv::imshow("Bounding Box", oImg);
-    cv::waitKey(0);
+    Img3 -> readDigit();
 }
 
+/** 
+    * @brief Merge two images
+    */
 void SSD2::amalgamate() {
     cv::Point2f vImg1[4], vImg2[4];
     cv::Mat oImg1{Img1->oImg}, oImg2{Img2->oImg};
@@ -44,8 +71,8 @@ void SSD2::amalgamate() {
         line(oImg2, vImg2[i], vImg2[(i+1)%4], cv::Scalar(150), 2);
     }
 
-    cv::imshow("ext", oImg1);
-    cv::imshow("ext2", oImg2);
+    cv::imshow("Original image 1", oImg1);
+    cv::imshow("Original image 2", oImg2);
 
     cv::warpAffine(Img1->eImg, cImg1, Img1->transform, cv::Size(460, 160));
     cv::warpAffine(Img2->eImg, cImg2, Img2->transform, cv::Size(460, 160));
@@ -53,6 +80,9 @@ void SSD2::amalgamate() {
     cv::add(cImg1, cImg2, combineArm);
 }
 
+/** 
+    * @brief Extract digit
+    */
 void SSD2::readDigit() {
     cv::Mat kernel{cv::getStructuringElement(cv::MORPH_RECT, cv::Size(15, 27))};
     cv::Mat recog;
@@ -71,11 +101,9 @@ void SSD2::readDigit() {
     for (auto box:boundingBoxes)
         cv::rectangle(combineArm, box, cv::Scalar(150), 2);
 
-    cv::imshow("comb", combineArm);
-    cv::imshow("reco", recog);
+    cv::imshow("Combined", combineArm);
 
     for (auto box:boundingBoxes) {
-        std::cout << box.width << ' ' << box.height << std::endl;
         //Determine 1
         if (box.height > box.width * 3) {
             answer.push_back(1);
@@ -135,10 +163,21 @@ void SSD2::readDigit() {
     cv::waitKey(0);
 }
 
+/** 
+    * @brief SSD0 class constructor
+    * @param pImg char*
+    */
 SSD0::SSD0(char* pImg) {
     oImg = cv::imread(pImg, cv::IMREAD_COLOR);
+
+    if (!oImg.data)
+        std::cout << "[Error] Image not found." << std::endl;
 }
 
+/** 
+    * @brief Calculate histrogram
+    * @param img cv::Mat&
+    */
 void SSD0::histAnalysis(cv::Mat& img) {
     int histSize{256};
     float range[]{0, 256};
@@ -154,6 +193,11 @@ void SSD0::histAnalysis(cv::Mat& img) {
         imgType = normal;
 }
 
+/** 
+    * @brief Find segments
+    * 
+    * @return cv::RotatedRect ROI ectangle
+    */
 cv::RotatedRect SSD0::extract() {
     cv::Mat channelBGR[3];
     cv::split(oImg, channelBGR);
@@ -168,8 +212,6 @@ cv::RotatedRect SSD0::extract() {
         std::cout << "[info] No lighting interference." << std::endl;
         cv::threshold(channelBGR[2], eImg, 0, 255, cv::THRESH_OTSU);
         cv::morphologyEx(eImg, eImg, cv::MORPH_ERODE, kernel);
-
-        
 
         bounding = cv::RotatedRect{cv::Point2f(30, 30), cv::Point2f(490, 30), cv::Point2f(490, 190)};
     } else {

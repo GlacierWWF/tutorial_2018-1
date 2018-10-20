@@ -16,6 +16,6 @@ include_directories(inc)
 #Source files
 aux_source_directory(src SOURCES)
 
-add_executable(test ${SOURCES})
+add_executable(ocr ${SOURCES})
 #Link OpenCV libraries
-target_link_libraries(test ${OpenCV_LIBS})
+target_link_libraries(ocr ${OpenCV_LIBS})
