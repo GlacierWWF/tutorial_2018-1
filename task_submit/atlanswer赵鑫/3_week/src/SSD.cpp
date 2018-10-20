@@ -145,9 +145,8 @@ void SSD::findContour() {
              cv::Scalar(150), 2);
     }
 
-        cv::namedWindow("box", cv::WINDOW_AUTOSIZE);
-        cv::imshow("box", originalImage);
-        cv::waitKey(0);
+    cv::namedWindow("Original image", cv::WINDOW_AUTOSIZE);
+    cv::imshow("Original image", originalImage);
 }
 
 /** 
@@ -265,8 +264,8 @@ void SSD::readDigit() {
     for (int i{0}; i < 4; ++i)
         std::cout << answer[i];
     std::cout << std::endl;
-    cv::namedWindow("warp", cv::WINDOW_AUTOSIZE);
-    cv::imshow("warp", warpped);
+    cv::namedWindow("Result", cv::WINDOW_AUTOSIZE);
+    cv::imshow("Result", warpped);
     cv::waitKey(0);
 }
 
