@@ -111,17 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named detect
+# Target rules for targets named LEDdetect
 
 # Build rule for target.
-detect: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 detect
-.PHONY : detect
+LEDdetect: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 LEDdetect
+.PHONY : LEDdetect
 
 # fast build rule for target.
-detect/fast:
-	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/build
-.PHONY : detect/fast
+LEDdetect/fast:
+	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/build
+.PHONY : LEDdetect/fast
+
+src/Degree.o: src/Degree.cpp.o
+
+.PHONY : src/Degree.o
+
+# target to build an object file
+src/Degree.cpp.o:
+	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/src/Degree.cpp.o
+.PHONY : src/Degree.cpp.o
+
+src/Degree.i: src/Degree.cpp.i
+
+.PHONY : src/Degree.i
+
+# target to preprocess a source file
+src/Degree.cpp.i:
+	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/src/Degree.cpp.i
+.PHONY : src/Degree.cpp.i
+
+src/Degree.s: src/Degree.cpp.s
+
+.PHONY : src/Degree.s
+
+# target to generate assembly for a file
+src/Degree.cpp.s:
+	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/src/Degree.cpp.s
+.PHONY : src/Degree.cpp.s
 
 src/LEDdetect.o: src/LEDdetect.cpp.o
 
@@ -129,7 +156,7 @@ src/LEDdetect.o: src/LEDdetect.cpp.o
 
 # target to build an object file
 src/LEDdetect.cpp.o:
-	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/src/LEDdetect.cpp.o
+	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/src/LEDdetect.cpp.o
 .PHONY : src/LEDdetect.cpp.o
 
 src/LEDdetect.i: src/LEDdetect.cpp.i
@@ -138,7 +165,7 @@ src/LEDdetect.i: src/LEDdetect.cpp.i
 
 # target to preprocess a source file
 src/LEDdetect.cpp.i:
-	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/src/LEDdetect.cpp.i
+	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/src/LEDdetect.cpp.i
 .PHONY : src/LEDdetect.cpp.i
 
 src/LEDdetect.s: src/LEDdetect.cpp.s
@@ -147,8 +174,35 @@ src/LEDdetect.s: src/LEDdetect.cpp.s
 
 # target to generate assembly for a file
 src/LEDdetect.cpp.s:
-	$(MAKE) -f CMakeFiles/detect.dir/build.make CMakeFiles/detect.dir/src/LEDdetect.cpp.s
+	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/src/LEDdetect.cpp.s
 .PHONY : src/LEDdetect.cpp.s
+
+src/Process.o: src/Process.cpp.o
+
+.PHONY : src/Process.o
+
+# target to build an object file
+src/Process.cpp.o:
+	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/src/Process.cpp.o
+.PHONY : src/Process.cpp.o
+
+src/Process.i: src/Process.cpp.i
+
+.PHONY : src/Process.i
+
+# target to preprocess a source file
+src/Process.cpp.i:
+	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/src/Process.cpp.i
+.PHONY : src/Process.cpp.i
+
+src/Process.s: src/Process.cpp.s
+
+.PHONY : src/Process.s
+
+# target to generate assembly for a file
+src/Process.cpp.s:
+	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/src/Process.cpp.s
+.PHONY : src/Process.cpp.s
 
 # Help Target
 help:
@@ -158,10 +212,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... detect"
+	@echo "... LEDdetect"
+	@echo "... src/Degree.o"
+	@echo "... src/Degree.i"
+	@echo "... src/Degree.s"
 	@echo "... src/LEDdetect.o"
 	@echo "... src/LEDdetect.i"
 	@echo "... src/LEDdetect.s"
+	@echo "... src/Process.o"
+	@echo "... src/Process.i"
+	@echo "... src/Process.s"
 .PHONY : help
 
 
