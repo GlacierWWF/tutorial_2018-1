@@ -1,5 +1,7 @@
 //Standard I/O
 #include <iostream>
+//Math operation
+#include <cmath>
 //OpenCV
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
@@ -36,16 +38,4 @@ class SSD {
         void playground();
         void readDigit();
 
-};
-
-class SSD2 {
-    SSD* img1;
-    SSD* img2;
-    cv::Size combinedSize{};
-    cv::Mat combined{};
-
-    public:
-        SSD2(char*, char*);
-        void combine();
-        void readDigit();
 };

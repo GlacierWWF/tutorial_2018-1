@@ -1,4 +1,4 @@
-#include "SSD.hpp"
+#include "SSD2.hpp"
 
 int main(int argc, char** argv) {
     if (argc == 1 or argc > 3) {
@@ -8,12 +8,12 @@ int main(int argc, char** argv) {
     }
 
     if (argc == 2) {
-        std::cout << "Here" << std::endl;
-        SSD image(argv[1]);
-        image.readDigit();
+        SSD2 ONE_FUCKING_UNREADABLE_IMAGE(argv[1]);
+        // SSD A_FUCKING_UNREADABLE_IMAGE(argv[1]);
+        // A_FUCKING_UNREADABLE_IMAGE.readDigit();
     } else {
-        SSD2 combine(argv[1], argv[2]);
-        combine.combine();
+        SSD2 THE_MOTHER_OF_TWO_FUCKING_BLURRY_IMAGES(argv[1], argv[2]);
+        THE_MOTHER_OF_TWO_FUCKING_BLURRY_IMAGES.readDigit();
     }
 
     return 0;

@@ -1,6 +1,7 @@
 #include "SSD.hpp"
 
 SSD::SSD(char* originalImageUri) {
+    std::cout << "[info] Reading one image..." << std::endl;
     originalImage = cv::imread(originalImageUri, cv::IMREAD_COLOR);
     playground();
 }
@@ -259,40 +260,4 @@ void SSD::playground() {
     threshold();
     findContour();
     warp();
-}
-
-SSD2::SSD2(char* oimg1, char* oimg2):
-    img1{new SSD(oimg1)}, img2{new SSD(oimg2)} {
-    img1->playground();
-    img2->playground();
-    
-}
-
-void SSD2::combine() {
-    combinedSize.width = (img1->warpped.cols + img2->warpped.cols) / 2;
-    combinedSize.height = (img1->warpped.rows + img2->warpped.rows) / 2;
-
-    cv::Point2f src1[4], src2[4], dst[4];
-    src1[0] = cv::Point2f(0, img1->warpped.rows);
-    src1[1] = cv::Point2f(0, 0);
-    src1[2] = cv::Point2f(img1->warpped.cols, 0);
-    src1[3] = cv::Point2f(img1->warpped.cols, img1->warpped.rows);
-    src2[0] = cv::Point2f(0, img2->warpped.rows);
-    src2[1] = cv::Point2f(0, 0);
-    src2[2] = cv::Point2f(img2->warpped.cols, 0);
-    src2[3] = cv::Point2f(img2->warpped.cols, img2->warpped.rows);
-    dst[0] = cv::Point2f(0, combinedSize.height);
-    dst[1] = cv::Point2f(0, 0);
-    dst[0] = cv::Point2f(combinedSize.width, 0);
-    dst[0] = cv::Point2f(combinedSize.width, combinedSize.height);
-
-    cv::Mat img1Tran{}, img2Tran{};
-    cv::Mat img1Dst{}, img2Dst{};
-    img1Tran = cv::getAffineTransform(src1, dst);
-    img2Tran = cv::getAffineTransform(src2, dst);
-    cv::warpAffine(img1->warpped, img1Dst, img1Tran, combinedSize);
-
-    cv::namedWindow("img1Dst", cv::WINDOW_AUTOSIZE);
-    cv::imshow("img1Dst", img1Dst);
-    cv::waitKey(0);
 }
