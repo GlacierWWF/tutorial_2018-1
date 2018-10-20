@@ -3,7 +3,7 @@
 * Author: Atlanswer (atlanswer@gmail.com)
 * Revised: Atlanswer
 * Date: 2018-10-20
-* Version: Beta
+* Version: Beta-2
 * Abstract: Project file for seven-segment display recognition
 
 ---
