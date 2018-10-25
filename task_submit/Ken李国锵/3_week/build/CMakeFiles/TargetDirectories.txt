@@ -1,0 +1,3 @@
+/home/kcli/tutorial_2018/task_submit/Ken李国锵/3_week/build/CMakeFiles/rebuild_cache.dir
+/home/kcli/tutorial_2018/task_submit/Ken李国锵/3_week/build/CMakeFiles/main.out.dir
+/home/kcli/tutorial_2018/task_submit/Ken李国锵/3_week/build/CMakeFiles/edit_cache.dir
