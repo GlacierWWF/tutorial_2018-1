@@ -31,7 +31,9 @@
 
 ![window](data/result/1/4.png)
 
-![window](data/result/1/5.png)
+![window](data/running_output/sim_sample1.png)
 
-![window](data/result/1/6.png)
+![window](data/running_output/act_sample1.png)
+
+![window](data/running_output/hard_sample1.png)
 

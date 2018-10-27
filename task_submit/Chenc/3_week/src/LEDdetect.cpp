@@ -21,26 +21,20 @@ using namespace std;
 using namespace cv;
 int main(int argc, char** argv)
 {
-	char *imgName1 = argv[1];
-	string imgName = imgName1;
-	//convert the char* to string;
 	Mat image,gray_img;
-	image = imread(imgName, 1);	
-
-	cv::namedWindow("Image",CV_NORMAL);
-	cv::imshow("Image",image);//show image
-	cv::waitKey(0);
-	
 	int _threshold;
 	int dil_kernel,blur_kernel;
 	bool ifGamma,isRecify;
-	int cmin,cmax;
-	int w1_low = 10, w1_high = 40;    // width boundary for number "1"
-	int w2_low = 55, w2_high = 100;   // width boundary for othe numbers
-	int h_low = 100, h_high = 160;
     	if (argc == 2)
     	{
-	    	
+		char *imgName1 = argv[1];
+		string imgName = imgName1;
+		//convert the char* to string;
+		image = imread(imgName, 1);	
+
+		cv::namedWindow("Image",CV_NORMAL);
+		cv::imshow("Image",image);//show image
+		cv::waitKey(0);
 		if(image.rows == 180)//simple_samples
 		{
 			simple(image,gray_img,ifGamma);
@@ -62,11 +56,30 @@ int main(int argc, char** argv)
 		}
 		
 	}
-    	if (!image.data)
-    	{
-		cout << "No image data" << endl;
-        	return -1;
-  	}
+	if(argc == 3)
+	{	
+		Mat image1,image2;
+		char *imgName1 = argv[1];
+		char *imgName2 = argv[2];
+		string imgName = imgName1;
+		string imgName_ = imgName2;
+		//convert the char* to string;
+		image1 = imread(imgName, 1);
+		image2 = imread(imgName_,1);
+		addWeighted(image1,0.5,image2,0.5,0.0,image);
+		cv::namedWindow("Image",CV_NORMAL);
+		cv::imshow("Image",image);//show image
+		cv::waitKey(0);
+		simple(image,gray_img,ifGamma);
+		_threshold = 120;
+		if(ifGamma)
+				dil_kernel = 11;
+		else
+				dil_kernel = 7;
+		blur_kernel = 11;
+	
+	}
+ 
 
 	Mat binary_img;
  	threshold(gray_img,binary_img,_threshold,255.0,CV_THRESH_BINARY);
@@ -136,6 +149,11 @@ int main(int argc, char** argv)
 		else if(image.rows == 600)//act_samples
 		{
 			if((width >= 10&&width<=40 ||width >=54 && width<=100) && (height >=95 && height<=160))
+			numbers.push_back(rect1);
+		}
+		else
+		{
+			if((width >= 10&&width <= 40|| width >= 60 && width <= 100) && (height >= 100 && height <= 160))
 			numbers.push_back(rect1);
 		}
 	}
@@ -226,48 +244,66 @@ int main(int argc, char** argv)
 	//cv::imshow("contours_Image",imageContours);//show dilateimage
 	//cv::waitKey(1);
 
-	const int K = 3;
+
+
+	const int K = 1;
+	const int predict_samples_number = 4;
+	const int train_samples_number = 100;
+	int every_class_number;
 	cv::Ptr<cv::ml::KNearest> knn = cv::ml::KNearest::create();
 	knn->setDefaultK(K);
 	knn->setIsClassifier(true);
-	knn->setAlgorithmType(cv::ml::KNearest::BRUTE_FORCE);
-
-        //const std::string image_path{ "./data/" };
-	cv::Mat tmp_unify= cv::imread("data/sample1/0/0_ (1).jpg", 0);
+	//knn->setAlgorithmType(cv::ml::KNearest::BRUTE_FORCE);
+	cv::Mat tmp_unify;
+	if(image.rows == 180 || image.rows == 230)
+	{
+		tmp_unify= cv::imread("data/sample1/0/0_ (1).jpg", 0);
+		every_class_number = 1;
+	}
+	else
+	{
+		tmp_unify= cv::imread("data/sample1/0/0_ (1).jpg", 0);
+		every_class_number = 10;
+	}
+	
 	threshold(tmp_unify, tmp_unify, 50, 255, THRESH_BINARY);
 	cv::Mat tmp(Size(40,60), CV_32FC1, Scalar(0));	
 	cv::resize(tmp_unify, tmp, Size(40,60), 0, 0, INTER_LINEAR);
 
-	const int train_samples_number = 100;
-	const int predict_samples_number = 4;
-	const int every_class_number = 10;
-
+	
+	
+	
 	cv::Mat train_data(train_samples_number, tmp.rows * tmp.cols, CV_32FC1);
 	cv::Mat train_labels(train_samples_number, 1, CV_32FC1);
+
 	float* p = (float*)train_labels.data;
 	for (int i = 0; i < 10; ++i) {
 		std::for_each(p + i * every_class_number, p + (i + 1)*every_class_number, [i](float& v) {v = (float)i; });
 	}
-
 	// train data
 	for (int i = 0; i < 10; ++i) {
 		static const std::vector<std::string> digit = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", };
 		static const std::string suffix = { ".jpg" };
 		for (int j = 1; j <= every_class_number; ++j) {
-			std::string image_name = "data/sample1/" + digit[i] + "/" + digit[i] +"_ ("+std::to_string(j) + ")" + suffix;
-			//E:\\sample\\0\\0_ (1).jpg
+			std::string image_name;
+			
+			if(image.rows == 180 || image.rows == 230)
+			{
+				image_name = "data/sample1/" + digit[i] + "/" + digit[i] +"_ ("+std::to_string(j) + ")" + suffix;
+			}
+			else
+			{
+				image_name = "data/sample2/" + digit[i] + "/" + digit[i] +"_ ("+std::to_string(j) + ")" + suffix;
+			}
 			cv::Mat image_undifinedsize = cv::imread(image_name, 0);
 			threshold(image_undifinedsize, image_undifinedsize, 50, 255, THRESH_BINARY);
 			cv::Mat image1(Size(40, 60), CV_32FC1, Scalar(0));
 			cv::resize(image_undifinedsize, image1, Size(40, 60), 0, 0, INTER_LINEAR);
-			//cv::namedWindow("Image1", CV_WINDOW_AUTOSIZE);
-			//cv::imshow("Image1", image1);
-			//waitKey(1);
-			//CHECK(!image1.empty() && image1.isContinuous());
-			image1.convertTo(image1, CV_32FC1);//×ª»»žñÊœ
-			image1 = image1.reshape(0, 1);//ÉèÖÃ³Éµ¥ÐÐ
+			
+			image1.convertTo(image1, CV_32FC1);
+			image1 = image1.reshape(0, 1);
 			tmp = train_data.rowRange(i * every_class_number + j - 1, i * every_class_number + j);
-			image1.copyTo(tmp);//œ«image1žŽÖÆµœtmpÖÐ 
+			image1.copyTo(tmp);
 		}
 	}
 	knn->train(train_data, cv::ml::ROW_SAMPLE, train_labels);
@@ -282,7 +318,6 @@ int main(int argc, char** argv)
 		
 			string  Img_Name1 = "data/50*50size/" + std::to_string(j) + ".jpg";
 			imwrite(Img_Name1, image3);
-			//CHECK(!image3.empty() && image3.isContinuous());
 			image3.convertTo(image3, CV_32FC1);
 			image3 = image3.reshape(0, 1);
 
@@ -291,8 +326,6 @@ int main(int argc, char** argv)
 		}
 	cv::Mat result;
 	knn->findNearest(predict_data, K, result);
-	//CHECK(result.rows == predict_samples_number);
-
 	cv::Mat predict_labels(predict_samples_number, 1, CV_32FC1);
 	p = (float*)predict_labels.data;
 	for (int i = 1; i <= 4; ++i) {
@@ -303,9 +336,10 @@ int main(int argc, char** argv)
 	for (int i = 0; i < predict_samples_number; ++i) {
 
 		float value2 = ((float*)result.data)[i];
+		//int value3 = (int)value2;
 		cout << value2;
 	}
 	std::cout<<endl;
-	waitkey(1);
+	cv::waitKey(0);
  return 0;
 }
