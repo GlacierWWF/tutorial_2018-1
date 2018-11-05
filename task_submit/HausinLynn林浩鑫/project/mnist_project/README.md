@@ -63,9 +63,8 @@ Train with libsvm:
 ![window](libsvm_realization/res/train.png)
 
 ```
-We can see, when train with libsvm, cost 813.31s, but accuracy is 94%. When train 
-with keras, cost 82.79s, but accuracy is 99.17%. It's obviously that using keras 
-to build neural networks is more efficient than using libsvm to classfy.
+We can see, when train with libsvm, cost 813.31s, but accuracy is 94%. When train with keras, cost 82.79s, but accuracy is 99.17%.
+It's obviously that using keras to build neural networks is more efficient than using libsvm to classfy.
 ```
 
 Recognize output:
