@@ -29,7 +29,8 @@ IMAGE_PATH = './gesture_images/'
 classes = ['yeah', 'OK', 'nice', 'love', 'contempt', 'right']
 
 def generate_tfRecord():
-	writer = tf.python_io.TFRecordWriter('./gesture_data/tfRecord_train')
+	train_writer = tf.python_io.TFRecordWriter('./gesture_data/tfRecord_train')
+	test_writer = tf.python_io.TFRecordWriter('./gesture_data/tfRecord_test')
 
 	# get each class of images
 	for index in range(len(classes)):
@@ -53,13 +54,20 @@ def generate_tfRecord():
 				'img_raw': tf.train.Feature(bytes_list=tf.train.BytesList(value=[img_raw])),
 				'label': tf.train.Feature(int64_list=tf.train.Int64List(value=label))
 				}))
-			writer.write(example.SerializeToString())
+
+			# the first 1600 images is written to be train data
+			if num < 1600:
+				train_writer.write(example.SerializeToString())
+			# the last 400 images is written to be test data
+			else:
+				test_writer.write(example.SerializeToString())
 
 			# count
 			num += 1
 			print('Written %d %s pictures'%(num, classes[index]))
 
-	writer.close()
+	train_writer.close()
+	test_writer.close()
 
 if __name__ == '__main__':
 	generate_tfRecord()

@@ -62,7 +62,6 @@ LEARNING_RATE = 1e-4	# learning rate
 MODEL_PATH = "./model/"	
 MODEL_NAME = "gesture_model.ckpt"
 
-
 def forward(input_data):
 	"""forward process to input data
 
