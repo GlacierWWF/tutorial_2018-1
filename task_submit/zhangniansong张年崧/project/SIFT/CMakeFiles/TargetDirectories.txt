@@ -1,0 +1,3 @@
+/home/niansong/Documents/SIFT/CMakeFiles/rebuild_cache.dir
+/home/niansong/Documents/SIFT/CMakeFiles/sift.dir
+/home/niansong/Documents/SIFT/CMakeFiles/edit_cache.dir
