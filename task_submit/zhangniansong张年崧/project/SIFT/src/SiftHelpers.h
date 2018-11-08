@@ -1,10 +1,13 @@
+/* Title: SiftHelper.h
+ * Author: Zhang Niansong
+ * Revised: Zhang Niansong
+ * Date: 2018-11-08
+ * Version: 1.0.0
+ * Define Image class and major helper functions such as matching sift points and draw image 
+ */
+
 #ifndef __SIFTHELPERS_H__
 #define __SIFTHELPERS_H__
-
-/*
-	Helper Class for part-1
-	Contains Class Image - which constitutes all the attrubutes and static function tas helpers to each question
-*/
 
 #include "CImg.h"
 #include <ctime>
@@ -70,7 +73,7 @@ class Image
 	}
 	
 	
-	//Given two Images and descriptors between them , the image is joined and descriptors are drawn with yellow line
+	// Given two Images and descriptors between them, the image is joined and descriptors are drawn with yellow line
 	// Reduced to distinguish between quantized projection function and the normal one.	
 	static void DrawImage(const Image& queryImage,const Image& image,SiftDescriptorMap& mapping,bool reduced = false)
 	{

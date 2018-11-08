@@ -1,1 +1,0 @@
-/usr/bin/c++  -std=c++14  -rdynamic CMakeFiles/sift.dir/src/main.cpp.o CMakeFiles/sift.dir/include/sift.cpp.o  -o bin/sift -lSM -lICE -lX11 -lXext -lpthread -lm 

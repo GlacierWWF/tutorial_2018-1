@@ -1,4 +1,11 @@
-// Sift.h : Simple wrapper for VLFeat's SIFT implementation
+/* Sift.h
+ * Author: Zhang Niansong
+ * Revised: Zhang Niansong
+ * Date: 2018-11-08
+ * Version: 1.0.0
+ * Sift.h : Defines clas SiftDescriptor and sift. 
+ * Simple wrapper for VLFeat's SIFT implementation
+ */
 
 #ifndef __SIFT_H_
 #define __SIFT_H_
@@ -28,7 +35,6 @@ class Sift
  public:
   // This method takes a luma (grayscale) image plane as input, and returns a vector
   // of SiftDescriptor's.
-  //
   static vector<SiftDescriptor> compute_sift(const CImg<float> &luma)
     {
       bool lowe_compatible = true;

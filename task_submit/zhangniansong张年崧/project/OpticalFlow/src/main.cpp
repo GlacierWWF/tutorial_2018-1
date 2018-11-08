@@ -1,3 +1,11 @@
+/* Name: main.cpp
+ * Author: Zhang Niansong
+ * Revised: Zhang Niansong
+ * Version: 1.0.0
+ * Description: An Implementation of Lucas-Kanade method of computing
+ * optical flow. This program reads video from camera and draw optical flow
+ * on grid points and print optical flow between two consecutive frames on console.
+ */
 #include "opencv2/video/tracking.hpp"
 #include "opencv2/videoio.hpp"
 #include "opencv2/highgui.hpp"
@@ -157,10 +165,7 @@ void getLucasKanadeOpticalFlow(Mat &img1, Mat &img2, Mat &u, Mat &v, Mat &dx, Ma
     u = sumfxfy.mul(sumfyft) - sumfy2.mul(sumfxft);
     v = sumfxft.mul(sumfxfy) - sumfx2.mul(sumfyft);
     divide(u, tmp, u);
-    divide(v, tmp, v);
-
-//    saveMat(u, "U");
-//    saveMat(v, "V");   
+    divide(v, tmp, v);  
     dx = -fx.mul(u);
     dy = -fy.mul(v);
 }

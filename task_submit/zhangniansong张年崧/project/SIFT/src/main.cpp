@@ -1,4 +1,10 @@
-
+/* Title: main.cpp
+ * Author: Zhang Niansong
+ * Revised: Zhang Niansong
+ * Date: 2018-11-08
+ * Version: 1.0.0
+ * Main program to match SIFT feature point of two images 
+ */
 #include "SiftHelpers.h"
 
 int main(int argc, char **argv)

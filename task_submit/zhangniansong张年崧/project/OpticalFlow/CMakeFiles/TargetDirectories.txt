@@ -1,3 +1,0 @@
-/home/niansong/Documents/OpticalFlow/CMakeFiles/rebuild_cache.dir
-/home/niansong/Documents/OpticalFlow/CMakeFiles/optical.dir
-/home/niansong/Documents/OpticalFlow/CMakeFiles/edit_cache.dir
