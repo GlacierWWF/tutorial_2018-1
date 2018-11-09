@@ -42,7 +42,7 @@ Assume point1 has the least distance `d1`, point2 has second lease distance `d2`
 ```
 ratio = d1/d2
 ```
-if `ratio` > 0.7, the program consider the pair as a match.
+if `ratio` > 0.7, the program considers the pair as a match.
 
 
 # Output
