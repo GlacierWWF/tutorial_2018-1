@@ -15,16 +15,25 @@ All Optical Flow methods are based on the following assumptions:
 With these assumptions, if we have two adjacent frames of a video, we have:
 
 Assuming color constancy:
+
 ![window](./img/0.jpg)
+
 Assuming small motion:
+
 ![window](./img/1.jpg)
+
 Then we can get the Constraint Equation of Optical Flow:
+
 ![window](./img/2.jpg)
+
 If we divide each side by `dt`
+
 ![window](./img/3.jpg)
 
 The Lucas-Kanade's method is just to use small window and least square method:
+
 ![window](./img/4.jpg)
+
 It finds the `u`, `v` that satisfy constrain by taking derivative of the least squre equation, and solve the derivative equations to get `u` and `v`.
 
 
