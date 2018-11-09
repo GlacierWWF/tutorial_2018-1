@@ -32,7 +32,7 @@ If we divide each side by `dt`
 
 The Lucas-Kanade's method is just to use small window and least square method:
 
-![window](./img/4.jpg)
+![window](./img/4.jpg){:height="50%" width="50%"}
 
 It finds the `u`, `v` that satisfy constrain by taking derivative of the least squre equation, and solve the derivative equations to get `u` and `v`.
 
