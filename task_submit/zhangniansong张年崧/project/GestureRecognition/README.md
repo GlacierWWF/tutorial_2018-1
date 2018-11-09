@@ -45,7 +45,7 @@ Please note that skin mask is better for noisy background.
 
 ## Demo
 ![window](./img/demo.gif)
-Please note that different lighting conditions and background
+Please note that different lighting conditions and background will affect the prediction result.
 ## Training
 
 I trained this little network on local machine (Intel i5, no GPU acceleration) and it took about 15min/epoch. 
