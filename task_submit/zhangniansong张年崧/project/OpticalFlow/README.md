@@ -36,11 +36,11 @@ The Lucas-Kanade's method is just to use small window and least square method:
 
 Taking derivatives:
 
-[window](./img/5.jpg)
+![window](./img/5.jpg)
 
 Writing equation into matrix format:
 
-[window](./img/6.jpg)
+![window](./img/6.jpg)
 
 It finds the `u`, `v` that satisfy constrain by taking derivative of the least squre equation, and solve the derivative equations to get `u` and `v`.
 
