@@ -1,4 +1,60 @@
 # Gesture Recognition
+
+A gesture recogntion project using Convolutional Neural Network. This project treats recognition task as classification problem and uses a simple network architecture.
+
+## Key Dependencies
+```
+- python 3.6.2 (or other versions)
+- tensorflow
+- keras
+- opencv 3.4.2
+```
+
+## Usage
+First enter this working directory, then:
+```
+python trackgesture.py
+```
+Then, you can either:
+```
+What would you like to do ?
+    1- Use pretrained model for gesture recognition
+    2- Train the model (you will require image samples for training under .\imgfolder_b)
+    3- Exit	
+```
+### Make new dataset
+In prediction mode, you can also make your own data set:
+```
+Options:
+ Press n - enter a name of a new gesture folder
+ Press s - to start/pause capturing new gestures
+```
+First press 'n' to create a new folder to contain new gesture images. Then, press 's' to start capturing images. The new images will be stored in the folder you just created, and will be named in 'foldername' + 'number'.
+
+### Recognize Gestures
+Once you are in prediction mode, you will see options on screen:
+```
+b - Toggle binary/skin mask
+g - Toggle prediction mode
+```
+Press 'g' to start gesture recognition.
+Press 'b' to change background mask.
+
+Please note that skin mask is better for noisy background.
+
+
+## Demo
+![window](./img/demo.gif)
+Please note that different lighting conditions and background
+## Training
+
+I trained this little network on local machine (Intel i5, no GPU acceleration) and it took about 15min/epoch. 
+
+### Loss and Accuracy
+![window](./img/train_acc_vs_val_acc.png)
+![window](./img/train_loss_vs_val_loss.png)
+
+### Console Output
 ```
 Epoch 1/15
   96/3083 [..............................] - ETA: 16:20 - loss: 6.9792 - acc: 0.2083
