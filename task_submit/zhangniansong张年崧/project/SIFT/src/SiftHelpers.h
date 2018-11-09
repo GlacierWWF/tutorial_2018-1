@@ -120,7 +120,7 @@ class Image
 	*/
 	static int MatchSIFT(const Image& queryImage,const Image& image,SiftDescriptorMap& mapping)
 	{
-		cout << "IN SiftHelper.h, MatchSIFT" << endl;
+		//cout << "IN SiftHelper.h, MatchSIFT" << endl;
 		vector<SiftDescriptor> queryDescriptors = queryImage.getDescriptors();
 		vector<SiftDescriptor> imageDescriptors = image.getDescriptors();
 		
@@ -177,12 +177,12 @@ class Image
 	*/
 	static void descriptorMatching1(Image& queryImage,vector<Image>& images)
 	{
-		cout << " IN descriptor matching 1" << endl;
+		//cout << " IN descriptor matching 1" << endl;
 		multimap<int,string> ranking;
 		for(int i = 0;i<images.size();++i)
 		{
 			SiftDescriptorMap mapping;
-			cout << "Initiated object of SiftDescriptorMap" << endl;
+			//cout << "Initiated object of SiftDescriptorMap" << endl;
 			int count = Image::MatchSIFT(queryImage,images[i],mapping);
 			ranking.insert(make_pair(count,images[i].getName()));
 		}

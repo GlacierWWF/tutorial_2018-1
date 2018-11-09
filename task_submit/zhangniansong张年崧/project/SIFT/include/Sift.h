@@ -34,7 +34,7 @@ class Sift
 {
  public:
   // This method takes a luma (grayscale) image plane as input, and returns a vector
-  // of SiftDescriptor's.
+  // of SiftDescriptors.
   static vector<SiftDescriptor> compute_sift(const CImg<float> &luma)
     {
       bool lowe_compatible = true;

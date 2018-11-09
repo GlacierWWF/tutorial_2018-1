@@ -22,6 +22,12 @@ What would you like to do ?
     2- Train the model (you will require image samples for training under .\imgfolder_b)
     3- Exit	
 ```
+Weight file: (Too large that exceeds GitHub limit)
+```
+链接：https://pan.baidu.com/s/1rvjs80GiOv59s_NP1LqV_g 提取码：N34K
+```
+Please Download this and put in the same folder with trackgesture.py
+
 ### Make new dataset
 In prediction mode, you can also make your own data set:
 ```
@@ -40,15 +46,58 @@ g - Toggle prediction mode
 Press 'g' to start gesture recognition.
 Press 'b' to change background mask.
 
+To Move ROI:
+```
+j - left
+l - right
+k - down
+i - up
+```
+
 Please note that skin mask is better for noisy background.
 
 
 ## Demo
+This demo is running on Intel i5 CPU with no GPU acceleration, for about 25 frames per second.
 ![window](./img/demo.gif)
 Please note that different lighting conditions and background will affect the prediction result.
 ## Training
 
 I trained this little network on local machine (Intel i5, no GPU acceleration) and it took about 15min/epoch. 
+
+### Architecture Summary
+```
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_1 (Conv2D)            (None, 32, 198, 198)      320       
+_________________________________________________________________
+activation_1 (Activation)    (None, 32, 198, 198)      0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 32, 196, 196)      9248      
+_________________________________________________________________
+activation_2 (Activation)    (None, 32, 196, 196)      0         
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 32, 98, 98)        0         
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 32, 98, 98)        0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 307328)            0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 128)               39338112  
+_________________________________________________________________
+activation_3 (Activation)    (None, 128)               0         
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 6)                 774       
+_________________________________________________________________
+activation_4 (Activation)    (None, 6)                 0         
+=================================================================
+Total params: 39,348,454
+```
+
+ 
 
 ### Loss and Accuracy
 ![window](./img/train_acc_vs_val_acc.png)
@@ -98,3 +147,14 @@ Epoch 14/15
 Epoch 15/15
 3083/3083 [==============================] - 922s 299ms/step - loss: 0.0077 - acc: 0.9971 - val_loss: 0.2561 - val_acc: 0.9494
 ```
+
+## 关于比赛中使用手势识别的想法
+
+此项目将手势识别作为分类问题来处理，这是因为事先划定了检测范围而简化了问题。实际中使用需要同时检测手的位置，所以位置的检测应该当作一个回归问题来处理。实际中使用需要考虑这样几个问题：
+1. 背景对识别的影响
+2. 同一手势的不同姿态对识别的影响
+3. 网络在嵌入式系统上运行的效率和速度
+
+另一个想法是如果有深度的信息，或许可以做出一个较为精确的人手三维模型检测，如下面这个项目：
+https://github.com/FORTH-ModelBasedTracker/HandTracker
+但是这个项目需要的内存和计算量都很大，可能不适合在嵌入式系统上运行。但是利用深度信息进行手势检测可能是一个值得考虑的方向。

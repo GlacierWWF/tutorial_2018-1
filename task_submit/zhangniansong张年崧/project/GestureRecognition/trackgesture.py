@@ -16,7 +16,6 @@ width = 200
 
 saveImg = False
 guessGesture = False
-visualize = False
 
 lastgesture = -1
 
@@ -61,7 +60,7 @@ def saveROIImg(img):
 
 
 def skinMask(frame, x0, y0, width, height, framecount, plot):
-    global guessGesture, visualize, mod, lastgesture, saveImg
+    global guessGesture, mod, lastgesture, saveImg
     # HSV values
     low_range = np.array([0, 50, 80])
     upper_range = np.array([30, 200, 255])
@@ -92,17 +91,12 @@ def skinMask(frame, x0, y0, width, height, framecount, plot):
         #res = cv2.UMat.get(res)
         t = threading.Thread(target=myNN.guessGesture, args = [mod, res])
         t.start()
-    elif visualize == True:
-        layer = int(input("Enter which layer to visualize "))
-        cv2.waitKey(0)
-        myNN.visualizeLayers(mod, res, layer)
-        visualize = False
     
     return res
 
 
 def binaryMask(frame, x0, y0, width, height, framecount, plot ):
-    global guessGesture, visualize, mod, lastgesture, saveImg
+    global guessGesture, mod, lastgesture, saveImg
     
     cv2.rectangle(frame, (x0,y0),(x0+width,y0+height),(0,255,0),1)
     #roi = cv2.UMat(frame[y0:y0+height, x0:x0+width])
@@ -120,18 +114,12 @@ def binaryMask(frame, x0, y0, width, height, framecount, plot ):
         #ores = cv2.UMat.get(res)
         t = threading.Thread(target=myNN.guessGesture, args = [mod, res])
         t.start()
-    elif visualize == True:
-        layer = int(input("Enter which layer to visualize "))
-        cv2.waitKey(1)
-        myNN.visualizeLayers(mod, res, layer)
-        visualize = False
 
     return res	
 	
 	
 def Main():
-    global guessGesture, visualize, mod, binaryMode, mask, x0, y0, width, height, saveImg, gestname, path
-    quietMode = False
+    global guessGesture, mod, binaryMode, mask, x0, y0, width, height, saveImg, gestname, path
     
     font = cv2.FONT_HERSHEY_SIMPLEX
     size = 0.5
@@ -200,6 +188,15 @@ def Main():
         cv2.putText(frame,'n - To enter name of new gesture folder',(fx,fy + 3*fh), font, size,(0,255,0),1,1)
         cv2.putText(frame,'s - To start capturing new gestures for training',(fx,fy + 4*fh), font, size,(0,255,0),1,1)
         cv2.putText(frame,'ESC - Exit',(fx,fy + 5*fh), font, size,(0,255,0),1,1)
+        
+        cv2.imshow('Original',frame)
+        cv2.imshow('ROI', roi)
+
+        if guessGesture == True:
+            plot = np.zeros((512,512,3), np.uint8)
+            plot = myNN.update(plot)
+            
+        cv2.imshow('Gesture Probability',plot)
         
         ## Keyboard inputs
         key = cv2.waitKey(5) & 0xff
