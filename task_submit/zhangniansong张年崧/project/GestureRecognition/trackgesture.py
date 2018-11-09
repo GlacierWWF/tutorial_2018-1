@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Mar  23 01:01:43 2017
-
-@author: abhisheksingh
-"""
-
-#%%
 import cv2
 import numpy as np
 import os
@@ -45,10 +37,9 @@ path = ""
 mod = 0
 
 banner =  '''\nWhat would you like to do ?
-    1- Use pretrained model for gesture recognition & layer visualization
-    2- Train the model (you will require image samples for training under .\imgfolder)
-    3- Visualize feature maps of different layers of trained model
-    4- Exit	
+    1- Use pretrained model for gesture recognition
+    2- Train the model (you will require image samples for training under .\imgfolder_b)
+    3- Exit	
     '''
 
 
@@ -69,7 +60,6 @@ def saveROIImg(img):
     time.sleep(0.04 )
 
 
-#%%
 def skinMask(frame, x0, y0, width, height, framecount, plot):
     global guessGesture, visualize, mod, lastgesture, saveImg
     # HSV values
@@ -111,7 +101,6 @@ def skinMask(frame, x0, y0, width, height, framecount, plot):
     return res
 
 
-#%%
 def binaryMask(frame, x0, y0, width, height, framecount, plot ):
     global guessGesture, visualize, mod, lastgesture, saveImg
     
@@ -137,61 +126,11 @@ def binaryMask(frame, x0, y0, width, height, framecount, plot ):
         myNN.visualizeLayers(mod, res, layer)
         visualize = False
 
-    return res
-
-#%%
-# This is the new mask mode. It simply tries to remove the background content by taking a image of the 
-# background and subtracts it from the new frame contents of the ROI window.
-# So in order to use it correctly, keep the contents of ROI window stable and without your hand in it 
-# and then press 'x' key. If you can see the contents of ROI window all blank then it means you are
-# good to go for gesture prediction
-def bkgrndSubMask(frame, x0, y0, width, height, framecount, plot):
-    global guessGesture, takebkgrndSubMask, visualize, mod, bkgrnd, lastgesture, saveImg
-        
-    cv2.rectangle(frame, (x0,y0),(x0+width,y0+height),(0,255,0),1)
-    roi = frame[y0:y0+height, x0:x0+width]
-    #roi = cv2.UMat(frame[y0:y0+height, x0:x0+width])
-    roi = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
-        
-    #Take background image
-    if takebkgrndSubMask == True:
-        bkgrnd = roi
-        takebkgrndSubMask = False
-        print("Refreshing background image for mask...")		
-
-    
-    #Take a diff between roi & bkgrnd image contents
-    diff = cv2.absdiff(roi, bkgrnd)
-
-    _, diff = cv2.threshold(diff, 25, 255, cv2.THRESH_BINARY)
-        
-    mask = cv2.GaussianBlur(diff, (3,3), 5)
-    mask = cv2.erode(diff, skinkernel, iterations = 1)
-    mask = cv2.dilate(diff, skinkernel, iterations = 1)
-    res = cv2.bitwise_and(roi, roi, mask = mask)
-    
-    if saveImg == True:
-        saveROIImg(res)
-    elif guessGesture == True and (framecount % 5) == 4:
-        t = threading.Thread(target=myNN.guessGesture, args = [mod, res])
-        t.start()
-        #t.join()
-        #myNN.update(plot)
-        
-    elif visualize == True:
-        layer = int(input("Enter which layer to visualize "))
-        cv2.waitKey(0)
-        myNN.visualizeLayers(mod, res, layer)
-        visualize = False
-    
-    
-    return res
+    return res	
 	
 	
-	
-#%%
 def Main():
-    global guessGesture, visualize, mod, binaryMode, bkgrndSubMode, mask, takebkgrndSubMask, x0, y0, width, height, saveImg, gestname, path
+    global guessGesture, visualize, mod, binaryMode, mask, x0, y0, width, height, saveImg, gestname, path
     quietMode = False
     
     font = cv2.FONT_HERSHEY_SIMPLEX
@@ -213,21 +152,8 @@ def Main():
             print("Will load default weight file")
             mod = myNN.loadCNN(1)
             break
-        elif ans == 3:
-            if not mod:
-                w = int(input("Which weight file to load (0 or 1)"))
-                mod = myNN.loadCNN(w)
-            else:
-                print("Will load default weight file")
-            
-            img = int(input("Image number "))
-            layer = int(input("Enter which layer to visualize "))
-            myNN.visualizeLayers(mod, img, layer)
-            input("Press any key to continue")
-            continue
-        
         else:
-            print("Get out of here!!!")
+            print("Exiting")
             return 0
         
     ## Grab camera input
@@ -252,9 +178,7 @@ def Main():
         frame = cv2.resize(frame, (640,480))
                       
         if ret == True:
-            if bkgrndSubMode == True:
-                roi = bkgrndSubMask(frame, x0, y0, width, height, framecount, plot)
-            elif binaryMode == True:
+            if binaryMode == True:
                 roi = binaryMask(frame, x0, y0, width, height, framecount, plot)
             else:
                 roi = skinMask(frame, x0, y0, width, height, framecount, plot)
@@ -272,28 +196,12 @@ def Main():
         cv2.putText(frame,fps,(10,20), font, 0.7,(0,255,0),2,1)
         cv2.putText(frame,'Options:',(fx,fy), font, 0.7,(0,255,0),2,1)
         cv2.putText(frame,'b - Toggle Binary/SkinMask',(fx,fy + fh), font, size,(0,255,0),1,1)
-        #cv2.putText(frame,'x - Toggle Background Sub Mask',(fx,fy + 2*fh), font, size,(0,255,0),1,1)		
         cv2.putText(frame,'g - Toggle Prediction Mode',(fx,fy + 2*fh), font, size,(0,255,0),1,1)
-        #cv2.putText(frame,'q - Toggle Quiet Mode',(fx,fy + 4*fh), font, size,(0,255,0),1,1)
         cv2.putText(frame,'n - To enter name of new gesture folder',(fx,fy + 3*fh), font, size,(0,255,0),1,1)
         cv2.putText(frame,'s - To start capturing new gestures for training',(fx,fy + 4*fh), font, size,(0,255,0),1,1)
         cv2.putText(frame,'ESC - Exit',(fx,fy + 5*fh), font, size,(0,255,0),1,1)
         
-        
-        ## If enabled will stop updating the main openCV windows
-        ## Way to reduce some processing power :)
-        if not quietMode:
-            cv2.imshow('Original',frame)
-            cv2.imshow('ROI', roi)
-
-            if guessGesture == True:
-                plot = np.zeros((512,512,3), np.uint8)
-                plot = myNN.update(plot)
-            
-            cv2.imshow('Gesture Probability',plot)
-            #plot = np.zeros((512,512,3), np.uint8)
-        
-        ############## Keyboard inputs ##################
+        ## Keyboard inputs
         key = cv2.waitKey(5) & 0xff
         
         ## Use Esc key to close the program
@@ -308,23 +216,11 @@ def Main():
                 print("Binary Threshold filter active")
             else:
                 print("SkinMask filter active")
-        
-		## Use g key to start gesture predictions via CNN
-        elif key == ord('x'):
-            takebkgrndSubMask = True
-            bkgrndSubMode = True
-            print("BkgrndSubMask filter active")
-        
 		
         ## Use g key to start gesture predictions via CNN
         elif key == ord('g'):
             guessGesture = not guessGesture
             print("Prediction Mode - {}".format(guessGesture))
-        
-        ## This option is not yet complete. So disabled for now
-        ## Use v key to visualize layers
-        #elif key == ord('v'):
-        #    visualize = True
 
         ## Use i,j,k,l to adjust ROI window
         elif key == ord('i'):
@@ -335,11 +231,6 @@ def Main():
             x0 = x0 - 5
         elif key == ord('l'):
             x0 = x0 + 5
-
-        ## Quiet mode to hide gesture window
-        elif key == ord('q'):
-            quietMode = not quietMode
-            print("Quiet Mode - {}".format(quietMode))
 
         ## Use s key to start/pause/resume taking snapshots
         ## numOfSamples controls number of snapshots to be taken PER gesture

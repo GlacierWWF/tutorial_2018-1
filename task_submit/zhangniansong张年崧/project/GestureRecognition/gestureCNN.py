@@ -1,11 +1,3 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Apr  6 01:01:43 2017
-
-@author: abhisheksingh
-"""
-
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.layers import Conv2D, MaxPooling2D, ZeroPadding2D
@@ -13,23 +5,11 @@ from keras.optimizers import SGD,RMSprop,adam
 from keras.utils import np_utils
 
 from keras import backend as K
-if K.backend() == 'tensorflow':
-    import tensorflow
-    #K.set_image_dim_ordering('tf')
-else:
-    import theano
-    #K.set_image_dim_ordering('th')
-
-'''Ideally we should have changed image dim ordering based on Theano or Tensorflow, but for some reason I get following error when I switch it to 'tf' for Tensorflow.
-	However, the outcome of the prediction doesnt seem to get affected due to this and Tensorflow gives me similar result as Theano.
-	I didnt spend much time on this behavior, but if someone has answer to this then please do comment and let me know.
-    ValueError: Negative dimension size caused by subtracting 3 from 1 for 'conv2d_1/convolution' (op: 'Conv2D') with input shapes: [?,1,200,200], [3,3,200,32].
-'''
+import tensorflow
 K.set_image_dim_ordering('th')
 	
 	
 import numpy as np
-#import matplotlib.pyplot as plt
 import os
 
 from PIL import Image
@@ -40,7 +20,6 @@ import json
 
 import cv2
 import matplotlib
-#matplotlib.use("TkAgg")
 from matplotlib import pyplot as plt
 
 # input image dimensions
@@ -69,7 +48,6 @@ nb_pool = 2
 # Size of convolution kernel
 nb_conv = 3
 
-#%%
 #  data
 path = "./"
 path1 = "./gestures"    #path of folder of images
@@ -99,7 +77,6 @@ def update(plot):
     
     for items in jsonarray:
         mul = (jsonarray[items]) / 100
-        #mul = random.randint(1,100) / 100
         cv2.line(plot,(0,y),(int(h * mul),y),(255,0,0),w)
         cv2.putText(plot,items,(0,y+5), font , 0.7,(0,255,0),2,1)
         y = y + w + 30
@@ -108,7 +85,6 @@ def update(plot):
 
 
 
-#%%
 # This function can be used for converting colored img to Grayscale img
 # while copying images from path1 to path2
 def convertToGrayImg(path1, path2):
@@ -121,7 +97,7 @@ def convertToGrayImg(path1, path2):
         grayimg = img.convert('L')
         grayimg.save(path2 + '/' +  file, "PNG")
 
-#%%
+
 def modlistdir(path):
     listing = os.listdir(path)
     retlist = []
@@ -157,37 +133,6 @@ def loadCNN(wf_index):
     model.add(Dense(nb_classes))
     model.add(Activation('softmax'))
     
-    '''
-    
-    model.add(ZeroPadding2D((1,1),input_shape=(img_channels, img_rows, img_cols)))
-    model.add(Conv2D(nb_filters , (nb_conv, nb_conv), activation='relu'))
-    #model.add(ZeroPadding2D((1,1)))
-    #model.add(Conv2D(nb_filters , (nb_conv, nb_conv), activation='relu'))
-    model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
-    model.add(Dropout(0.2))
-    
-    #model.add(ZeroPadding2D((1,1)))
-    model.add(Conv2D(nb_filters , (nb_conv, nb_conv), activation='relu'))
-    #model.add(ZeroPadding2D((1,1)))
-    model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
-    ##
-    #model.add(Conv2D(nb_filters , (nb_conv, nb_conv), activation='relu'))
-    #model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool), strides=(2,2)))
-    
-    model.add(Dropout(0.3))
-    model.add(Flatten())
-    ###
-    #model.add(Dense(128))
-    #model.add(Activation('relu'))
-    #model.add(Dropout(0.5))
-
-    model.add(Dense(256))
-    model.add(Activation('relu'))
-    model.add(Dropout(0.5))
-    model.add(Dense(nb_classes))
-    model.add(Activation('softmax'))
-    '''
-    
     #sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
     model.compile(loss='categorical_crossentropy', optimizer='adadelta', metrics=['accuracy'])
     
@@ -196,10 +141,6 @@ def loadCNN(wf_index):
     model.summary()
     # Model conig details
     model.get_config()
-    
-    #from keras.utils import plot_model
-    #plot_model(model, to_file='new_model.png', show_shapes = True)
-    
 
     if wf_index >= 0:
         #Load pretrained weights
@@ -230,14 +171,8 @@ def guessGesture(model, img):
     
     # reshape for NN
     rimage = image.reshape(1, img_channels, img_rows, img_cols)
-    
-    # Now feed it to the NN, to fetch the predictions
-    #index = model.predict_classes(rimage)
-    #prob_array = model.predict_proba(rimage)
-    
     prob_array = get_output([rimage, 0])[0]
     
-    #print prob_array
     
     d = {}
     i = 0
@@ -252,14 +187,6 @@ def guessGesture(model, img):
     prob  = d[guess]
 
     if prob > 60.0:
-        #print(guess + "  Probability: ", prob)
-
-        #Enable this to save the predictions in a json file,
-        #Which can be read by plotter app to plot bar graph
-        #dump to the JSON contents to the file
-        
-        #with open('gesturejson.txt', 'w') as outfile:
-        #    json.dump(d, outfile)
         jsonarray = d
                 
         return output.index(guess)
@@ -286,10 +213,8 @@ def initializers():
     print(immatrix.shape)
     
     input("Press any key")
-    
-    #########################################################
-    ## Label the set of images per respective gesture type.
-    ##
+
+    # Label the set of images per respective gesture type
     label=np.ones((total_images,),dtype = int)
     
     samples_per_class = total_images / nb_classes
@@ -357,7 +282,6 @@ def trainModel(model):
 
     # Save model as well
     # model.save("newModel.hdf5")
-#%%
 
 def visualizeHis(hist):
     # visualizing losses and accuracy
@@ -376,8 +300,6 @@ def visualizeHis(hist):
     plt.title('train_loss vs val_loss')
     plt.grid(True)
     plt.legend(['train','val'])
-    #print plt.style.available # use bmh, classic,ggplot for big pictures
-    #plt.style.use(['classic'])
 
     plt.figure(2,figsize=(7,5))
     plt.plot(xc,train_acc)
@@ -389,84 +311,3 @@ def visualizeHis(hist):
     plt.legend(['train','val'],loc=4)
 
     plt.show()
-
-#%%
-def visualizeLayers(model, img, layerIndex):
-    imlist = modlistdir('./imgs')
-    if img <= len(imlist):
-        
-        image = np.array(Image.open('./imgs/' + imlist[img - 1]).convert('L')).flatten()
-        
-        ## Predict
-        guessGesture(model,image)
-        
-        # reshape it
-        image = image.reshape(img_channels, img_rows,img_cols)
-        
-        # float32
-        image = image.astype('float32')
-        
-        # normalize it
-        image = image / 255
-        
-        # reshape for NN
-        input_image = image.reshape(1, img_channels, img_rows, img_cols)
-    else:
-        X_train, X_test, Y_train, Y_test = initializers()
-        
-        # the input image
-        input_image = X_test[:img+1]
-    
-    
-    
-        
-    # visualizing intermediate layers
-    #output_layer = model.layers[layerIndex].output
-    #output_fn = theano.function([model.layers[0].input], output_layer)
-    #output_image = output_fn(input_image)
-    
-    if layerIndex >= 1:
-        visualizeLayer(model,img,input_image, layerIndex)
-    else:
-        tlayers = len(model.layers[:])
-        print("Total layers - {}".format(tlayers))
-        for i in range(1,tlayers):
-             visualizeLayer(model,img, input_image,i)
-
-#%%
-def visualizeLayer(model, img, input_image, layerIndex):
-
-    layer = model.layers[layerIndex]
-    
-    get_activations = K.function([model.layers[0].input, K.learning_phase()], [layer.output,])
-    activations = get_activations([input_image, 0])[0]
-    output_image = activations
-    
-    
-    ## If 4 dimensional then take the last dimension value as it would be no of filters
-    if output_image.ndim == 4:
-        # Rearrange dimension so we can plot the result
-        o1 = np.rollaxis(output_image, 3, 1)
-        output_image = np.rollaxis(o1, 3, 1)
-        
-        print("Dumping filter data of layer{} - {}".format(layerIndex,layer.__class__.__name__))
-        filters = len(output_image[0,0,0,:])
-        
-        fig=plt.figure(figsize=(8,8))
-        # This loop will plot the 32 filter data for the input image
-        for i in range(filters):
-            ax = fig.add_subplot(6, 6, i+1)
-            #ax.imshow(output_image[img,:,:,i],interpolation='none' ) #to see the first filter
-            ax.imshow(output_image[0,:,:,i],'gray')
-            #ax.set_title("Feature map of layer#{} \ncalled '{}' \nof type {} ".format(layerIndex,
-            #                layer.name,layer.__class__.__name__))
-            plt.xticks(np.array([]))
-            plt.yticks(np.array([]))
-        plt.tight_layout()
-        #plt.show()
-        fig.savefig("img_" + str(img) + "_layer" + str(layerIndex)+"_"+layer.__class__.__name__+".png")
-        #plt.close(fig)
-    else:
-        print("Can't dump data of this layer{}- {}".format(layerIndex, layer.__class__.__name__))
-
-
