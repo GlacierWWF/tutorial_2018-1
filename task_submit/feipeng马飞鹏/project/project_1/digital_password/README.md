@@ -21,22 +21,22 @@
 - And the GUI program is in the folder **host_pc_GUI**  
 - In order to run the gui, you should have **matlab**
 #### Display the password 2333
-![S_2333](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/%E9%A9%AC%E9%A3%9E%E9%B9%8F/task_submit/feipeng%E9%A9%AC%E9%A3%9E%E9%B9%8F/project/project_1/digital_password/DEMO/S_2333.JPG)
+![S_2333](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/%E9%A9%AC%E9%A3%9E%E9%B9%8F/task_submit/S_2333.JPG)
 
   
 
 #### Then I run the matlab program and input the num **4568** as the new password
-![GUI](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/%E9%A9%AC%E9%A3%9E%E9%B9%8F/task_submit/feipeng%E9%A9%AC%E9%A3%9E%E9%B9%8F/project/project_1/digital_password/DEMO/GUI.JPG) 
+![GUI](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/%E9%A9%AC%E9%A3%9E%E9%B9%8F/task_submit/GUI.JPG) 
  
-![GUI2](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/%E9%A9%AC%E9%A3%9E%E9%B9%8F/task_submit/feipeng%E9%A9%AC%E9%A3%9E%E9%B9%8F/project/project_1/digital_password/DEMO/GUI2.JPG)  
+![GUI2](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/%E9%A9%AC%E9%A3%9E%E9%B9%8F/task_submit/GUI2.JPG)  
 
-![S_4568_1](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/%E9%A9%AC%E9%A3%9E%E9%B9%8F/task_submit/feipeng%E9%A9%AC%E9%A3%9E%E9%B9%8F/project/project_1/digital_password/DEMO/S_4568_1.JPG)
+![S_4568_1](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/%E9%A9%AC%E9%A3%9E%E9%B9%8F/task_submit/S_4568_1.JPG)
 
   
 
 
 #### And It will change after 5 seconds.
-![S_4568_2](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/%E9%A9%AC%E9%A3%9E%E9%B9%8F/task_submit/feipeng%E9%A9%AC%E9%A3%9E%E9%B9%8F/project/project_1/digital_password/DEMO/S_4568_2.JPG)
+![S_4568_2](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/%E9%A9%AC%E9%A3%9E%E9%B9%8F/task_submit/S_4568_2.JPG)
 
   
 
