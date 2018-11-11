@@ -21,7 +21,7 @@
 - And the GUI program is in the folder **host_pc_GUI**  
 - In order to run the gui, you should have **matlab**
 #### Display the password 2333
-![S_2333](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/tree/%E9%A9%AC%E9%A3%9E%E9%B9%8F/task_submit/S_2333.JPG)
+![S_2333](DEMO/S_2333.JPG)
 
   
 
