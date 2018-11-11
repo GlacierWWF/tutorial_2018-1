@@ -1,9 +1,5 @@
-#include "opencv2/highgui.hpp"
-#include "opencv2/imgproc.hpp" 
-#include "opencv2/objdetect/objdetect.hpp" 
-#include "opencv2/video/tracking.hpp" 
+#include"opencv2/opencv.hpp"
 #include <vector> 
-#include <stdio.h> 
 #include <iostream>
 
 using namespace std;
@@ -21,7 +17,7 @@ int main()
     Mat flow, frame;
 
     /**
-     * @如果可能, 则实现GPU加速
+     * @如果可能, 则实现openGL运算
      */
     UMat flowUmat, prevgray;
     while(true)
