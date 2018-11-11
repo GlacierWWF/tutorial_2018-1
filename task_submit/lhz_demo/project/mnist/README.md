@@ -40,3 +40,5 @@
 #### Output of training by libsvm:
 ![svm](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/%E5%8D%A2%E6%B7%AE%E6%99%BA/task_submit/lhz_demo/project/mnist/svm_mnist/svm.png)
 
+用svm的准确率到达92%
+
