@@ -6,6 +6,6 @@
 
 
 ### How to run?
-> g++ simple_flow.cpp \`pkg-config --cflags --libs opencv\`
+> g++ simple_flow.cpp \`pkg-config --cflags --libs opencv\`  
 > ./a.out
 
