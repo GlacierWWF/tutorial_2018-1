@@ -27,6 +27,9 @@ opencv and model after training.
 mkdir gesture_data
 python3 generate_data.py
 
+# Get Model
+download from https://pan.baidu.com/s/1SwVwPhpogQvPul3LWu1MOw
+
 # Train
 python3 gesture_train.py
 
@@ -42,7 +45,11 @@ python3 capture_and_recognize.py
 ### OUTPUT
 
 Test Result:
-![window](res/test_result.png)
+![window](res/test_res.png)
+
+```
+We can see the accuracy is nearly 1.
+```
 
 Recognize Result:
 watch res/demo.mp4
