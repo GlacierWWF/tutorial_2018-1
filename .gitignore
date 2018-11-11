@@ -1,11 +1,17 @@
-//C++ bulid files
+// C++ bulid files
 *.[oa]
 *.exe
 build/
 bin/
 
-//Visual Studio Code config files
+// Visual Studio Code config files
 .vscode/
 
-//Input and output files
+// Input and output files
 *.dat
+
+// Python cache
+__pycache__/
+
+// Training images
+training_images/
