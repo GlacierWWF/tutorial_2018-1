@@ -45,6 +45,7 @@ python3 capture_and_recognize.py
 ### OUTPUT
 
 Test Result:
+
 ![window](res/test_res.png)
 
 ```
@@ -52,4 +53,5 @@ We can see the accuracy is nearly 1.
 ```
 
 Recognize Result:
+
 watch res/demo.mp4
