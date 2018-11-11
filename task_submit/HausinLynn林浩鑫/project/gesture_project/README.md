@@ -28,7 +28,7 @@ mkdir gesture_data
 python3 generate_data.py
 
 # Get Model
-download from https://pan.baidu.com/s/1SwVwPhpogQvPul3LWu1MOw
+download from https://pan.baidu.com/s/1SwVwPhpogQyPul3LWu1MOw
 
 # Train
 python3 gesture_train.py
