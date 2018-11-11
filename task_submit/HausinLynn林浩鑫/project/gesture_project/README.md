@@ -29,6 +29,7 @@ python3 generate_data.py
 
 # Get Model
 download from https://pan.baidu.com/s/1SwVwPhpogQyPul3LWu1MOw
+(download directory 'model' to the current directory)
 
 # Train
 python3 gesture_train.py
