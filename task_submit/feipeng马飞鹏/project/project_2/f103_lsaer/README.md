@@ -23,5 +23,5 @@
 And there is a **video**  in the file folder **DEMO**.
 Please watch the video for more information.
 
-![laser_launch](DEMO\laser_launch.jpg)
+![laser_launch](DEMO/laser_launch.jpg)
 
