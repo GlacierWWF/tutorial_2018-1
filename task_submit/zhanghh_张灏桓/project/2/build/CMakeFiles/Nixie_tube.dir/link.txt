@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -pthread    CMakeFiles/Nixie_tube.dir/main.cpp.o  -o Nixie_tube -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -lopencv_shape -lopencv_videoio -lopencv_video 

@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -pthread    CMakeFiles/liuguang.dir/main.cpp.o  -o liuguang -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -lopencv_shape -lopencv_videoio -lopencv_video 
