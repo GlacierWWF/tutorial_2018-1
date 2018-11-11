@@ -1,11 +1,11 @@
 Optical_flow
 ======================================
 
-- **作者**:申国斌（Floyed_Shen）
-- **修订**:Floyed_Shen
-- **日期**:2018-11-11
-- **版本**:0.1.0
-- **摘要**:实时光流检测
+- **Author**:Floyed_Shen
+- **Reviser**:Floyed_Shen
+- **Date**:2018-11-11
+- **Version**:0.1.0
+- **abstract**:Optical flow detection
 
 Key Dependencies
 -------------
@@ -23,3 +23,7 @@ Enter the working direciory
 - $ python main.py
 
 Then you can see the result.
+
+Example
+-----------
+![ex](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/申国斌/task_submit/FloyedShen/project/Image%20Processing/Optical_flow/example/OPtical_flow_480p.mov)

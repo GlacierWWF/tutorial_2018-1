@@ -1,12 +1,12 @@
 Gesture Recongnition
 ======================================
 
-- **??**:????Floyed_Shen?
-- **??**:Floyed_Shen
-- **??**:2018-11-11
-- **??**:0.1.0
-- **??**:??????
-
+- **Author**:Floyed_Shen
+- **Reviser**:Floyed_Shen
+- **Date**:2018-11-11
+- **Version**:0.1.0
+- **abstract**:Gesture Recongnition
+-
 Key Dependencies
 -------------
 - python 3.6.7
@@ -52,3 +52,7 @@ To Move ROI:
 - i - up
 -
 Please note that skin mask is better for noisy background.
+
+Example
+----------
+![ex](https://github.com/SYSU-AERO-SWIFT/tutorial_2018/blob/申国斌/task_submit/FloyedShen/project/Image%20Processing/Gesture%20Recognition/example/Gerture_Rec_480p.mov)
