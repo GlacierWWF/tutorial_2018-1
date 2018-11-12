@@ -1,0 +1,3 @@
+/home/parallels/Documents/tutorial_2018/task_submit/Chenc/3_week (copy)/CMakeFiles/edit_cache.dir
+/home/parallels/Documents/tutorial_2018/task_submit/Chenc/3_week (copy)/CMakeFiles/rebuild_cache.dir
+/home/parallels/Documents/tutorial_2018/task_submit/Chenc/3_week (copy)/CMakeFiles/LEDdetect.dir

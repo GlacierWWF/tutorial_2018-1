@@ -1,3 +1,0 @@
-/home/parallels/Documents/tutorial_2018/task_submit/Chenc/project/2_SIFT/CMakeFiles/rebuild_cache.dir
-/home/parallels/Documents/tutorial_2018/task_submit/Chenc/project/2_SIFT/CMakeFiles/edit_cache.dir
-/home/parallels/Documents/tutorial_2018/task_submit/Chenc/project/2_SIFT/CMakeFiles/SIFT.dir

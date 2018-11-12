@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /home/parallels/Documents/tutorial_2018/task_submit/Chenc/3_w
 CMAKE_BINARY_DIR = /home/parallels/Documents/tutorial_2018/task_submit/Chenc/3_week
 
 #=============================================================================
-# Target rules for target CMakeFiles/LEDdetect.dir
+# Target rules for target CMakeFiles/FLOW.dir
 
 # All Build rule for target.
-CMakeFiles/LEDdetect.dir/all:
-	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/depend
-	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Documents/tutorial_2018/task_submit/Chenc/3_week/CMakeFiles --progress-num=1,2,3,4 "Built target LEDdetect"
-.PHONY : CMakeFiles/LEDdetect.dir/all
+CMakeFiles/FLOW.dir/all:
+	$(MAKE) -f CMakeFiles/FLOW.dir/build.make CMakeFiles/FLOW.dir/depend
+	$(MAKE) -f CMakeFiles/FLOW.dir/build.make CMakeFiles/FLOW.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/parallels/Documents/tutorial_2018/task_submit/Chenc/3_week/CMakeFiles --progress-num= "Built target FLOW"
+.PHONY : CMakeFiles/FLOW.dir/all
 
 # Include target in all.
-all: CMakeFiles/LEDdetect.dir/all
+all: CMakeFiles/FLOW.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/LEDdetect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Documents/tutorial_2018/task_submit/Chenc/3_week/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/LEDdetect.dir/all
+CMakeFiles/FLOW.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Documents/tutorial_2018/task_submit/Chenc/3_week/CMakeFiles 0
-.PHONY : CMakeFiles/LEDdetect.dir/rule
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/FLOW.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/parallels/Documents/tutorial_2018/task_submit/Chenc/3_week/CMakeFiles 0
+.PHONY : CMakeFiles/FLOW.dir/rule
 
 # Convenience name for target.
-LEDdetect: CMakeFiles/LEDdetect.dir/rule
+FLOW: CMakeFiles/FLOW.dir/rule
 
-.PHONY : LEDdetect
-
-# clean rule for target.
-CMakeFiles/LEDdetect.dir/clean:
-	$(MAKE) -f CMakeFiles/LEDdetect.dir/build.make CMakeFiles/LEDdetect.dir/clean
-.PHONY : CMakeFiles/LEDdetect.dir/clean
+.PHONY : FLOW
 
 # clean rule for target.
-clean: CMakeFiles/LEDdetect.dir/clean
+CMakeFiles/FLOW.dir/clean:
+	$(MAKE) -f CMakeFiles/FLOW.dir/build.make CMakeFiles/FLOW.dir/clean
+.PHONY : CMakeFiles/FLOW.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/FLOW.dir/clean
 
 .PHONY : clean
 
