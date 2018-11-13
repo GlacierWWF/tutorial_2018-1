@@ -6,8 +6,6 @@
 * Scale Invariant Feature Transform is a scale invariant feature transformation,it's very stable which keeps invariance to rotation, scaling, brightness change, etc
 * This project aims to build a SIFT algorithm without the function which opencv build in.
 * Realize matching key points from the image input
-![window](output/detectkeypoints.png)
-![window](output/matchingkeypoints.png)
 ### Prerequisites
 softeware needed
 ```
