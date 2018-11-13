@@ -32,7 +32,7 @@ output samples include to picture,one is detect the keypoint and the other is ma
 ./output
 ```
 ![window](output/detectkeypoints.png)
-![window](output/matchingkeypoint.png)
+![window](output/matchingkeypoints.png)
 
 
 
