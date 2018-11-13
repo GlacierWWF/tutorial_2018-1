@@ -54,7 +54,7 @@ path = "./"
 path1 = "./gestures"    #path of folder of images
 
 ## Path2 is the folder which is fed in to training model
-path2 = './imgfolder_b'
+path2 = './imagestored'
 
 WeightFileName = ["newWeight.hdf5", "chen_traindata.hdf5", "bw_4015imgs_weights.hdf5","bw_2510imgs_weights.hdf5","./bw_weight.hdf5","./final_c_weights.hdf5","./semiVgg_1_weights.hdf5","/new_wt_dropout20.hdf5","./weights-CNN-gesture_skinmask.hdf5"]
 
@@ -92,7 +92,7 @@ def update(plot):
             max_str = items
         
     ##cv2.line(plot,(0,y),(int(h * mul),y),(255,0,0),w)
-    cv2.putText(plot,max_str,(100,100), font , 1,(255,0,0),2,1)
+    cv2.putText(plot,max_str,(60,100), font , 1,(255,255,0),2,1)
     ##y = y + w + 30
 
     return plot
@@ -297,32 +297,3 @@ def trainModel(model):
 
     # Save model as well
     model.save("chen_traindata.hdf5")
-
-def visualizeHis(hist):
-    # visualizing losses and accuracy
-
-    train_loss=hist.history['loss']
-    val_loss=hist.history['val_loss']
-    train_acc=hist.history['acc']
-    val_acc=hist.history['val_acc']
-    xc=range(nb_epoch)
-
-    plt.figure(1,figsize=(7,5))
-    plt.plot(xc,train_loss)
-    plt.plot(xc,val_loss)
-    plt.xlabel('num of Epochs')
-    plt.ylabel('loss')
-    plt.title('train_loss vs val_loss')
-    plt.grid(True)
-    plt.legend(['train','val'])
-
-    plt.figure(2,figsize=(7,5))
-    plt.plot(xc,train_acc)
-    plt.plot(xc,val_acc)
-    plt.xlabel('num of Epochs')
-    plt.ylabel('accuracy')
-    plt.title('train_acc vs val_acc')
-    plt.grid(True)
-    plt.legend(['train','val'],loc=4)
-
-    plt.show()

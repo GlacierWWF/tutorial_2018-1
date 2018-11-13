@@ -1,8 +1,11 @@
 # SIFT --Scale-invariant feature transform
-Abstract : a project using SIFT algorithm to match feature points in two pictures
-
+* Abstract : a project using SIFT algorithm to match feature points in two pictures
+## Authors
+* **P1ckCheN **
 ## Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+* Scale Invariant Feature Transform is a scale invariant feature transformation,it's very stable which keeps invariance to rotation, scaling, brightness change, etc
+* This project aims to build a SIFT algorithm without the function which opencv build in.
+* Realize matching key points from the image input
 
 ### Prerequisites
 softeware needed
@@ -28,9 +31,8 @@ output samples include to picture,one is detect the keypoint and the other is ma
 ```
 ./output
 ```
-![window](output/detectkeypoints)
-![window](output/matchingkeypoint)
-## Authors
-* **P1ckCheN **
+![window](output/detectkeypoints.png)
+![window](output/matchingkeypoint.png)
+
 
 

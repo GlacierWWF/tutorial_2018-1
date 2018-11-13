@@ -3,17 +3,13 @@ import numpy as np
 import os
 import time
 import threading
-import gestureCNN as myNN
-
 minValue = 70
-
 x0 = 400
 y0 = 200
 height = 200
 width = 200
 
 saveImg = False
-
 
 lastgesture = -1
 
