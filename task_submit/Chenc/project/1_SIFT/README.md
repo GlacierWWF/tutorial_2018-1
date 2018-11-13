@@ -30,6 +30,3 @@ the input images are int the floder
 output samples include to picture,one is detect the keypoint and the other is matching keypoint for the two similar images
 ![window](output/detectkeypoints.png)
 ![window](output/matchingkeypoints.png)
-
-
-
