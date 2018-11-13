@@ -32,21 +32,21 @@ you can get my train data from :
 * hdf5 file--链接:https://pan.baidu.com/s/1bZFQ5SF5U-3KvGbpyuI--A  密码:p9wa
 * image file--链接:https://pan.baidu.com/s/1UFnj8j7Jhr6BALfdKwRgSg  密码:bw7j
 
-you can run the cnn gesture detect successfully with the traindata
+you can run the cnn gesture detect successfully with the traindata  
 press 'x' to start detection
 ## Samples output
-- The output for capture my own traindata
+- The output for capture my own traindata  
 ![window](samples/Gesturecapture.png)
-capturing
+capturing  
 ![window](samples/gesture.gif)
-saving
+saving  
 ![window](samples/image.png)
-- The train process,I set the epoch 15
+- The train process,I set the epoch 15  
 ![window](samples/epoch.png)
 ![window](samples/cnnstructure.png)
-- The final gesture recognize output
+- The final gesture recognize output  
 ![window](samples/Guesturedetect.png)
-detecting
+detecting  
 ![window](samples/gesture.gif)
 ## Reference With
 * [CNNGestureRecognizer](https://github.com/asingh33/CNNGestureRecognizer) - The reference resources used
