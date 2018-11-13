@@ -23,13 +23,13 @@ calculate the flow of the camera input
 ```
 ./samples/capture.png
 ```  
-![window](output/capture.png)  
+![window](samples/capture.png)  
 ### Demo
 ```
 ./samples/FLOW.gif
 ./output/FLOW.mov 
 ```  
-![window](output/FLOW.gif)  
+![window](samples/FLOW.gif)  
 ## Authors 
 * **P1ckCheN **
 
