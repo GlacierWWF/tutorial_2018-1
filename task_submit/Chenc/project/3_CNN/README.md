@@ -37,8 +37,6 @@ press 'x' to start detection
 ## Samples output
 - The output for capture my own traindata  
 ![window](samples/Gesturecapture.png)
-capturing  
-![window](samples/gesture.gif)
 saving  
 ![window](samples/image.png)
 - The train process,I set the epoch 15  
