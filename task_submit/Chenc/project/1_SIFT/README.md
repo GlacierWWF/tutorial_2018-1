@@ -24,6 +24,6 @@ the input images are int the floder
 ./data
 ```
 ### Samples output
-output samples include to picture,one is detect the keypoint and the other is matching keypoint for the two similar images
-![window](output/detectkeypoints.png)
-![window](output/matchingkeypoints.png)
+output samples include to picture,one is detect the keypoint and the other is matching keypoint for the two similar images  
+![](output/detectkeypoints.png)  
+![](output/matchingkeypoints.png)  
