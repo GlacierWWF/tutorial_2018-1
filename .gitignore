@@ -12,6 +12,3 @@ bin/
 
 // Python cache
 __pycache__/
-
-// Training images
-training_images/

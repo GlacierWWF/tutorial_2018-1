@@ -10,11 +10,11 @@
 
 ## NOTE
 
-**Codes are modified from [CNNGestureRecognizer](https://github.com/asingh33/CNNGestureRecognizer) by asingh33.**
+**Codes are inspired from [CNNGestureRecognizer](https://github.com/asingh33/CNNGestureRecognizer) by asingh33.**
 
-**这里使用asingh33制作的数据集和实现，因为现在还没有完全掌握制作完整静态手势识别系统的能力。我觉得很多选手都会照搬这个repo来完成这个任务，课业比较多，用剩下的时间学习搞不太懂。**  :joy:
+**我觉得很多选手都会照搬这个repo来完成这个任务，所以我认为重写一遍能够体现自己确实理解了这些内容。**  :joy:
 
-**The CNN data format has been changed to NHWC, but train model on U series Intel CPU is extremly hard, thus there is no sample result nor comfirmation about whether it would actually work or not.**
+**The CNN data format has been changed to NHWC, just for the love to my puny CPU.**
 
 ### Dependencies
 
@@ -25,14 +25,54 @@
 * `numpy` 1.15.3
 * `Pillow` 5.3.0
 * `matplotlib` 2.1.2
+* `send2trash` 1.5.0
 
 ### Usage
 
-Run the script
+Run the script.</br>
+The process is divided into three parts:</br>
+
+1. capture seven scenarios
 
 ```shell
-    python video_capture.py
+python .\capture.py
+Action: 1 for capture gestures
+2 for train the model
+3 for predict gestures
+Enter: 1
 ```
+
+![capture](.\res\capture.png)
+
+> Order: "OK", "fist", "five", "nothing", "plan C", "scissor", "stop"</br>
+> **NOTE**: please make sure the ROI box's background is entire black.
+
+2. train the model
+
+```shell
+python .\capture.py
+Action: 1 for capture gestures
+2 for train the model
+3 for predict gestures
+Enter: 2
+```
+
+3. test the result
+```shell
+python .\capture.py
+Action: 1 for capture gestures
+2 for train the model
+3 for predict gestures
+Enter: 2
+```
+
+![capture](.\res\OK.png)
+![capture](.\res\fist.png)
+![capture](.\res\five.png)
+![capture](.\res\nothing.png)
+![capture](.\res\plan_C.png)
+![capture](.\res\scissor.png)
+![capture](.\res\stop.png)
 
 ### Test environment
 
